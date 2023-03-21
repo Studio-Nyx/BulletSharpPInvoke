@@ -7513,5 +7513,28 @@ namespace BulletSharp
 		public static extern void setGContactDestroyedCallback(IntPtr value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void setGContactProcessedCallback(IntPtr value);
+
+		// Cable methods
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern IntPtr btCable_new(IntPtr worldInfo, int node_count, [In] Vector3[] x, [In] double[] m);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_removeLink(IntPtr obj, int index);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_removeNode(IntPtr obj, int index);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_removeAnchor(IntPtr obj, int index);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_setRestLengtLink(IntPtr obj, int index, double distance);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern double btCable_getRestLengtLink(IntPtr obj, int index);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_swapNodes(IntPtr obj, int index0, int index1);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern double btCable_getLength(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern IntPtr btCable_getImpulseAnchors(IntPtr obj, int nb);
 	}
 }

@@ -423,8 +423,10 @@ ADD_LIBRARY(${BULLETC_LIB} SHARED
     src/btWorldImporter_wrap.h
     src/hacdHACD_wrap.cpp
     src/hacdHACD_wrap.h
+    src/btCable_wrap.cpp
+    src/btCable_wrap.h
 )
 
-TARGET_LINK_LIBRARIES(${BULLETC_LIB} BulletCollision BulletDynamics LinearMath BulletFileLoader BulletSoftBody BulletWorldImporter BulletXmlWorldImporter HACD)
+TARGET_LINK_LIBRARIES(${BULLETC_LIB} BulletCollision BulletDynamics LinearMath BulletFileLoader BulletSoftBody BulletCable BulletWorldImporter BulletXmlWorldImporter HACD)
 
 ADD_SUBDIRECTORY(test)
