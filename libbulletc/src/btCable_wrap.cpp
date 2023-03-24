@@ -52,7 +52,7 @@ btScalar btCable_getLength(btCable* obj)
 	return obj->getLength();
 }
 
-btVector3* btCable_getImpulseAnchors(btCable* obj, int nb)
+btVector3* btCable_getImpulses(btCable* obj)
 {
-	return obj->getImpulseAnchors(nb);
+	return obj->getImpulses();
 }

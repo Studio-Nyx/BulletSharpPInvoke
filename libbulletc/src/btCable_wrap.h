@@ -1,4 +1,6 @@
 #include "main.h"
+#include <vector> 
+using namespace std;
 
 #ifdef __cplusplus
 extern "C" {
@@ -16,7 +18,7 @@ extern "C" {
 
 	EXPORT btScalar btCable_getLength(btCable* obj);
 
-	EXPORT btVector3* btCable_getImpulseAnchors(btCable* obj, int nb);
+	EXPORT btVector3* btCable_getImpulses(btCable* obj);
 #ifdef __cplusplus
 }
 #endif

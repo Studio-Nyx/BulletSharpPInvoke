@@ -9,8 +9,16 @@ namespace BulletSharp.SoftBody
 {
 	public class Cable : SoftBody
     {
-		public Cable(SoftBodyWorldInfo worldInfo, int nodeCount, Vector3[] positions, double[] masses)
-			: base(worldInfo, nodeCount, positions, masses){}
+		public Cable(SoftBodyWorldInfo worldInfo, int nodeCount, Vector3[] positions, double[] masses) :
+			 base(CreateCable(worldInfo, nodeCount, positions, masses))
+		{
+			WorldInfo = worldInfo;
+		}
+
+		private static IntPtr CreateCable(SoftBodyWorldInfo worldInfo, int nodeCount, Vector3[] positions, double[] masses)
+		{
+			return btCable_new(worldInfo.Native, nodeCount, positions, masses);
+		}
 
 		public void RemoveLink(int index)
         {
@@ -45,9 +53,9 @@ namespace BulletSharp.SoftBody
 			return btCable_getLength(Native);
         }
 
-		public double GetTensionLastAnchor(double mass)
+		public Vector3Array GetImpulses(int size)
         {
-			return WorldInfo.Gravity.Length * mass;
+			return new Vector3Array(btCable_getImpulses(Native), size);
 		}
 	}
 }

@@ -7533,8 +7533,7 @@ namespace BulletSharp
 		public static extern void btCable_swapNodes(IntPtr obj, int index0, int index1);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern double btCable_getLength(IntPtr obj);
-
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern IntPtr btCable_getImpulseAnchors(IntPtr obj, int nb);
+		public static extern IntPtr btCable_getImpulses(IntPtr obj);
 	}
 }
