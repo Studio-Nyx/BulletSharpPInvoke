@@ -9,7 +9,8 @@ namespace BulletSharp.SoftBody
 {
 	public class Cable : SoftBody
     {
-		public Cable(SoftBodyWorldInfo worldInfo, int nodeCount, Vector3[] positions, double[] masses) :
+
+        public Cable(SoftBodyWorldInfo worldInfo, int nodeCount, Vector3[] positions, double[] masses) :
 			 base(CreateCable(worldInfo, nodeCount, positions, masses))
 		{
 			WorldInfo = worldInfo;
@@ -21,7 +22,7 @@ namespace BulletSharp.SoftBody
 		}
 
 		public void RemoveLink(int index)
-        {
+		{
 			btCable_removeLink(Native, index);
 		}
 		public void RemoveNode(int index)
@@ -34,9 +35,9 @@ namespace BulletSharp.SoftBody
 		}
 
 		public void SetRestLenghtLink(int index, double distance)
-        {
+		{
 			btCable_setRestLengtLink(Native, index, distance);
-        }
+		}
 
 		public double GetRestLenghtLink(int index)
 		{
@@ -44,7 +45,7 @@ namespace BulletSharp.SoftBody
 		}
 
 		public void SwapNodes(int index0, int index1)
-        {
+		{
 			btCable_swapNodes(Native, index0, index1);
 		}
 
