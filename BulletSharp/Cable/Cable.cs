@@ -58,5 +58,10 @@ namespace BulletSharp.SoftBody
         {
 			return new Vector3Array(btCable_getImpulses(Native), size);
 		}
+
+		public void SwapAnchors(int index0, int index1)
+		{
+            btCable_swapAnchors(Native, index0, index1);
+        }
 	}
 }

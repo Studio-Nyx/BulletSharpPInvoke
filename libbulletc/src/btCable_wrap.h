@@ -15,6 +15,7 @@ extern "C" {
 	EXPORT btScalar btCable_getRestLengtLink(btCable* obj, int index);
 
 	EXPORT void btCable_swapNodes(btCable* obj, int index0, int index1);
+	EXPORT void btCable_swapAnchors(btCable* obj, int index0, int index1);
 
 	EXPORT btScalar btCable_getLength(btCable* obj);
 

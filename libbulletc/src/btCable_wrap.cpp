@@ -47,6 +47,11 @@ void btCable_swapNodes(btCable* obj, int index0, int index1)
 	return obj->swapNodes(index0, index1);
 }
 
+void btCable_swapAnchors(btCable* obj, int index0, int index1)
+{
+	return obj->swapAnchors(index0, index1);
+}
+
 btScalar btCable_getLength(btCable* obj)
 {
 	return obj->getLength();
