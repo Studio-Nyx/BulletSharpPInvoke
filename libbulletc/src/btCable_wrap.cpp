@@ -9,10 +9,10 @@
 #include "btSoftBody_wrap.h"
 #include "btCable_wrap.h"
 
-btCable* btCable_new(btSoftBodyWorldInfo* worldInfo, int node_count, const btScalar* x, const btScalar* m)
+btCable* btCable_new(btSoftBodyWorldInfo* worldInfo, btCollisionWorld* world, int node_count, const btScalar* x, const btScalar* m)
 {
 	btVector3* xTemp = Vector3ArrayIn(x, node_count);
-	btCable* ret = new btCable(worldInfo, node_count, xTemp, m);
+	btCable* ret = new btCable(worldInfo, world, node_count, xTemp, m);
 	delete[] xTemp;
 	return ret;
 }
@@ -60,4 +60,18 @@ btScalar btCable_getLength(btCable* obj)
 btVector3* btCable_getImpulses(btCable* obj)
 {
 	return obj->getImpulses();
+}
+
+btCollisionShape* btCable_getNodeCollisionShape(btCable* obj) {
+	return obj->getCollisionShapeNode();
+}
+
+
+void btCable_setNodeCollisionShape(btCable* obj, btCollisionShape* nodeShape)
+{
+	return obj->setCollisionShape(nodeShape);
+}
+
+void btCable_setWorldRef(btCable* obj, btCollisionWorld* world) {
+	return obj->setWorldRef(world);
 }

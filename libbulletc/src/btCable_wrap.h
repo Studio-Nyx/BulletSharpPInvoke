@@ -5,7 +5,7 @@ using namespace std;
 #ifdef __cplusplus
 extern "C" {
 #endif
-	EXPORT btCable* btCable_new(btSoftBodyWorldInfo* worldInfo, int node_count, const btScalar* x, const btScalar* m);
+	EXPORT btCable* btCable_new(btSoftBodyWorldInfo* worldInfo,btCollisionWorld* world, int node_count, const btScalar* x, const btScalar* m);
 
 	EXPORT void btCable_removeLink(btCable* obj, int index);
 	EXPORT void btCable_removeNode(btCable* obj, int index);
@@ -20,6 +20,12 @@ extern "C" {
 	EXPORT btScalar btCable_getLength(btCable* obj);
 
 	EXPORT btVector3* btCable_getImpulses(btCable* obj);
+
+	EXPORT btCollisionShape* btCable_getNodeCollisionShape(btCable* obj);
+	EXPORT void btCable_setNodeCollisionShape(btCable* obj, btCollisionShape* nodeShape);
+	EXPORT void btCable_setWorldRef(btCable* obj, btCollisionWorld* world);
+
+
 #ifdef __cplusplus
 }
 #endif

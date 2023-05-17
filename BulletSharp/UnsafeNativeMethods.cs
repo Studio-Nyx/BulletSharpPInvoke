@@ -7516,7 +7516,7 @@ namespace BulletSharp
 
 		// Cable methods
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern IntPtr btCable_new(IntPtr worldInfo, int node_count, [In] Vector3[] x, [In] double[] m);
+		public static extern IntPtr btCable_new(IntPtr worldInfo, IntPtr world, int node_count, [In] Vector3[] x, [In] double[] m);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btCable_removeLink(IntPtr obj, int index);
@@ -7538,5 +7538,14 @@ namespace BulletSharp
 		public static extern double btCable_getLength(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btCable_getImpulses(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern IntPtr btCable_getNodeCollisionShape(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern IntPtr btCable_setNodeCollisionShape(IntPtr obj, IntPtr collisionShape);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern IntPtr btCable_setWorldRef(IntPtr obj, IntPtr collisionWorld);
 	}
 }

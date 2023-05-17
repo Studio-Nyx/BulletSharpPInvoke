@@ -10,15 +10,15 @@ namespace BulletSharp.SoftBody
 	public class Cable : SoftBody
     {
 
-        public Cable(SoftBodyWorldInfo worldInfo, int nodeCount, Vector3[] positions, double[] masses) :
-			 base(CreateCable(worldInfo, nodeCount, positions, masses))
+        public Cable(SoftBodyWorldInfo worldInfo,CollisionWorld world , int nodeCount, Vector3[] positions, double[] masses) :
+			 base(CreateCable(worldInfo,world, nodeCount, positions, masses))
 		{
 			WorldInfo = worldInfo;
 		}
 
-		private static IntPtr CreateCable(SoftBodyWorldInfo worldInfo, int nodeCount, Vector3[] positions, double[] masses)
+		private static IntPtr CreateCable(SoftBodyWorldInfo worldInfo,CollisionWorld world, int nodeCount, Vector3[] positions, double[] masses)
 		{
-			return btCable_new(worldInfo.Native, nodeCount, positions, masses);
+			return btCable_new(worldInfo.Native, world.Native, nodeCount, positions, masses);
 		}
 
 		public void RemoveLink(int index)
@@ -63,5 +63,20 @@ namespace BulletSharp.SoftBody
 		{
             btCable_swapAnchors(Native, index0, index1);
         }
+
+		public IntPtr GetNodeCollisionShape()
+		{
+			return btCable_getNodeCollisionShape(Native);
+		}
+
+		public void SetNodeCollisionShape(CollisionShape shape)
+		{
+			btCable_setNodeCollisionShape(Native, shape.Native);
+		}
+
+		public void SetWorldRef(CollisionWorld collisionWorld)
+        {
+			btCable_setWorldRef(Native, collisionWorld.Native);
+		}
 	}
 }
