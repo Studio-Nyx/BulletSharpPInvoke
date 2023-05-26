@@ -32,14 +32,14 @@ void btCable_removeAnchor(btCable* obj, int index)
 	obj->removeAnchor(index);
 }
 
-void btCable_setRestLengtLink(btCable* obj, int index, btScalar distance)
+void btCable_setRestLengthLink(btCable* obj, int index, btScalar distance)
 {
-	obj->setRestLenghtLink(index, distance);
+	obj->setRestLengthLink(index, distance);
 }
 
-btScalar btCable_getRestLengtLink(btCable* obj, int index)
+btScalar btCable_getRestLengthLink(btCable* obj, int index)
 {
-	return obj->getRestLenghtLink(index);
+	return obj->getRestLengthLink(index);
 }
 
 void btCable_swapNodes(btCable* obj, int index0, int index1)
@@ -52,9 +52,14 @@ void btCable_swapAnchors(btCable* obj, int index0, int index1)
 	return obj->swapAnchors(index0, index1);
 }
 
-btScalar btCable_getLength(btCable* obj)
+btScalar btCable_getLengthPosition(btCable* obj)
 {
-	return obj->getLength();
+	return obj->getLengthPosition();
+}
+
+btScalar btCable_getLengthRestlength(btCable* obj)
+{
+	return obj->getLengthRestlength();
 }
 
 btVector3* btCable_getImpulses(btCable* obj)
@@ -62,10 +67,29 @@ btVector3* btCable_getImpulses(btCable* obj)
 	return obj->getImpulses();
 }
 
+int btCable_getNumberNodes(btCable* obj)
+{
+	return obj->m_nodes.size();
+}
+
+btVector3* btCable_getPositionNodes(btCable* obj)
+{
+	return obj->getPositionNodes();
+}
+
+btVector3* btCable_getPositionNodesArray(btCable* obj)
+{
+	return obj->getPositionNodesArray();
+}
+
+void btCable_getPositionNode(btCable* obj, btVector3* v, int index)
+{
+	BTVECTOR3_COPY(v, &obj->m_nodes[index].m_x);
+}
+
 btCollisionShape* btCable_getNodeCollisionShape(btCable* obj) {
 	return obj->getCollisionShapeNode();
 }
-
 
 void btCable_setNodeCollisionShape(btCable* obj, btCollisionShape* nodeShape)
 {
@@ -74,4 +98,25 @@ void btCable_setNodeCollisionShape(btCable* obj, btCollisionShape* nodeShape)
 
 void btCable_setWorldRef(btCable* obj, btCollisionWorld* world) {
 	return obj->setWorldRef(world);
+}
+
+void btCable_updatePositionNodes(btCable* obj, Vector3* vecArray, int length)
+{
+	for (int i = 0; i < length; ++i)
+	{
+		btVector3 pos = obj->getPositionNode(i);
+		vecArray[i].x = pos.x();
+		vecArray[i].y = pos.y();
+		vecArray[i].z = pos.z();
+	}
+}
+
+void btCable_updateImpulses(btCable* obj, Vector3* vecArray, int length)
+{
+	for (int i = 0; i < length; ++i) {
+		btVector3 imp = obj->getImpulse(i);
+		vecArray[i].x = imp.x();
+		vecArray[i].y = imp.y();
+		vecArray[i].z = imp.z();
+	}
 }

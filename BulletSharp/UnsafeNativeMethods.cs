@@ -1,5 +1,6 @@
 using BulletSharp.Math;
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security;
 
@@ -7526,9 +7527,9 @@ namespace BulletSharp
 		public static extern void btCable_removeAnchor(IntPtr obj, int index);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btCable_setRestLengtLink(IntPtr obj, int index, double distance);
+		public static extern void btCable_setRestLengthLink(IntPtr obj, int index, double distance);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern double btCable_getRestLengtLink(IntPtr obj, int index);
+		public static extern double btCable_getRestLengthLink(IntPtr obj, int index);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btCable_swapNodes(IntPtr obj, int index0, int index1);
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
@@ -7536,10 +7537,14 @@ namespace BulletSharp
 
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern double btCable_getLength(IntPtr obj);
+
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btCable_getImpulses(IntPtr obj);
 
-		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern IntPtr btCable_getPositionNodes(IntPtr obj);
+
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btCable_getNodeCollisionShape(IntPtr obj);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
@@ -7547,5 +7552,27 @@ namespace BulletSharp
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btCable_setWorldRef(IntPtr obj, IntPtr collisionWorld);
-	}
+		
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern double btCable_getLengthPosition(IntPtr obj);
+        		
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern double btCable_getLengthRestlength(IntPtr obj);
+		
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern IntPtr btCable_getPositionNodesArray(IntPtr obj);
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btCable_getPositionNode(IntPtr obj, out Vector3 list, int index);
+
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern int btCable_getNumberNodes(IntPtr obj);
+
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static unsafe extern void btCable_updatePositionNodes(IntPtr obj, Vector3* vecArray, int vecSize);
+
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static unsafe extern void btCable_updateImpulses(IntPtr obj, Vector3* vecArray, int vecSize);
+
+    }
 }

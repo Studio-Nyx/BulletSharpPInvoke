@@ -34,14 +34,14 @@ namespace BulletSharp.SoftBody
 			btCable_removeAnchor(Native, index);
 		}
 
-		public void SetRestLenghtLink(int index, double distance)
+		public void SetRestLengthLink(int index, double distance)
 		{
-			btCable_setRestLengtLink(Native, index, distance);
+			btCable_setRestLengthLink(Native, index, distance);
 		}
 
-		public double GetRestLenghtLink(int index)
+		public double GetRestLengthLink(int index)
 		{
-			return btCable_getRestLengtLink(Native, index);
+			return btCable_getRestLengthLink(Native, index);
 		}
 
 		public void SwapNodes(int index0, int index1)
@@ -49,9 +49,14 @@ namespace BulletSharp.SoftBody
 			btCable_swapNodes(Native, index0, index1);
 		}
 
-		public double GetLength()
+		public double GetLengthRestlength()
         {
-			return btCable_getLength(Native);
+			return btCable_getLengthRestlength(Native);
+        }
+        
+        public double GetLengthPosition()
+        {
+            return btCable_getLengthPosition(Native);
         }
 
 		public Vector3Array GetImpulses(int size)
@@ -59,7 +64,31 @@ namespace BulletSharp.SoftBody
 			return new Vector3Array(btCable_getImpulses(Native), size);
 		}
 
-		public void SwapAnchors(int index0, int index1)
+        public int GetNumberNodes()
+        {
+            return btCable_getNumberNodes(Native);
+        }
+
+        public Vector3Array GetPositionNodes()
+        {
+            var size = btCable_getNumberNodes(Native);
+            return new Vector3Array(btCable_getPositionNodes(Native), size);
+        }
+
+        public Vector3Array GetPositionNodesArray()
+        {           
+            var size = btCable_getNumberNodes(Native);
+            return new Vector3Array(btCable_getPositionNodesArray(Native), size);
+        }
+        
+        public Vector3 GetPositionNode(int index)
+        {
+            Vector3 v;
+            btCable_getPositionNode(Native, out v, index);
+            return v;
+        }
+
+        public void SwapAnchors(int index0, int index1)
 		{
             btCable_swapAnchors(Native, index0, index1);
         }
@@ -78,5 +107,29 @@ namespace BulletSharp.SoftBody
         {
 			btCable_setWorldRef(Native, collisionWorld.Native);
 		}
-	}
+
+		public void UpdatePositionNodes(Vector3[] vecArray)
+		{
+            unsafe
+            {
+                //Pin array then send to C++
+                fixed (Vector3* vecPtr = vecArray)
+				{
+                    btCable_updatePositionNodes(Native, vecPtr, vecArray.Length);
+                }
+            }
+        } 
+
+		public void UpdateImpulses(Vector3[] vecArray)
+        {
+            unsafe
+            {
+                //Pin array then send to C++
+                fixed (Vector3* vecPtr = vecArray)
+				{
+                    btCable_updateImpulses(Native, vecPtr, vecArray.Length);
+                }
+            }
+        }
+    }
 }
