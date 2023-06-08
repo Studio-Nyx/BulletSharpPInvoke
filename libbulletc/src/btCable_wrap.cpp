@@ -120,3 +120,12 @@ void btCable_updateImpulses(btCable* obj, Vector3* vecArray, int length)
 		vecArray[i].z = imp.z();
 	}
 }
+
+bool btCable_checkIfCollisionWithWorldArrayPos(btCable* obj, int objWorldArrayPos)
+{
+	return obj->checkIfCollisionWithWorldArrayPos(objWorldArrayPos);
+}
+
+void btCable_setBlackHolePos(btCable* obj, bool activeState, btVector3 pos) {
+	return obj->setBlackHolePos(activeState, pos);
+}

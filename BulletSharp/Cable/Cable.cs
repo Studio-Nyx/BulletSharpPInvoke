@@ -131,5 +131,15 @@ namespace BulletSharp.SoftBody
                 }
             }
         }
+		
+		public bool checkIfCollisionWithWorldArrayPos( int objArrayPos)
+		{
+			return btCable_checkIfCollisionWithWorldArrayPos(Native, objArrayPos);
+		}
+		
+		public void setBlackHolePos(bool state,Vector3 vecPtr)
+		{
+			btCable_setBlackHolePos(Native,state,out vecPtr);
+		}
     }
 }

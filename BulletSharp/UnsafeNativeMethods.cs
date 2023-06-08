@@ -7573,6 +7573,12 @@ namespace BulletSharp
 
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static unsafe extern void btCable_updateImpulses(IntPtr obj, Vector3* vecArray, int vecSize);
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern bool btCable_checkIfCollisionWithWorldArrayPos(IntPtr obj, int objArrayPos);
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btCable_setBlackHolePos(IntPtr obj,bool state,out Vector3 vecPtr);
 
     }
 }

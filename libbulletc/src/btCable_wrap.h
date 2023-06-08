@@ -39,7 +39,8 @@ extern "C" {
 	EXPORT btCollisionShape* btCable_getNodeCollisionShape(btCable* obj);
 	EXPORT void btCable_setNodeCollisionShape(btCable* obj, btCollisionShape* nodeShape);
 	EXPORT void btCable_setWorldRef(btCable* obj, btCollisionWorld* world);
-
+	EXPORT bool btCable_checkIfCollisionWithWorldArrayPos(btCable* obj, int objWorldArrayPos);
+	EXPORT void btCable_setBlackHolePos(btCable* obj, bool activeState, btVector3 pos);
 
 #ifdef __cplusplus
 }
