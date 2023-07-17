@@ -4781,8 +4781,12 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		[return: MarshalAs(UnmanagedType.I1)]
 		public static extern bool btRigidBody_wantsSleeping(IntPtr obj);
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btRigidBody_setMaxLinearVelocity(IntPtr obj, double maxL);
 
-		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+
+
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btRotationalLimitMotor_new();
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btRotationalLimitMotor_new2(IntPtr limot);

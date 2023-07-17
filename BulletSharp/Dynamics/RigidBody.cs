@@ -458,7 +458,13 @@ namespace BulletSharp
 				return value;
 			}
 		}
-	}
+
+		public void SetMaxLinearVelocity(double maxL)
+		{
+			btRigidBody_setMaxLinearVelocity(Native, maxL);
+        }
+
+    }
 
 	[StructLayout(LayoutKind.Sequential)]
 	internal struct RigidBodyFloatData

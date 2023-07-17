@@ -615,3 +615,8 @@ bool btRigidBody_wantsSleeping(btRigidBody* obj)
 {
 	return obj->wantsSleeping();
 }
+
+void btRigidBody_setMaxLinearVelocity(btRigidBody* obj, btScalar maxL)
+{
+	obj->setMaxLinearVelocity(maxL);
+}
