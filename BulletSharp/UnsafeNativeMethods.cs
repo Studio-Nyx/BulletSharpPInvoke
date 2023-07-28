@@ -7583,6 +7583,18 @@ namespace BulletSharp
         
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern void btCable_setBlackHolePos(IntPtr obj,bool state,out Vector3 vecPtr);
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern double btCable_getBendingMaxAngle(IntPtr obj);
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btCable_setBendingMaxAngle(IntPtr obj, double maxAngle);
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern double btCable_getBendingStiffness(IntPtr obj);
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btCable_setBendingStiffness(IntPtr obj, double stiffness);
 
     }
 }

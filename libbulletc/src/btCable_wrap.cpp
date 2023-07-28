@@ -129,3 +129,17 @@ bool btCable_checkIfCollisionWithWorldArrayPos(btCable* obj, int objWorldArrayPo
 void btCable_setBlackHolePos(btCable* obj, bool activeState, btVector3 pos) {
 	return obj->setBlackHolePos(activeState, pos);
 }
+
+
+void btCable_setBendingMaxAngle(btCable* obj, btScalar angle) {
+	obj->setBendingMaxAngle(angle);
+}
+btScalar btCable_getBendingMaxAngle(btCable* obj) {
+	return obj->getBendingMaxAngle();
+}
+void btCable_setBendingStiffness(btCable* obj, btScalar stiffness) {
+	obj->setBendingStiffness(stiffness);
+}
+btScalar btCable_getBendingStiffness(btCable* obj) {
+	return obj->getBendingStiffness();
+}

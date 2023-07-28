@@ -42,6 +42,12 @@ extern "C" {
 	EXPORT bool btCable_checkIfCollisionWithWorldArrayPos(btCable* obj, int objWorldArrayPos);
 	EXPORT void btCable_setBlackHolePos(btCable* obj, bool activeState, btVector3 pos);
 
+
+	EXPORT void btCable_setBendingMaxAngle(btCable* obj,btScalar angle);
+	EXPORT btScalar btCable_getBendingMaxAngle(btCable* obj);
+	EXPORT void btCable_setBendingStiffness(btCable* obj,btScalar stiffness);
+	EXPORT btScalar btCable_getBendingStiffness(btCable* obj);
+
 #ifdef __cplusplus
 }
 #endif

@@ -141,5 +141,29 @@ namespace BulletSharp.SoftBody
 		{
 			btCable_setBlackHolePos(Native,state,out vecPtr);
 		}
+
+
+		public double getBendingMaxAngle()
+		{
+			return btCable_getBendingMaxAngle(Native);
+		}
+		
+		public void setBendingMaxAngle(double stiffness)
+		{
+			btCable_setBendingMaxAngle(Native,stiffness);
+		}
+		
+		public double getBendingStiffness()
+		{
+			return btCable_getBendingStiffness(Native);
+		}
+		public void setBendingStiffness(double angle)
+		{
+			btCable_setBendingStiffness(Native,angle);
+		}
+
+		
+		
+		
     }
 }
