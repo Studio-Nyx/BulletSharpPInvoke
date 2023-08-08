@@ -157,13 +157,37 @@ namespace BulletSharp.SoftBody
 		{
 			return btCable_getBendingStiffness(Native);
 		}
+
 		public void setBendingStiffness(double angle)
 		{
 			btCable_setBendingStiffness(Native,angle);
 		}
 
-		
-		
-		
+		public int getAnchorIndex()
+		{
+			return btCable_getAnchorIndex(Native);
+		}
+		public void setAnchorIndex(int index)
+		{
+			btCable_setAnchorIndex(Native, index);
+		}
+        
+        public bool getLRAActivationState()
+        {
+            return btCable_getLRAActivationState(Native);
+        }
+        public void setLRAActivationState(bool active)
+        {
+            btCable_setLRAActivationState(Native, active);
+        }
+        
+        public bool getBendingActivationState()
+        {
+            return btCable_getBendingActivationState(Native);
+        }
+        public void setBendingActivationState(bool active)
+        {
+            btCable_setBendingActivationState(Native, active);
+        }
     }
 }

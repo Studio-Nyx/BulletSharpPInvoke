@@ -7596,5 +7596,22 @@ namespace BulletSharp
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern void btCable_setBendingStiffness(IntPtr obj, double stiffness);
 
-    }
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern int btCable_getAnchorIndex(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_setAnchorIndex(IntPtr obj, int index);
+		
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern bool btCable_getLRAActivationState(IntPtr obj);
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btCable_setLRAActivationState(IntPtr obj, bool active);
+        		
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern bool btCable_getBendingActivationState(IntPtr obj);
+                
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btCable_setBendingActivationState(IntPtr obj, bool active);
+	}
 }

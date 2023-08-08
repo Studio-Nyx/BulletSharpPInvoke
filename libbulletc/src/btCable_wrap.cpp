@@ -130,16 +130,48 @@ void btCable_setBlackHolePos(btCable* obj, bool activeState, btVector3 pos) {
 	return obj->setBlackHolePos(activeState, pos);
 }
 
-
 void btCable_setBendingMaxAngle(btCable* obj, btScalar angle) {
 	obj->setBendingMaxAngle(angle);
 }
+
 btScalar btCable_getBendingMaxAngle(btCable* obj) {
 	return obj->getBendingMaxAngle();
 }
+
 void btCable_setBendingStiffness(btCable* obj, btScalar stiffness) {
 	obj->setBendingStiffness(stiffness);
 }
+
 btScalar btCable_getBendingStiffness(btCable* obj) {
 	return obj->getBendingStiffness();
+}
+
+void btCable_setAnchorIndex(btCable* obj, int idx)
+{
+	obj->setAnchorIndex(idx);
+}
+
+int btCable_getAnchorIndex(btCable* obj)
+{
+	return obj->getAnchorIndex();
+}
+
+void btCable_setLRAActivationState(btCable* obj, bool active)
+{
+	obj->setLRAActivationState(active);
+}
+
+bool btCable_getLRAActivationState(btCable* obj)
+{
+	return obj->getLRAActivationState();
+}
+
+void btCable_setBendingActivationState(btCable* obj, bool active)
+{
+	obj->setBendingActivationState(active);
+}
+
+bool btCable_getBendingActivationState(btCable* obj)
+{
+	return obj->getBendingActivationState();
 }
