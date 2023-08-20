@@ -4781,12 +4781,14 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		[return: MarshalAs(UnmanagedType.I1)]
 		public static extern bool btRigidBody_wantsSleeping(IntPtr obj);
+
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern void btRigidBody_setMaxLinearVelocity(IntPtr obj, double maxL);
 
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btRigidBody_setMaxAngularVelocity(IntPtr obj, double maxA);
 
-
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btRotationalLimitMotor_new();
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btRotationalLimitMotor_new2(IntPtr limot);
@@ -7562,9 +7564,6 @@ namespace BulletSharp
         		
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern double btCable_getLengthRestlength(IntPtr obj);
-		
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern IntPtr btCable_getPositionNodesArray(IntPtr obj);
         
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern void btCable_getPositionNode(IntPtr obj, out Vector3 list, int index);
@@ -7601,17 +7600,30 @@ namespace BulletSharp
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btCable_setAnchorIndex(IntPtr obj, int index);
-		
+
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern bool btCable_getLRAActivationState(IntPtr obj);
-        
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern void btCable_setLRAActivationState(IntPtr obj, bool active);
-        		
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern bool btCable_getBendingActivationState(IntPtr obj);
-                
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern void btCable_setBendingActivationState(IntPtr obj, bool active);
+		public static extern void btCable_setUseLRA(IntPtr obj, bool active);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern bool btCable_getUseLRA(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_setUseBending(IntPtr obj, bool active);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern bool btCable_getUseBending(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_setUseGravity(IntPtr obj, bool active);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern bool btCable_getUseGravity(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_setUseCollision(IntPtr obj, bool active);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern bool btCable_getUseCollision(IntPtr obj);
+
 	}
 }

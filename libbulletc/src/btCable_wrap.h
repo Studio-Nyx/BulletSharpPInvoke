@@ -49,10 +49,15 @@ extern "C" {
 	EXPORT btScalar btCable_getBendingStiffness(btCable* obj);
 	EXPORT void btCable_setAnchorIndex(btCable* obj, int index);
 	EXPORT int btCable_getAnchorIndex(btCable* obj);
-	EXPORT void btCable_setLRAActivationState(btCable* obj, bool active);
-	EXPORT bool btCable_getLRAActivationState(btCable* obj);
-	EXPORT void btCable_setBendingActivationState(btCable* obj, bool active);
-	EXPORT bool btCable_getBendingActivationState(btCable* obj);
+
+	EXPORT void btCable_setUseLRA(btCable* obj, bool active);
+	EXPORT bool btCable_getUseLRA(btCable* obj);
+	EXPORT void btCable_setUseBending(btCable* obj, bool active);
+	EXPORT bool btCable_getUseBending(btCable* obj);
+	EXPORT void btCable_setUseGravity(btCable* obj, bool active);
+	EXPORT bool btCable_getUseGravity(btCable* obj);
+	EXPORT void btCable_setUseCollision(btCable* obj, bool active);
+	EXPORT bool btCable_getUseCollision(btCable* obj);
 
 #ifdef __cplusplus
 }

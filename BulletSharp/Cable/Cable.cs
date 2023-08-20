@@ -74,13 +74,7 @@ namespace BulletSharp.SoftBody
             var size = btCable_getNumberNodes(Native);
             return new Vector3Array(btCable_getPositionNodes(Native), size);
         }
-
-        public Vector3Array GetPositionNodesArray()
-        {           
-            var size = btCable_getNumberNodes(Native);
-            return new Vector3Array(btCable_getPositionNodesArray(Native), size);
-        }
-        
+  
         public Vector3 GetPositionNode(int index)
         {
             Vector3 v;
@@ -115,7 +109,7 @@ namespace BulletSharp.SoftBody
                 //Pin array then send to C++
                 fixed (Vector3* vecPtr = vecArray)
 				{
-                    btCable_updatePositionNodes(Native, vecPtr, vecArray.Length);
+                    // btCable_updatePositionNodes(Native, vecPtr, vecArray.Length);
                 }
             }
         } 
@@ -172,22 +166,44 @@ namespace BulletSharp.SoftBody
 			btCable_setAnchorIndex(Native, index);
 		}
         
-        public bool getLRAActivationState()
+		public void SetUseLRA(bool active)
         {
-            return btCable_getLRAActivationState(Native);
+			btCable_setUseLRA(Native, active);
         }
-        public void setLRAActivationState(bool active)
-        {
-            btCable_setLRAActivationState(Native, active);
-        }
-        
-        public bool getBendingActivationState()
-        {
-            return btCable_getBendingActivationState(Native);
-        }
-        public void setBendingActivationState(bool active)
-        {
-            btCable_setBendingActivationState(Native, active);
-        }
-    }
+
+		public bool GetUseLRA()
+		{
+			return btCable_getUseLRA(Native);
+		}
+
+		public void SetUseBending(bool active)
+		{
+			btCable_setUseBending(Native, active);
+		}
+
+		public bool GetUseBending()
+		{
+			return btCable_getUseBending(Native);
+		}
+
+		public void SetUseGravity(bool active)
+		{
+			btCable_setUseGravity(Native, active);
+		}
+
+		public bool GetUseGravity()
+		{
+			return btCable_getUseGravity(Native);
+		}
+
+		public void SetUseCollision(bool active)
+		{
+			btCable_setUseCollision(Native, active);
+		}
+
+		public bool GetUseCollision()
+		{
+			return btCable_getUseCollision(Native);
+		}
+	}
 }

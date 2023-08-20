@@ -114,6 +114,7 @@ extern "C" {
 	EXPORT void btRigidBody_updateInertiaTensor(btRigidBody* obj);
 	EXPORT bool btRigidBody_wantsSleeping(btRigidBody* obj);
 	EXPORT void btRigidBody_setMaxLinearVelocity(btRigidBody* obj, btScalar maxL);
+	EXPORT void btRigidBody_setMaxAngularVelocity(btRigidBody* obj, btScalar maxA);
 #ifdef __cplusplus
 }
 #endif

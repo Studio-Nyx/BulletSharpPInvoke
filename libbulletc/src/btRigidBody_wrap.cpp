@@ -620,3 +620,8 @@ void btRigidBody_setMaxLinearVelocity(btRigidBody* obj, btScalar maxL)
 {
 	obj->setMaxLinearVelocity(maxL);
 }
+
+void btRigidBody_setMaxAngularVelocity(btRigidBody* obj, btScalar maxA)
+{
+	obj->setMaxAngularVelocity(maxA);
+}

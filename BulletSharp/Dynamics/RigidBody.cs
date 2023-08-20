@@ -463,7 +463,11 @@ namespace BulletSharp
 		{
 			btRigidBody_setMaxLinearVelocity(Native, maxL);
         }
-
+        
+        public void SetMaxAngularVelocity(double maxL)
+        {
+            btRigidBody_setMaxAngularVelocity(Native, maxL);
+        }
     }
 
 	[StructLayout(LayoutKind.Sequential)]

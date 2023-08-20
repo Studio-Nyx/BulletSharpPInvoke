@@ -77,10 +77,6 @@ btVector3* btCable_getPositionNodes(btCable* obj)
 	return obj->getPositionNodes();
 }
 
-btVector3* btCable_getPositionNodesArray(btCable* obj)
-{
-	return obj->getPositionNodesArray();
-}
 
 void btCable_getPositionNode(btCable* obj, btVector3* v, int index)
 {
@@ -156,22 +152,43 @@ int btCable_getAnchorIndex(btCable* obj)
 	return obj->getAnchorIndex();
 }
 
-void btCable_setLRAActivationState(btCable* obj, bool active)
+void btCable_setUseLRA(btCable* obj, bool active)
 {
-	obj->setLRAActivationState(active);
+	obj->setUseLRA(active);
 }
 
-bool btCable_getLRAActivationState(btCable* obj)
+bool btCable_getUseLRA(btCable* obj)
 {
-	return obj->getLRAActivationState();
+	return obj->getUseLRA();
 }
 
-void btCable_setBendingActivationState(btCable* obj, bool active)
+void btCable_setUseBending(btCable* obj, bool active)
 {
-	obj->setBendingActivationState(active);
+	obj->setUseBending(active);
 }
 
-bool btCable_getBendingActivationState(btCable* obj)
+bool btCable_getUseBending(btCable* obj)
 {
-	return obj->getBendingActivationState();
+	return obj->getUseBending();
 }
+
+void btCable_setUseGravity(btCable* obj, bool active)
+{
+	obj->setUseGravity(active);
+}
+
+bool btCable_getUseGravity(btCable* obj)
+{
+	return obj->getUseGravity();
+}
+
+void btCable_setUseCollision(btCable* obj, bool active)
+{
+	obj->setUseCollision(active);
+}
+
+bool btCable_getUseCollision(btCable* obj)
+{
+	return obj->getUseCollision();
+}
+
