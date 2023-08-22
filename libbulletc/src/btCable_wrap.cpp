@@ -72,58 +72,16 @@ int btCable_getNumberNodes(btCable* obj)
 	return obj->m_nodes.size();
 }
 
-btVector3* btCable_getPositionNodes(btCable* obj)
-{
-	return obj->getPositionNodes();
-}
-
-
 void btCable_getPositionNode(btCable* obj, btVector3* v, int index)
 {
 	BTVECTOR3_COPY(v, &obj->m_nodes[index].m_x);
 }
 
-btCollisionShape* btCable_getNodeCollisionShape(btCable* obj) {
-	return obj->getCollisionShapeNode();
-}
-
-void btCable_setNodeCollisionShape(btCable* obj, btCollisionShape* nodeShape)
-{
-	return obj->setCollisionShape(nodeShape);
-}
-
-void btCable_setWorldRef(btCable* obj, btCollisionWorld* world) {
-	return obj->setWorldRef(world);
-}
-
-void btCable_updatePositionNodes(btCable* obj, Vector3* vecArray, int length)
-{
-	for (int i = 0; i < length; ++i)
-	{
-		btVector3 pos = obj->getPositionNode(i);
-		vecArray[i].x = pos.x();
-		vecArray[i].y = pos.y();
-		vecArray[i].z = pos.z();
-	}
-}
-
-void btCable_updateImpulses(btCable* obj, Vector3* vecArray, int length)
+void btCable_updateImpulses(btCable* obj, btVector3* vecArray, int length)
 {
 	for (int i = 0; i < length; ++i) {
-		btVector3 imp = obj->getImpulse(i);
-		vecArray[i].x = imp.x();
-		vecArray[i].y = imp.y();
-		vecArray[i].z = imp.z();
+		vecArray[i] = obj->getImpulses()[i];
 	}
-}
-
-bool btCable_checkIfCollisionWithWorldArrayPos(btCable* obj, int objWorldArrayPos)
-{
-	return obj->checkIfCollisionWithWorldArrayPos(objWorldArrayPos);
-}
-
-void btCable_setBlackHolePos(btCable* obj, bool activeState, btVector3 pos) {
-	return obj->setBlackHolePos(activeState, pos);
 }
 
 void btCable_setBendingMaxAngle(btCable* obj, btScalar angle) {

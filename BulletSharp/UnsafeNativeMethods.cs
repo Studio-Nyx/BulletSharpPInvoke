@@ -7549,15 +7549,6 @@ namespace BulletSharp
 
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern IntPtr btCable_getPositionNodes(IntPtr obj);
-
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern IntPtr btCable_getNodeCollisionShape(IntPtr obj);
-
-		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern IntPtr btCable_setNodeCollisionShape(IntPtr obj, IntPtr collisionShape);
-
-		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern IntPtr btCable_setWorldRef(IntPtr obj, IntPtr collisionWorld);
 		
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern double btCable_getLengthPosition(IntPtr obj);
@@ -7572,16 +7563,7 @@ namespace BulletSharp
         public static extern int btCable_getNumberNodes(IntPtr obj);
 
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static unsafe extern void btCable_updatePositionNodes(IntPtr obj, Vector3* vecArray, int vecSize);
-
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static unsafe extern void btCable_updateImpulses(IntPtr obj, Vector3* vecArray, int vecSize);
-        
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern bool btCable_checkIfCollisionWithWorldArrayPos(IntPtr obj, int objArrayPos);
-        
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern void btCable_setBlackHolePos(IntPtr obj,bool state,out Vector3 vecPtr);
         
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern double btCable_getBendingMaxAngle(IntPtr obj);
@@ -7624,6 +7606,5 @@ namespace BulletSharp
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern bool btCable_getUseCollision(IntPtr obj);
-
-	}
+    }
 }

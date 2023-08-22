@@ -87,34 +87,7 @@ namespace BulletSharp.SoftBody
             btCable_swapAnchors(Native, index0, index1);
         }
 
-		public IntPtr GetNodeCollisionShape()
-		{
-			return btCable_getNodeCollisionShape(Native);
-		}
-
-		public void SetNodeCollisionShape(CollisionShape shape)
-		{
-			btCable_setNodeCollisionShape(Native, shape.Native);
-		}
-
-		public void SetWorldRef(CollisionWorld collisionWorld)
-        {
-			btCable_setWorldRef(Native, collisionWorld.Native);
-		}
-
-		public void UpdatePositionNodes(Vector3[] vecArray)
-		{
-            unsafe
-            {
-                //Pin array then send to C++
-                fixed (Vector3* vecPtr = vecArray)
-				{
-                    // btCable_updatePositionNodes(Native, vecPtr, vecArray.Length);
-                }
-            }
-        } 
-
-		public void UpdateImpulses(Vector3[] vecArray)
+        public void UpdateImpulses(Vector3[] vecArray)
         {
             unsafe
             {
@@ -125,18 +98,7 @@ namespace BulletSharp.SoftBody
                 }
             }
         }
-		
-		public bool checkIfCollisionWithWorldArrayPos( int objArrayPos)
-		{
-			return btCable_checkIfCollisionWithWorldArrayPos(Native, objArrayPos);
-		}
-		
-		public void setBlackHolePos(bool state,Vector3 vecPtr)
-		{
-			btCable_setBlackHolePos(Native,state,out vecPtr);
-		}
-
-
+        
 		public double getBendingMaxAngle()
 		{
 			return btCable_getBendingMaxAngle(Native);
