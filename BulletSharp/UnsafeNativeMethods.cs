@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security;
 
+// Expose internal unsafe methods to the toolkit (use it with caution)
+[assembly: System.Runtime.CompilerServices.InternalsVisibleToAttribute("3DEngineToolkit")]
 namespace BulletSharp
 {
 	[SuppressUnmanagedCodeSecurity]
