@@ -17,6 +17,7 @@ extern "C" {
 	EXPORT btScalar btCable_getLengthPosition(btCable* obj);
 	EXPORT btScalar btCable_getLengthRestlength(btCable* obj);
 	EXPORT btVector3* btCable_getImpulses(btCable* obj);
+	EXPORT void btCable_getImpulse(btCable* obj, btVector3* v, int index);
 	EXPORT int btCable_getNumberNodes(btCable* obj);
 	EXPORT void btCable_getPositionNode(btCable* obj, btVector3* v, int index);
 	EXPORT void btCable_updateImpulses(btCable* obj, btVector3* vecPtr, int length);

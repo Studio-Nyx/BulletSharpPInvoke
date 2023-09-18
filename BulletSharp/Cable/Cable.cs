@@ -59,9 +59,11 @@ namespace BulletSharp.SoftBody
             return btCable_getLengthPosition(Native);
         }
 
-		public Vector3Array GetImpulses(int size)
+		public Vector3 GetImpulse(int index)
         {
-			return new Vector3Array(btCable_getImpulses(Native), size);
+            Vector3 v = Vector3.Zero;
+            btCable_getImpulse(Native, out v, index);
+            return v;
 		}
 
         public int GetNumberNodes()

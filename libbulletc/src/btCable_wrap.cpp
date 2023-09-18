@@ -67,6 +67,11 @@ btVector3* btCable_getImpulses(btCable* obj)
 	return obj->getImpulses();
 }
 
+void btCable_getImpulse(btCable* obj, btVector3* v, int index)
+{
+	BTVECTOR3_COPY(v, &obj->getImpulse(index));
+}
+
 int btCable_getNumberNodes(btCable* obj)
 {
 	return obj->m_nodes.size();

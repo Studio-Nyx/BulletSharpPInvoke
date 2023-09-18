@@ -7547,7 +7547,7 @@ namespace BulletSharp
 		public static extern double btCable_getLength(IntPtr obj);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern IntPtr btCable_getImpulses(IntPtr obj);
+        public static extern void btCable_getImpulse(IntPtr obj, out Vector3 vec, int index);
 
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern IntPtr btCable_getPositionNodes(IntPtr obj);
@@ -7559,7 +7559,7 @@ namespace BulletSharp
         public static extern double btCable_getLengthRestlength(IntPtr obj);
         
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern void btCable_getPositionNode(IntPtr obj, out Vector3 list, int index);
+        public static extern void btCable_getPositionNode(IntPtr obj, out Vector3 vec, int index);
 
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern int btCable_getNumberNodes(IntPtr obj);
