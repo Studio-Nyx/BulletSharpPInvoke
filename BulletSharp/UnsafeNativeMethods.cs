@@ -7525,88 +7525,144 @@ namespace BulletSharp
 
 		// Cable methods
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern IntPtr btCable_new(IntPtr worldInfo, IntPtr world, int node_count, [In] Vector3[] x, [In] double[] m);
+		public static extern IntPtr btCable_new(IntPtr worldInfo, IntPtr world, int node_count, [In] Vector3[] x, [In] double[] m);		
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btCable_removeLink(IntPtr obj, int index);
-		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btCable_removeNode(IntPtr obj, int index);
-		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btCable_removeAnchor(IntPtr obj, int index);
+		public static extern void btCable_removeLinkAt(IntPtr cable, int index);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btCable_setRestLengthLink(IntPtr obj, int index, double distance);
-		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern double btCable_getRestLengthLink(IntPtr obj, int index);
-		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btCable_swapNodes(IntPtr obj, int index0, int index1);
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern void btCable_swapAnchors(IntPtr obj, int index0, int index1);
-
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern double btCable_getLength(IntPtr obj);
+		public static extern void btCable_removeNodeAt(IntPtr cable, int index);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern void btCable_getImpulse(IntPtr obj, out Vector3 vec, int index);
-
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern IntPtr btCable_getPositionNodes(IntPtr obj);
-		
-		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern double btCable_getLengthPosition(IntPtr obj);
-        		
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern double btCable_getLengthRestlength(IntPtr obj);
-        
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern void btCable_getPositionNode(IntPtr obj, out Vector3 vec, int index);
-
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern int btCable_getNumberNodes(IntPtr obj);
-
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static unsafe extern void btCable_updateImpulses(IntPtr obj, Vector3* vecArray, int vecSize);
-        
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern double btCable_getBendingMaxAngle(IntPtr obj);
-        
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern void btCable_setBendingMaxAngle(IntPtr obj, double maxAngle);
-        
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern double btCable_getBendingStiffness(IntPtr obj);
-        
-        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
-        public static extern void btCable_setBendingStiffness(IntPtr obj, double stiffness);
+		public static extern void btCable_removeAnchorAt(IntPtr cable, int index);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern int btCable_getAnchorIndex(IntPtr obj);
+		public static extern void btCable_getImpulseAt(IntPtr cable, int index, out Vector3 impulse);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btCable_setAnchorIndex(IntPtr obj, int index);
+		public static extern int btCable_getNumberOfNode(IntPtr cable);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btCable_setUseLRA(IntPtr obj, bool active);
+		public static extern int btCable_getNumberOfAnchor(IntPtr cable);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern bool btCable_getUseLRA(IntPtr obj);
+		public static extern int btCable_getNumberOfLink(IntPtr cable);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btCable_setUseBending(IntPtr obj, bool active);
+		public static extern double btCable_getLengthOfCableByPositions(IntPtr cable);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern bool btCable_getUseBending(IntPtr obj);
+		public static extern double btCable_getLengthOfCableByLinks(IntPtr cable);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btCable_setUseGravity(IntPtr obj, bool active);
+		public static extern void btCable_Node_GetPosition(IntPtr cable, int index, out Vector3 position);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern bool btCable_getUseGravity(IntPtr obj);
+		public static extern void btCable_Node_SetPosition(IntPtr cable, int index, Vector3 position);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btCable_setUseCollision(IntPtr obj, bool active);
+		public static extern void btCable_Node_GetVelocity(IntPtr obj, int index, out Vector3 velocity);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern bool btCable_getUseCollision(IntPtr obj);
-    }
+		public static extern void btCable_Node_SetVelocity(IntPtr obj, int index, Vector3 velocity);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_Node_GetForce(IntPtr obj, int index, out Vector3 force);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_Node_SetForce(IntPtr obj, int index, Vector3 force);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern double btCable_Node_GetInverseMass(IntPtr obj, int index);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_Node_SetInverseMass(IntPtr obj, int index, double inverseMass);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern double btCable_Node_GetArea(IntPtr obj, int index);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_Node_SetArea(IntPtr obj, int index, double area);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern int btCable_Node_GetIsAttached(IntPtr obj, int index);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_Node_SetIsAttached(IntPtr obj, int index, int isAttached);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)] 
+		public static extern int btCable_Node_GetIndex(IntPtr obj, int index);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_Node_SetIndex(IntPtr obj, int index, int newIndex);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern bool btCable_Anchor_HasNode(IntPtr obj, int index);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern int btCable_Anchor_GetIndexOfNode(IntPtr obj, int index);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_Anchor_SetNode(IntPtr obj, int indexAnchor, int indexNode);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern int btCable_Link_GetNode0(IntPtr obj, int index);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_Link_SetNode0(IntPtr obj, int indexLink, int indexNode);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern int btCable_Link_GetNode1(IntPtr obj, int index);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_Link_SetNode1(IntPtr obj, int indexLink, int indexNode);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern double btCable_Link_GetRestLength(IntPtr obj, int index);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_Link_SetRestLength(IntPtr obj, int index, double rl);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern bool btCable_LRA_GetActive(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_LRA_SetActive(IntPtr obj, bool active);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern int btCable_LRA_GetIndexOfLRA(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_LRA_SetIndexOfLRA(IntPtr obj, int indexLRA);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern bool btCable_Bending_GetActive(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_Bending_SetActive(IntPtr obj, bool active);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern double btCable_Bending_GetBendingMaxAngle(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_Bending_SetBendingMaxAngle(IntPtr obj, double angle);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern double btCable_Bending_GetBendingStiffness(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_Bending_SetBendingStiffness(IntPtr obj, double stiffness);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern bool btCable_Gravity_GetActive(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_Gravity_SetActive(IntPtr obj, bool active);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern bool btCable_Collision_GetActive(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_Collision_SetActive(IntPtr obj, bool active);
+	}
 }

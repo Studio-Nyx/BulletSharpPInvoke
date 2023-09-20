@@ -4,7 +4,6 @@
 #include <BulletSoftBody/btSoftBody.h>
 #include <BulletCable/btCable.h>
 #include <BulletSoftBody/btSoftBodySolvers.h>
-
 #include "conversion.h"
 #include "btSoftBody_wrap.h"
 #include "btCable_wrap.h"
@@ -17,141 +16,241 @@ btCable* btCable_new(btSoftBodyWorldInfo* worldInfo, btCollisionWorld* world, in
 	return ret;
 }
 
-void btCable_removeLink(btCable* obj, int index)
+void btCable_removeLinkAt(btCable* obj, int index)
 {
-	obj->removeLink(index);
+	obj->m_links.removeAtIndex(index);
 }
 
-void btCable_removeNode(btCable* obj, int index)
+void btCable_removeNodeAt(btCable* obj, int index)
 {
-	obj->removeNode(index);
+	obj->m_nodes.removeAtIndex(index);
 }
 
-void btCable_removeAnchor(btCable* obj, int index)
+void btCable_removeAnchorAt(btCable* obj, int index)
 {
-	obj->removeAnchor(index);
+	obj->m_anchors[index].m_node->m_battach = 0;
+	obj->m_anchors.removeAtIndex(index);
 }
 
-void btCable_setRestLengthLink(btCable* obj, int index, btScalar distance)
+void btCable_getImpulseAt(btCable* obj, int index, btVector3* impulse)
 {
-	obj->setRestLengthLink(index, distance);
+	BTVECTOR3_SET(impulse, obj->getImpulse(index));
 }
 
-btScalar btCable_getRestLengthLink(btCable* obj, int index)
-{
-	return obj->getRestLengthLink(index);
-}
-
-void btCable_swapNodes(btCable* obj, int index0, int index1)
-{
-	return obj->swapNodes(index0, index1);
-}
-
-void btCable_swapAnchors(btCable* obj, int index0, int index1)
-{
-	return obj->swapAnchors(index0, index1);
-}
-
-btScalar btCable_getLengthPosition(btCable* obj)
-{
-	return obj->getLengthPosition();
-}
-
-btScalar btCable_getLengthRestlength(btCable* obj)
-{
-	return obj->getLengthRestlength();
-}
-
-btVector3* btCable_getImpulses(btCable* obj)
-{
-	return obj->getImpulses();
-}
-
-void btCable_getImpulse(btCable* obj, btVector3* v, int index)
-{
-	BTVECTOR3_COPY(v, &obj->getImpulse(index));
-}
-
-int btCable_getNumberNodes(btCable* obj)
+int btCable_getNumberOfNode(btCable* obj)
 {
 	return obj->m_nodes.size();
 }
 
-void btCable_getPositionNode(btCable* obj, btVector3* v, int index)
+int btCable_getNumberOfAnchor(btCable* obj)
 {
-	BTVECTOR3_COPY(v, &obj->m_nodes[index].m_x);
+	return obj->m_anchors.size();
 }
 
-void btCable_updateImpulses(btCable* obj, btVector3* vecArray, int length)
+int btCable_getNumberOfLink(btCable* obj)
 {
-	for (int i = 0; i < length; ++i) {
-		vecArray[i] = obj->getImpulses()[i];
+	return obj->m_links.size();
+}
+
+btScalar btCable_getLengthOfCableByPositions(btCable* obj)
+{
+	return obj->getLengthPosition();
+}
+
+btScalar btCable_getLengthOfCableByLinks(btCable* obj)
+{
+	return obj->getLengthRestlength();
+}
+
+void btCable_Node_GetPosition(btCable* obj, int index, btVector3* position)
+{
+	BTVECTOR3_SET(position, obj->m_nodes[index].m_x);
+}
+
+void btCable_Node_SetPosition(btCable* obj, int index, btVector3 position)
+{
+	BTVECTOR3_SET(&position, obj->m_nodes[index].m_x);
+}
+
+void btCable_Node_GetVelocity(btCable* obj, int index, btVector3* velocity)
+{
+	BTVECTOR3_SET(velocity, obj->m_nodes[index].m_v);
+}
+
+void btCable_Node_SetVelocity(btCable* obj, int index, btVector3 velocity)
+{
+	BTVECTOR3_SET(&velocity, obj->m_nodes[index].m_x);
+}
+
+void btCable_Node_GetForce(btCable* obj, int index, btVector3* force)
+{
+	BTVECTOR3_SET(force, obj->m_nodes[index].m_f);
+}
+
+void btCable_Node_SetForce(btCable* obj, int index, btVector3 force)
+{
+	BTVECTOR3_SET(&force, obj->m_nodes[index].m_x);
+}
+
+btScalar btCable_Node_GetInverseMass(btCable* obj, int index)
+{
+	return obj->m_nodes[index].m_im;
+}
+
+void btCable_Node_SetInverseMass(btCable* obj, int index, btScalar inverseMass)
+{
+	obj->m_nodes[index].m_im = inverseMass;
+}
+
+btScalar btCable_Node_GetArea(btCable* obj, int index)
+{
+	return obj->m_nodes[index].m_area;
+}
+
+void btCable_Node_SetArea(btCable* obj, int index, btScalar area)
+{
+	obj->m_nodes[index].m_area = area;
+}
+
+int btCable_Node_GetIsAttached(btCable* obj, int index)
+{
+	return obj->m_nodes[index].m_battach;
+}
+
+void btCable_Node_SetIsAttached(btCable* obj, int index, int isAttached)
+{
+	obj->m_nodes[index].m_battach = isAttached;
+}
+
+int btCable_Node_GetIndex(btCable* obj, int index)
+{
+	return obj->m_nodes[index].index;
+}
+
+void btCable_Node_SetIndex(btCable* obj, int index, int newIndex)
+{
+	obj->m_nodes[index].index = newIndex;
+}
+
+bool btCable_Node_HasNode(btCable* obj, int index)
+{
+	try
+	{
+		return obj->m_anchors[index].m_node != nullptr;
+	}
+	catch(exception e)
+	{
+		return false;
 	}
 }
 
-void btCable_setBendingMaxAngle(btCable* obj, btScalar angle) {
-	obj->setBendingMaxAngle(angle);
-}
-
-btScalar btCable_getBendingMaxAngle(btCable* obj) {
-	return obj->getBendingMaxAngle();
-}
-
-void btCable_setBendingStiffness(btCable* obj, btScalar stiffness) {
-	obj->setBendingStiffness(stiffness);
-}
-
-btScalar btCable_getBendingStiffness(btCable* obj) {
-	return obj->getBendingStiffness();
-}
-
-void btCable_setAnchorIndex(btCable* obj, int idx)
+int btCable_Anchor_GetIndexOfNode(btCable* obj, int index)
 {
-	obj->setAnchorIndex(idx);
+	return obj->m_anchors[index].m_node->index;
 }
 
-int btCable_getAnchorIndex(btCable* obj)
+void btCable_Anchor_SetNode(btCable* obj, int indexAnchor, int indexNode)
 {
-	return obj->getAnchorIndex();
+	obj->m_anchors[indexAnchor].m_node = &obj->m_nodes[indexNode];
 }
 
-void btCable_setUseLRA(btCable* obj, bool active)
+int btCable_Link_GetNode0(btCable* obj, int index)
 {
-	obj->setUseLRA(active);
+	return obj->m_links[index].m_n[0]->index;
 }
 
-bool btCable_getUseLRA(btCable* obj)
+void btCable_Link_SetNode0(btCable* obj, int indexLink, int indexNode)
+{
+	obj->m_links[indexLink].m_n[0] = &obj->m_nodes[indexNode];
+}
+
+int btCable_Link_GetNode1(btCable* obj, int index)
+{
+	return obj->m_links[index].m_n[1]->index;
+}
+
+void btCable_Link_SetNode1(btCable* obj, int indexLink, int indexNode)
+{
+	obj->m_links[indexLink].m_n[1] = &obj->m_nodes[indexNode];
+}
+
+btScalar btCable_Link_GetRestLength(btCable* obj, int index)
+{
+	return obj->m_links[index].m_rl;
+}
+
+void btCable_Link_SetRestLength(btCable* obj, int index, btScalar rl)
+{
+	obj->m_links[index].m_rl = rl;
+	obj->m_links[index].m_c1 = obj->m_links[index].m_rl * obj->m_links[index].m_rl;
+}
+
+bool btCable_LRA_GetActive(btCable* obj) 
 {
 	return obj->getUseLRA();
 }
 
-void btCable_setUseBending(btCable* obj, bool active)
+void btCable_LRA_SetActive(btCable* obj, bool active)
+{
+	obj->setUseLRA(active);
+}
+
+int btCable_LRA_GetIndexOfLRA(btCable* obj)
+{
+	return obj->getIndexLRA();
+}
+
+void btCable_LRA_SetIndexOfLRA(btCable* obj, int indexLRA)
+{
+	obj->setIndexLRA(indexLRA);
+}
+
+bool btCable_Bending_GetActive(btCable* obj)
+{
+	return  obj->getUseBending();
+}
+
+void btCable_Bending_SetActive(btCable* obj, bool active)
 {
 	obj->setUseBending(active);
 }
 
-bool btCable_getUseBending(btCable* obj)
+btScalar btCable_Bending_GetBendingMaxAngle(btCable* obj)
 {
-	return obj->getUseBending();
+	return obj->getBendingMaxAngle();
 }
 
-void btCable_setUseGravity(btCable* obj, bool active)
+void btCable_Bending_SetBendingMaxAngle(btCable* obj, btScalar angle)
 {
-	obj->setUseGravity(active);
+	obj->setBendingMaxAngle(angle);
 }
 
-bool btCable_getUseGravity(btCable* obj)
+btScalar btCable_Bending_GetBendingStiffness(btCable* obj)
+{
+	return obj->getBendingStiffness();
+}
+
+void btCable_Bending_SetBendingStiffness(btCable* obj, btScalar stiffness)
+{
+	obj->setBendingStiffness(stiffness);
+}
+
+bool btCable_Gravity_GetActive(btCable* obj)
 {
 	return obj->getUseGravity();
 }
 
-void btCable_setUseCollision(btCable* obj, bool active)
+void btCable_Gravity_SetActive(btCable* obj, bool active)
 {
-	obj->setUseCollision(active);
+	return obj->setUseGravity(active);
 }
 
-bool btCable_getUseCollision(btCable* obj)
+bool btCable_Collision_GetActive(btCable* obj)
 {
 	return obj->getUseCollision();
 }
 
+void btCable_Collision_SetActive(btCable* obj, bool active)
+{
+	obj->setUseCollision(active);
+}

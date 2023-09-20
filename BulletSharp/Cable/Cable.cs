@@ -1,173 +1,257 @@
 using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Security;
-using BulletSharp.Math;
+using System.Numerics;
 using static BulletSharp.UnsafeNativeMethods;
+using Vector3 = BulletSharp.Math.Vector3;
 
 namespace BulletSharp.SoftBody
 {
-	public class Cable : SoftBody
-    {
-
-        public Cable(SoftBodyWorldInfo worldInfo,CollisionWorld world , int nodeCount, Vector3[] positions, double[] masses) :
-			 base(CreateCable(worldInfo,world, nodeCount, positions, masses))
+    public class Cable : SoftBody
+	{
+		public Cable(SoftBodyWorldInfo worldInfo, CollisionWorld world, int nodeCount, Vector3[] positions, double[] masses) :
+			 base(CreateCable(worldInfo, world, nodeCount, positions, masses))
 		{
 			WorldInfo = worldInfo;
 		}
 
-		private static IntPtr CreateCable(SoftBodyWorldInfo worldInfo,CollisionWorld world, int nodeCount, Vector3[] positions, double[] masses)
+		private static IntPtr CreateCable(SoftBodyWorldInfo worldInfo, CollisionWorld world, int nodeCount, Vector3[] positions, double[] masses)
 		{
 			return btCable_new(worldInfo.Native, world.Native, nodeCount, positions, masses);
 		}
 
-		public void RemoveLink(int index)
-		{
-			btCable_removeLink(Native, index);
-		}
-		public void RemoveNode(int index)
-		{
-			btCable_removeNode(Native, index);
-		}
-		public void RemoveAnchor(int index)
-		{
-			btCable_removeAnchor(Native, index);
-		}
-
-		public void SetRestLengthLink(int index, double distance)
-		{
-			btCable_setRestLengthLink(Native, index, distance);
-		}
-
-		public double GetRestLengthLink(int index)
-		{
-			return btCable_getRestLengthLink(Native, index);
-		}
-
-		public void SwapNodes(int index0, int index1)
-		{
-			btCable_swapNodes(Native, index0, index1);
-		}
-
-		public double GetLengthRestlength()
+		public void RemoveLinkAt(int index)
         {
-			return btCable_getLengthRestlength(Native);
+			btCable_removeLinkAt(Native, index);
         }
+
+		public void RemoveNodeAt(int index)
+		{
+			btCable_removeNodeAt(Native, index);
+		}
+
+		public void RemoveAnchorAt(int index)
+		{
+			btCable_removeAnchorAt(Native, index);
+		}
+
+		public void GetImpulseAt(int index, out Vector3 impulse)
+        {
+            btCable_getImpulseAt(Native, index, out impulse);
+		}
         
-        public double GetLengthPosition()
+	    public int GetNumberOfNode()
         {
-            return btCable_getLengthPosition(Native);
+			return btCable_getNumberOfNode(Native);
         }
 
-		public Vector3 GetImpulse(int index)
+		public int GetNumberOfAnchor()
         {
-            Vector3 v = Vector3.Zero;
-            btCable_getImpulse(Native, out v, index);
-            return v;
+			return btCable_getNumberOfAnchor(Native);
 		}
 
-        public int GetNumberNodes()
-        {
-            return btCable_getNumberNodes(Native);
-        }
+		public int GetNumberOfLink()
+		{
+			return btCable_getNumberOfLink(Native);
+		}
 
-        public Vector3Array GetPositionNodes()
+		public double GetLengthOfCableByPositions()
         {
-            var size = btCable_getNumberNodes(Native);
-            return new Vector3Array(btCable_getPositionNodes(Native), size);
-        }
-  
-        public Vector3 GetPositionNode(int index)
+			return btCable_getLengthOfCableByPositions(Native);
+		}
+
+		public double GetLengthOfCableByLinks()
+		{
+			return btCable_getLengthOfCableByLinks(Native);
+		}
+
+		public Vector3 Node_GetPosition(int index)
         {
             Vector3 v;
-            btCable_getPositionNode(Native, out v, index);
+            btCable_Node_GetPosition(Native, index, out v);
             return v;
         }
-
-        public void SwapAnchors(int index0, int index1)
-		{
-            btCable_swapAnchors(Native, index0, index1);
-        }
-
-        public void UpdateImpulses(Vector3[] vecArray)
-        {
-            unsafe
-            {
-                //Pin array then send to C++
-                fixed (Vector3* vecPtr = vecArray)
-				{
-                    btCable_updateImpulses(Native, vecPtr, vecArray.Length);
-                }
-            }
-        }
         
-		public double getBendingMaxAngle()
-		{
-			return btCable_getBendingMaxAngle(Native);
-		}
-		
-		public void setBendingMaxAngle(double stiffness)
-		{
-			btCable_setBendingMaxAngle(Native,stiffness);
-		}
-		
-		public double getBendingStiffness()
-		{
-			return btCable_getBendingStiffness(Native);
+		public void Node_SetPosition(int index, Vector3 position)
+        {
+			// btCable_Node_SetPosition(Native, index, position);
 		}
 
-		public void setBendingStiffness(double angle)
+        public Vector3 Node_GetVelocity(int index)
 		{
-			btCable_setBendingStiffness(Native,angle);
-		}
-
-		public int getAnchorIndex()
-		{
-			return btCable_getAnchorIndex(Native);
-		}
-		public void setAnchorIndex(int index)
-		{
-			btCable_setAnchorIndex(Native, index);
+            Vector3 v;
+            btCable_Node_GetVelocity(Native, index, out v);
+            return v;
 		}
         
-		public void SetUseLRA(bool active)
+		public void Node_SetVelocity(int index, Vector3 velocity)
+		{
+			// btCable_Node_SetVelocity(Native, index, velocity);
+		}
+
+        public Vector3 Node_GetForce(int index)
+		{
+            Vector3 v;
+            btCable_Node_GetForce(Native, index, out v);
+            return v;
+        }
+        
+		public void Node_SetForce(int index, Vector3 force)
+		{
+			// btCable_Node_SetForce(Native, index, force);
+		}
+
+        public double Node_GetInverseMass(int index)
         {
-			btCable_setUseLRA(Native, active);
+			return btCable_Node_GetInverseMass(Native, index);
+		}
+
+		public void Node_SetInverseMass(int index, double inverseMass)
+        {
+			btCable_Node_SetInverseMass(Native, index, inverseMass);
+		}
+		
+		public double Node_GetArea(int index)
+        {
+			return btCable_Node_GetArea(Native, index);
+		}
+
+		public void Node_SetArea(int index, double area)
+        {
+			btCable_Node_SetArea(Native, index, area);
         }
 
-		public bool GetUseLRA()
-		{
-			return btCable_getUseLRA(Native);
+		public int Node_GetIsAttached(int index)
+        {
+			return btCable_Node_GetIsAttached(Native, index);
 		}
 
-		public void SetUseBending(bool active)
-		{
-			btCable_setUseBending(Native, active);
+		public void Node_SetIsAttached(int index, int isAttached)
+        {
+			btCable_Node_SetIsAttached(Native, index, isAttached);
 		}
 
-		public bool GetUseBending()
-		{
-			return btCable_getUseBending(Native);
+		public int Node_GetIndex(int index)
+        {
+			return btCable_Node_GetIndex(Native, index);
 		}
 
-		public void SetUseGravity(bool active)
-		{
-			btCable_setUseGravity(Native, active);
+		public void Node_SetIndex(int index, int newIndex)
+        {
+			btCable_Node_SetIndex(Native, index, newIndex);
 		}
 
-		public bool GetUseGravity()
+		public bool Anchor_HasNode(int index)
 		{
-			return btCable_getUseGravity(Native);
+			return btCable_Anchor_HasNode(Native, index);
 		}
 
-		public void SetUseCollision(bool active)
-		{
-			btCable_setUseCollision(Native, active);
+		public int Anchor_GetIndexOfNode(int index)
+        {
+			return btCable_Anchor_GetIndexOfNode(Native, index);
 		}
 
-		public bool GetUseCollision()
+		public void Anchor_SetNode(int indexAnchor, int indexNode)
 		{
-			return btCable_getUseCollision(Native);
+			btCable_Anchor_SetNode(Native, indexAnchor, indexNode);
+		}
+
+		public int Link_GetNode0(int index)
+        {
+			return btCable_Link_GetNode0(Native, index);
+        }
+
+		public void Link_SetNode0(int indexLink, int indexNode)
+		{
+			btCable_Link_SetNode0(Native, indexLink, indexNode);
+		}
+
+		public int Link_GetNode1(int index)
+		{
+			return btCable_Link_GetNode1(Native, index);
+		}
+
+		public void Link_SetNode1(int indexLink, int indexNode)
+		{
+			btCable_Link_SetNode1(Native, indexLink, indexNode);
+		}
+
+		public double Link_GetRestLength(int index)
+        {
+			return btCable_Link_GetRestLength(Native, index);
+        }
+
+		public void Link_SetRestLength(int index, double rl)
+        {
+			btCable_Link_SetRestLength(Native, index, rl);
+		}
+
+		public bool LRA_GetActive()
+        {
+			return btCable_LRA_GetActive(Native);
+		}
+
+		public void LRA_SetActive(bool active)
+		{
+			btCable_LRA_SetActive(Native, active);
+		}
+
+		public int LRA_GetIndexOfLRA()
+        {
+			return btCable_LRA_GetIndexOfLRA(Native);
+        }
+
+		public void LRA_SetIndexOfLRA(int indexLRA)
+        {
+			btCable_LRA_SetIndexOfLRA(Native, indexLRA);
+		}
+
+		public bool Bending_GetActive()
+        {
+			return btCable_Bending_GetActive(Native);
+        }
+
+		public void Bending_SetActive(bool active)
+        {
+			btCable_Bending_SetActive(Native, active);
+        }
+
+		public double Bending_GetBendingMaxAngle()
+        {
+			return btCable_Bending_GetBendingMaxAngle(Native);
+		}
+
+		public void Bending_SetBendingMaxAngle(double angle)
+        {
+			btCable_Bending_SetBendingMaxAngle(Native, angle);
+		}
+
+		public double Bending_GetBendingStiffness()
+        {
+			return btCable_Bending_GetBendingStiffness(Native);
+		}
+
+		public void Bending_SetBendingStiffness(double stiffness)
+		{
+			btCable_Bending_SetBendingStiffness(Native, stiffness);
+		}
+
+		public bool Gravity_GetActive()
+		{
+			return btCable_Gravity_GetActive(Native);
+		}
+
+		public void Gravity_SetActive(bool active)
+		{
+			btCable_Gravity_SetActive(Native, active);
+		}
+
+		public bool Collision_GetActive()
+		{
+			return btCable_Collision_GetActive(Native);
+		}
+
+		public void Collision_SetActive(bool active)
+		{
+			btCable_Collision_SetActive(Native, active);
 		}
 	}
 }
