@@ -1,7 +1,9 @@
 using System;
-using System.Numerics;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Security;
+using BulletSharp.Math;
 using static BulletSharp.UnsafeNativeMethods;
-using Vector3 = BulletSharp.Math.Vector3;
 
 namespace BulletSharp.SoftBody
 {
@@ -53,6 +55,16 @@ namespace BulletSharp.SoftBody
 			return btCable_getNumberOfLink(Native);
 		}
 
+        public Vector3[] GetAllNodePositions()
+        {
+            Vector3[] positions = new Vector3[btCable_getNumberOfNode(Native)];
+            for (int i = 0; i < positions.Length; ++i)
+            {
+                btCable_Node_GetPosition(Native, i, out positions[i]);
+            }
+            return positions;
+        }
+
 		public double GetLengthOfCableByPositions()
         {
 			return btCable_getLengthOfCableByPositions(Native);
@@ -72,7 +84,7 @@ namespace BulletSharp.SoftBody
         
 		public void Node_SetPosition(int index, Vector3 position)
         {
-			// btCable_Node_SetPosition(Native, index, position);
+			btCable_Node_SetPosition(Native, index, position);
 		}
 
         public Vector3 Node_GetVelocity(int index)
@@ -84,7 +96,7 @@ namespace BulletSharp.SoftBody
         
 		public void Node_SetVelocity(int index, Vector3 velocity)
 		{
-			// btCable_Node_SetVelocity(Native, index, velocity);
+			btCable_Node_SetVelocity(Native, index, velocity);
 		}
 
         public Vector3 Node_GetForce(int index)
@@ -96,7 +108,7 @@ namespace BulletSharp.SoftBody
         
 		public void Node_SetForce(int index, Vector3 force)
 		{
-			// btCable_Node_SetForce(Native, index, force);
+			btCable_Node_SetForce(Native, index, force);
 		}
 
         public double Node_GetInverseMass(int index)
@@ -193,17 +205,7 @@ namespace BulletSharp.SoftBody
 		{
 			btCable_LRA_SetActive(Native, active);
 		}
-
-		public int LRA_GetIndexOfLRA()
-        {
-			return btCable_LRA_GetIndexOfLRA(Native);
-        }
-
-		public void LRA_SetIndexOfLRA(int indexLRA)
-        {
-			btCable_LRA_SetIndexOfLRA(Native, indexLRA);
-		}
-
+        
 		public bool Bending_GetActive()
         {
 			return btCable_Bending_GetActive(Native);

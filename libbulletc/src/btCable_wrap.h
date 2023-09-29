@@ -49,8 +49,6 @@ extern "C" {
 
 	EXPORT bool btCable_LRA_GetActive(btCable* obj);
 	EXPORT void btCable_LRA_SetActive(btCable* obj, bool active);
-	EXPORT int btCable_LRA_GetIndexOfLRA(btCable* obj);
-	EXPORT void btCable_LRA_SetIndexOfLRA(btCable* obj, int indexLRA);
 
 	EXPORT bool btCable_Bending_GetActive(btCable* obj);
 	EXPORT void btCable_Bending_SetActive(btCable* obj, bool active);

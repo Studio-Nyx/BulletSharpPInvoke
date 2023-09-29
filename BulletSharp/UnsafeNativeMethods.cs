@@ -7547,7 +7547,7 @@ namespace BulletSharp
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern int btCable_getNumberOfLink(IntPtr cable);
-
+		
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern double btCable_getLengthOfCableByPositions(IntPtr cable);
 
@@ -7628,12 +7628,6 @@ namespace BulletSharp
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btCable_LRA_SetActive(IntPtr obj, bool active);
-
-		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern int btCable_LRA_GetIndexOfLRA(IntPtr obj);
-
-		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btCable_LRA_SetIndexOfLRA(IntPtr obj, int indexLRA);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern bool btCable_Bending_GetActive(IntPtr obj);

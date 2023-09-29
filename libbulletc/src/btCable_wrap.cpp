@@ -69,7 +69,7 @@ void btCable_Node_GetPosition(btCable* obj, int index, btVector3* position)
 
 void btCable_Node_SetPosition(btCable* obj, int index, btVector3 position)
 {
-	BTVECTOR3_SET(&position, obj->m_nodes[index].m_x);
+	BTVECTOR3_SET(&obj->m_nodes[index].m_x, position);
 }
 
 void btCable_Node_GetVelocity(btCable* obj, int index, btVector3* velocity)
@@ -79,7 +79,7 @@ void btCable_Node_GetVelocity(btCable* obj, int index, btVector3* velocity)
 
 void btCable_Node_SetVelocity(btCable* obj, int index, btVector3 velocity)
 {
-	BTVECTOR3_SET(&velocity, obj->m_nodes[index].m_x);
+	BTVECTOR3_SET(&obj->m_nodes[index].m_v, velocity);
 }
 
 void btCable_Node_GetForce(btCable* obj, int index, btVector3* force)
@@ -89,7 +89,7 @@ void btCable_Node_GetForce(btCable* obj, int index, btVector3* force)
 
 void btCable_Node_SetForce(btCable* obj, int index, btVector3 force)
 {
-	BTVECTOR3_SET(&force, obj->m_nodes[index].m_x);
+	BTVECTOR3_SET(&obj->m_nodes[index].m_f, force);
 }
 
 btScalar btCable_Node_GetInverseMass(btCable* obj, int index)
@@ -132,7 +132,7 @@ void btCable_Node_SetIndex(btCable* obj, int index, int newIndex)
 	obj->m_nodes[index].index = newIndex;
 }
 
-bool btCable_Node_HasNode(btCable* obj, int index)
+bool btCable_Anchor_HasNode(btCable* obj, int index)
 {
 	try
 	{
@@ -193,16 +193,6 @@ bool btCable_LRA_GetActive(btCable* obj)
 void btCable_LRA_SetActive(btCable* obj, bool active)
 {
 	obj->setUseLRA(active);
-}
-
-int btCable_LRA_GetIndexOfLRA(btCable* obj)
-{
-	return obj->getIndexLRA();
-}
-
-void btCable_LRA_SetIndexOfLRA(btCable* obj, int indexLRA)
-{
-	obj->setIndexLRA(indexLRA);
 }
 
 bool btCable_Bending_GetActive(btCable* obj)
