@@ -4,7 +4,7 @@ namespace BulletSharp
 {
 	public abstract class BulletObject
 	{
-		internal IntPtr Native;
+		public IntPtr Native { get; internal set;}
 
 		protected internal void Initialize(IntPtr native)
 		{
