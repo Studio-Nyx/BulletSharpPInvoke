@@ -806,6 +806,7 @@
 #define btSoftBody_LJoint_Specs void
 #define btSoftBody_Material void
 #define btSoftBody_Node void
+#define btSoftBody_NodeForces void
 #define btSoftBody_Note void
 #define btSoftBody_Pose void
 #define btSoftBody_RayFromToCaster void
@@ -863,6 +864,7 @@
 #define btSoftBody_LJoint_Specs btSoftBody::LJoint::Specs
 #define btSoftBody_Material btSoftBody::Material
 #define btSoftBody_Node btSoftBody::Node
+#define btSoftBody_NodeForces btSoftBody::NodeForces
 #define btSoftBody_Note btSoftBody::Note
 #define btSoftBody_Pose btSoftBody::Pose
 #define btSoftBody_RayFromToCaster btSoftBody::RayFromToCaster

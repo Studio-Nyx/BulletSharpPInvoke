@@ -255,5 +255,15 @@ namespace BulletSharp.SoftBody
 		{
 			btCable_Collision_SetActive(Native, active);
 		}
+		[StructLayout(LayoutKind.Sequential)]
+		public struct CableData
+		{
+			public bool useHydroAero;
+			public double cableRadius;
+			public float tangentDragCoefficient;
+			public float normalDragCoefficient;
+			public int nodeStartIndex;
+			public int nodeEndIndex;
+		};
 	}
 }
