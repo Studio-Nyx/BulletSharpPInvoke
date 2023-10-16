@@ -1,8 +1,8 @@
 using BulletSharp.Math;
 using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Security;
+using BulletSharp.SoftBody;
 
 // Expose internal unsafe methods to the toolkit (use it with caution)
 [assembly: System.Runtime.CompilerServices.InternalsVisibleToAttribute("3DEngineToolkit")]
@@ -7660,5 +7660,11 @@ namespace BulletSharp
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btCable_Collision_SetActive(IntPtr obj, bool active);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern bool btUpdateCableForces(IntPtr obj, IntPtr strc, int size);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern bool btUpdateCableData(IntPtr obj, ref Cable.CableData strc);
 	}
 }

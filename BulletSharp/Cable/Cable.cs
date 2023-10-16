@@ -255,6 +255,12 @@ namespace BulletSharp.SoftBody
 		{
 			btCable_Collision_SetActive(Native, active);
 		}
+
+		public bool UpdateCableData(ref CableData cableData)
+        {
+			return btUpdateCableData(Native, ref cableData);
+		}
+
 		[StructLayout(LayoutKind.Sequential)]
 		public struct CableData
 		{

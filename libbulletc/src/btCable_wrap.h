@@ -64,6 +64,8 @@ extern "C" {
 	EXPORT bool btCable_Collision_GetActive(btCable* obj);
 	EXPORT void btCable_Collision_SetActive(btCable* obj, bool active);
 
+	EXPORT bool btUpdateCableData(btCable* obj, btCable::CableData &cableData);
+
 #ifdef __cplusplus
 }
 #endif

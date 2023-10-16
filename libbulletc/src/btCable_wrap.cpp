@@ -244,3 +244,8 @@ void btCable_Collision_SetActive(btCable* obj, bool active)
 {
 	obj->setUseCollision(active);
 }
+
+bool btUpdateCableData(btCable* obj, btCable::CableData &cableData)
+{
+	return obj->UpdateCableData(cableData);
+}

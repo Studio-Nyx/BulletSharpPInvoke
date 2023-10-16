@@ -88,5 +88,10 @@ namespace BulletSharp.SoftBody
 			}
 			base.Dispose(disposing);
 		}
+
+		public bool UpdateCableForces(IntPtr strc, int size)
+		{
+			return btUpdateCableForces(Native, strc, size);
+		}
 	}
 }

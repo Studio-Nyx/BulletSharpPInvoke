@@ -12,6 +12,7 @@ extern "C" {
 	EXPORT btSoftBodyWorldInfo* btSoftRigidDynamicsWorld_getWorldInfo(btSoftRigidDynamicsWorld* obj);
 	EXPORT void btSoftRigidDynamicsWorld_removeSoftBody(btSoftRigidDynamicsWorld* obj, btSoftBody* body);
 	EXPORT void btSoftRigidDynamicsWorld_setDrawFlags(btSoftRigidDynamicsWorld* obj, int f);
+	EXPORT bool btUpdateCableForces(btSoftRigidDynamicsWorld* obj, btSoftBody_NodeForces* co, int size);
 #ifdef __cplusplus
 }
 #endif
