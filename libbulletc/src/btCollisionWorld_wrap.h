@@ -217,7 +217,7 @@ extern "C" {
 	EXPORT void btCollisionWorld_performDiscreteCollisionDetection(btCollisionWorld* obj);
 	EXPORT void btCollisionWorld_rayTest(btCollisionWorld* obj, const btVector3* rayFromWorld, const btVector3* rayToWorld, btCollisionWorld_RayResultCallback* resultCallback);
 	EXPORT void btCollisionWorld_rayTestSingle(const btTransform* rayFromTrans, const btTransform* rayToTrans, btCollisionObject* collisionObject, const btCollisionShape* collisionShape, const btTransform* colObjWorldTransform, btCollisionWorld_RayResultCallback* resultCallback);
-	EXPORT void btCollisionWorld_rayTestSingleInternal(const btTransform* rayFromTrans, const btTransform* rayToTrans, const btCollisionObjectWrapper* collisionObjectWrap, btCollisionWorld_RayResultCallback* resultCallback);
+	EXPORT void btCollisionWorld_rayTestSingleInternal(const btTransform* rayFromTrans, const btTransform* rayToTrans, const btCollisionObjectWrapper* collisionObjectWrap, btCollisionWorld_RayResultCallback* resultCallback, btScalar margin);
 	EXPORT void btCollisionWorld_removeCollisionObject(btCollisionWorld* obj, btCollisionObject* collisionObject);
 	EXPORT void btCollisionWorld_serialize(btCollisionWorld* obj, btSerializer* serializer);
 	EXPORT void btCollisionWorld_setBroadphase(btCollisionWorld* obj, btBroadphaseInterface* pairCache);

@@ -824,7 +824,7 @@ void btCollisionWorld_rayTestSingleInternal(const btTransform* rayFromTrans, con
 	BTTRANSFORM_IN(rayFromTrans);
 	BTTRANSFORM_IN(rayToTrans);
 	btCollisionWorld::rayTestSingleInternal(BTTRANSFORM_USE(rayFromTrans), BTTRANSFORM_USE(rayToTrans),
-		collisionObjectWrap, *resultCallback);
+		collisionObjectWrap, *resultCallback, 0);
 }
 
 void btCollisionWorld_removeCollisionObject(btCollisionWorld* obj, btCollisionObject* collisionObject)
