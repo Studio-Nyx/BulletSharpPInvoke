@@ -7665,6 +7665,30 @@ namespace BulletSharp
 		public static extern bool btUpdateCableForces(IntPtr obj, IntPtr strc, int size);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern bool btUpdateCablesNodesData(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern bool btUpdateCableData(IntPtr obj, ref Cable.CableData strc);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern IntPtr btGetCablesData(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern IntPtr btGetNodesPos(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern IntPtr btGetNodesData(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern IntPtr btGetCableIndexesArray(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern bool btGetUseHydroAero(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btSetUseHydroAero(IntPtr obj, bool value);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btSetHorizonDrop(IntPtr obj, float value);
 	}
 }

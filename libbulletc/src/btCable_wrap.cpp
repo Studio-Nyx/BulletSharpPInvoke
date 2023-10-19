@@ -249,3 +249,19 @@ bool btUpdateCableData(btCable* obj, btCable::CableData &cableData)
 {
 	return obj->UpdateCableData(cableData);
 }
+
+
+bool btGetUseHydroAero(btCable* obj)
+{
+	return obj->getUseHydroAero();
+}
+
+void btSetUseHydroAero(btCable* obj, bool active)
+{
+	obj->setUseHydroAero(active);
+}
+
+void btSetHorizonDrop(btCable* obj, float value)
+{
+	obj->setHorizonDrop(value);
+}

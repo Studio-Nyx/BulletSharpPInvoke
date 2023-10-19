@@ -66,6 +66,12 @@ extern "C" {
 
 	EXPORT bool btUpdateCableData(btCable* obj, btCable::CableData &cableData);
 
+	EXPORT bool btGetUseHydroAero(btCable* obj);
+
+	EXPORT void btSetUseHydroAero(btCable* obj, bool active);
+
+	EXPORT void btSetHorizonDrop(btCable* obj, float value);
+
 #ifdef __cplusplus
 }
 #endif

@@ -55,9 +55,34 @@ void btSoftRigidDynamicsWorld_setDrawFlags(btSoftRigidDynamicsWorld* obj, int f)
 	obj->setDrawFlags(f);
 }
 
+void btUpdateCablesNodesData(btSoftRigidDynamicsWorld* obj)
+{
+	obj->updateCablesNodesData();
+}
+
 bool btUpdateCableForces(btSoftRigidDynamicsWorld* obj, btSoftBody_NodeForces* co, int size)
 {
 	return obj->updateCableForces(co, size);
+}
+
+void* btGetCablesData(btSoftRigidDynamicsWorld* obj)
+{
+	return obj->getCablesData();
+}
+
+void* btGetNodesPos(btSoftRigidDynamicsWorld* obj)
+{
+	return obj->getNodesPos();
+}
+
+void* btGetNodesData(btSoftRigidDynamicsWorld* obj)
+{
+	return obj->getNodesData();
+}
+
+int* btGetCableIndexesArray(btSoftRigidDynamicsWorld* obj)
+{
+	return obj->getCableIndexesArray();
 }
 
 

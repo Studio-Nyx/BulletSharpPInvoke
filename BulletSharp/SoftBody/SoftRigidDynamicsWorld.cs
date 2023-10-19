@@ -88,10 +88,34 @@ namespace BulletSharp.SoftBody
 			}
 			base.Dispose(disposing);
 		}
+		public void UpdateCablesNodesData()
+		{
+			btUpdateCablesNodesData(Native);
+		}
 
 		public bool UpdateCableForces(IntPtr strc, int size)
 		{
 			return btUpdateCableForces(Native, strc, size);
+		}
+
+		public IntPtr GetCablesData()
+		{
+			return btGetCablesData(Native);
+		}
+
+		public IntPtr GetNodesPos()
+		{
+			return btGetNodesPos(Native);
+		}
+		
+		public IntPtr GetNodesData()
+		{
+			return btGetNodesData(Native);
+		}
+
+		public IntPtr GetCableIndexesArray()
+		{
+			return btGetCableIndexesArray(Native);
 		}
 	}
 }

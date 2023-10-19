@@ -261,15 +261,47 @@ namespace BulletSharp.SoftBody
 			return btUpdateCableData(Native, ref cableData);
 		}
 
+		public IntPtr GetCableIndexesArray()
+		{
+			return btGetCableIndexesArray(Native);
+		}
+		public IntPtr GetCablesData()
+		{
+			return btGetCablesData(Native);
+		}
+		public IntPtr GetNodesPos()
+		{
+			return btGetNodesPos(Native);
+		}
+
+		public IntPtr GetNodesPosData()
+		{
+			return btGetNodesData(Native);
+		}
+
+		public bool GetUseHydroAeroForces()
+        {
+			return btGetUseHydroAero(Native);
+        }
+
+		public void SetUseHydroAeroForces(bool value)
+		{
+			btSetUseHydroAero(Native, value);
+		}
+
+		public void SetHorizonDrop(float value)
+		{
+			btSetHorizonDrop(Native, value);
+		}
+
 		[StructLayout(LayoutKind.Sequential)]
 		public struct CableData
 		{
-			public bool useHydroAero;
-			public double cableRadius;
+			public float radius;
+			public float mass;
 			public float tangentDragCoefficient;
 			public float normalDragCoefficient;
-			public int nodeStartIndex;
-			public int nodeEndIndex;
+			public float horizonDrop;
 		};
 	}
 }
