@@ -52,14 +52,14 @@ int btCable_getNumberOfLink(btCable* obj)
 	return obj->m_links.size();
 }
 
-btScalar btCable_getLengthOfCableByPositions(btCable* obj)
+btScalar btCable_getLength(btCable* obj)
 {
-	return obj->getLengthPosition();
+	return obj->getLength();
 }
 
-btScalar btCable_getLengthOfCableByLinks(btCable* obj)
+btScalar btCable_getRestLength(btCable* obj)
 {
-	return obj->getLengthRestlength();
+	return obj->getRestLength();
 }
 
 void btCable_Node_GetPosition(btCable* obj, int index, btVector3* position)

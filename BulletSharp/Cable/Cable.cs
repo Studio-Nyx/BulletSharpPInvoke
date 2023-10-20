@@ -65,14 +65,14 @@ namespace BulletSharp.SoftBody
             return positions;
         }
 
-		public double GetLengthOfCableByPositions()
+		public double GetLength()
         {
-			return btCable_getLengthOfCableByPositions(Native);
+			return btCable_getLength(Native);
 		}
 
-		public double GetLengthOfCableByLinks()
+		public double GetRestLength()
 		{
-			return btCable_getLengthOfCableByLinks(Native);
+			return btCable_getRestLength(Native);
 		}
 
 		public Vector3 Node_GetPosition(int index)
@@ -261,24 +261,6 @@ namespace BulletSharp.SoftBody
 			return btUpdateCableData(Native, ref cableData);
 		}
 
-		public IntPtr GetCableIndexesArray()
-		{
-			return btGetCableIndexesArray(Native);
-		}
-		public IntPtr GetCablesData()
-		{
-			return btGetCablesData(Native);
-		}
-		public IntPtr GetNodesPos()
-		{
-			return btGetNodesPos(Native);
-		}
-
-		public IntPtr GetNodesPosData()
-		{
-			return btGetNodesData(Native);
-		}
-
 		public bool GetUseHydroAeroForces()
         {
 			return btGetUseHydroAero(Native);
@@ -298,7 +280,7 @@ namespace BulletSharp.SoftBody
 		public struct CableData
 		{
 			public float radius;
-			public float mass;
+			public float nodeMass;
 			public float tangentDragCoefficient;
 			public float normalDragCoefficient;
 			public float horizonDrop;

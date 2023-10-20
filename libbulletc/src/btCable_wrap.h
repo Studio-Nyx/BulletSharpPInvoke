@@ -18,8 +18,8 @@ extern "C" {
 	EXPORT int btCable_getNumberOfAnchor(btCable* obj);
 	EXPORT int btCable_getNumberOfLink(btCable* obj);
 
-	EXPORT btScalar btCable_getLengthOfCableByPositions(btCable* obj);
-	EXPORT btScalar btCable_getLengthOfCableByLinks(btCable* obj);
+	EXPORT btScalar btCable_getLength(btCable* obj);
+	EXPORT btScalar btCable_getRestLength(btCable* obj);
 
 	EXPORT void btCable_Node_GetPosition(btCable* obj, int index, btVector3* position);
 	EXPORT void btCable_Node_SetPosition(btCable* obj, int index, btVector3 position);

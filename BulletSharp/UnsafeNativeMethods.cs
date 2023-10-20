@@ -7551,10 +7551,10 @@ namespace BulletSharp
 		public static extern int btCable_getNumberOfLink(IntPtr cable);
 		
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern double btCable_getLengthOfCableByPositions(IntPtr cable);
+		public static extern double btCable_getLength(IntPtr cable);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern double btCable_getLengthOfCableByLinks(IntPtr cable);
+		public static extern double btCable_getRestLength(IntPtr cable);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btCable_Node_GetPosition(IntPtr cable, int index, out Vector3 position);
