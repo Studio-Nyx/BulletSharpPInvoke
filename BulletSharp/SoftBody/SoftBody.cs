@@ -2936,6 +2936,11 @@ namespace BulletSharp.SoftBody
 		{
 			btSoftBody_rotate(Native, ref rot);
 		}
+		
+		public void RotateWithTranslation(Quaternion rot, Vector3 trs)
+		{
+			btSoftBody_rotateWithTranslation(Native, ref rot, ref trs);
+		}
 
 		public void Scale(Vector3 scl)
 		{

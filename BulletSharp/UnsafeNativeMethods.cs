@@ -5451,6 +5451,8 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBody_rotate(IntPtr obj, [In] ref Quaternion rot);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btSoftBody_rotateWithTranslation(IntPtr obj, [In] ref Quaternion rot, [In] ref Vector3 trs);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBody_scale(IntPtr obj, [In] ref Vector3 scl);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBody_setBUpdateRtCst(IntPtr obj, bool value);

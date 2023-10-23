@@ -600,6 +600,7 @@ extern "C" {
 	EXPORT void btSoftBody_releaseClusters(btSoftBody* obj);
 	EXPORT void btSoftBody_resetLinkRestLengths(btSoftBody* obj);
 	EXPORT void btSoftBody_rotate(btSoftBody* obj, const btQuaternion* rot);
+	EXPORT void btSoftBody_rotateWithTranslation(btSoftBody* obj, const btQuaternion* rot, const btVector3* trs);
 	EXPORT void btSoftBody_scale(btSoftBody* obj, const btVector3* scl);
 	EXPORT void btSoftBody_setBUpdateRtCst(btSoftBody* obj, bool value);
 	EXPORT void btSoftBody_setDampingCoefficient(btSoftBody* obj, btScalar damping_coeff);

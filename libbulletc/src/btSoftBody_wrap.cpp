@@ -2806,6 +2806,13 @@ void btSoftBody_rotate(btSoftBody* obj, const btQuaternion* rot)
 	obj->rotate(BTQUATERNION_USE(rot));
 }
 
+void btSoftBody_rotateWithTranslation(btSoftBody* obj, const btQuaternion* rot, const btVector3* trs)
+{
+	BTQUATERNION_IN(rot);
+	BTVECTOR3_IN(trs);
+	obj->rotateWithTranslation(BTQUATERNION_USE(rot), BTVECTOR3_USE(trs));
+}
+
 void btSoftBody_scale(btSoftBody* obj, const btVector3* scl)
 {
 	BTVECTOR3_IN(scl);
