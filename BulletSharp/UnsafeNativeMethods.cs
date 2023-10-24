@@ -7692,6 +7692,9 @@ namespace BulletSharp
 		public static extern int btGetHydroNodesNumber(IntPtr obj);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern IntPtr btGetActiveNodesPos(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern int btGetActiveNodesNumber(IntPtr obj);
 	}
 }

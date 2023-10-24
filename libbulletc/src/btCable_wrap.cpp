@@ -265,3 +265,13 @@ void btSetHorizonDrop(btCable* obj, float value)
 {
 	obj->setHorizonDrop(value);
 }
+
+btCable::NodePos* btGetActiveNodesPos(btCable* obj)
+{
+	return obj->getActiveNodesPos();
+}
+
+int btGetActiveNodesNumber(btCable* obj)
+{
+	return obj->getActiveNodesNumber();
+}

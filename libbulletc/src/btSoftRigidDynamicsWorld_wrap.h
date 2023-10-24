@@ -18,7 +18,6 @@ extern "C" {
 	EXPORT void* btGetNodesData(btSoftRigidDynamicsWorld* obj);
 	EXPORT int* btGetCableIndexesArray(btSoftRigidDynamicsWorld* obj);
 	EXPORT int btGetHydroNodesNumber(btSoftRigidDynamicsWorld* obj);
-	EXPORT int btGetActiveNodesNumber(btSoftRigidDynamicsWorld* obj);
 #ifdef __cplusplus
 }
 #endif

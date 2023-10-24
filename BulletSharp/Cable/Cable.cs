@@ -276,6 +276,16 @@ namespace BulletSharp.SoftBody
 			btSetHorizonDrop(Native, value);
 		}
 
+		public IntPtr GetActiveNodesPos()
+		{
+			return btGetActiveNodesPos(Native);
+		}
+
+		public int GetTotalActiveNodesNumber()
+		{
+			return btGetActiveNodesNumber(Native);
+		}
+
 		[StructLayout(LayoutKind.Sequential)]
 		public struct CableData
 		{

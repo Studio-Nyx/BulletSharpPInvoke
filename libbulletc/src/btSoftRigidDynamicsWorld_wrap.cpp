@@ -85,9 +85,4 @@ int btGetHydroNodesNumber(btSoftRigidDynamicsWorld* obj)
 	return obj->getHydroNodesNumber();
 }
 
-int btGetActiveNodesNumber(btSoftRigidDynamicsWorld* obj)
-{
-	return obj->getActiveNodesNumber();
-}
-
 
