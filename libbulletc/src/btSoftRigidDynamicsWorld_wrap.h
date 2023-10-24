@@ -12,12 +12,13 @@ extern "C" {
 	EXPORT btSoftBodyWorldInfo* btSoftRigidDynamicsWorld_getWorldInfo(btSoftRigidDynamicsWorld* obj);
 	EXPORT void btSoftRigidDynamicsWorld_removeSoftBody(btSoftRigidDynamicsWorld* obj, btSoftBody* body);
 	EXPORT void btSoftRigidDynamicsWorld_setDrawFlags(btSoftRigidDynamicsWorld* obj, int f);
-	EXPORT void btUpdateCablesNodesData(btSoftRigidDynamicsWorld* obj);
 	EXPORT bool btUpdateCableForces(btSoftRigidDynamicsWorld* obj, btSoftBody_NodeForces* co, int size);
 	EXPORT void* btGetCablesData(btSoftRigidDynamicsWorld* obj);
 	EXPORT void* btGetNodesPos(btSoftRigidDynamicsWorld* obj);
 	EXPORT void* btGetNodesData(btSoftRigidDynamicsWorld* obj);
 	EXPORT int* btGetCableIndexesArray(btSoftRigidDynamicsWorld* obj);
+	EXPORT int btGetHydroNodesNumber(btSoftRigidDynamicsWorld* obj);
+	EXPORT int btGetActiveNodesNumber(btSoftRigidDynamicsWorld* obj);
 #ifdef __cplusplus
 }
 #endif

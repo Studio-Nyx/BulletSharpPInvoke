@@ -88,9 +88,15 @@ namespace BulletSharp.SoftBody
 			}
 			base.Dispose(disposing);
 		}
-		public void UpdateCablesNodesData()
+
+		public int GetHydroNodesNumber()
 		{
-			btUpdateCablesNodesData(Native);
+			return btGetHydroNodesNumber(Native);
+		}
+		
+		public int GetActiveNodesNumber()
+		{
+			return btGetActiveNodesNumber(Native);
 		}
 
 		public bool UpdateCableForces(IntPtr strc, int size)

@@ -284,6 +284,8 @@ namespace BulletSharp.SoftBody
 			public float tangentDragCoefficient;
 			public float normalDragCoefficient;
 			public float horizonDrop;
+			public int startIndex;
+			public int endIndex;
 		};
 	}
 }
