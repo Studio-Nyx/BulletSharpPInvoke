@@ -72,9 +72,9 @@ extern "C" {
 
 	EXPORT void btSetHorizonDrop(btCable* obj, float value);
 
-	EXPORT btCable::NodePos* btGetActiveNodesPos(btCable* obj);
+	EXPORT void* btGetCableNodesPos(btCable* obj);
 
-	EXPORT int btGetActiveNodesNumber(btCable* obj);
+	EXPORT int btGetNodesNumber(btCable* obj);
 
 #ifdef __cplusplus
 }

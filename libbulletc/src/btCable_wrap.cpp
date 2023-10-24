@@ -247,9 +247,8 @@ void btCable_Collision_SetActive(btCable* obj, bool active)
 
 bool btUpdateCableData(btCable* obj, btCable::CableData &cableData)
 {
-	return obj->UpdateCableData(cableData);
+	return obj->updateCableData(cableData);
 }
-
 
 bool btGetUseHydroAero(btCable* obj)
 {
@@ -266,12 +265,12 @@ void btSetHorizonDrop(btCable* obj, float value)
 	obj->setHorizonDrop(value);
 }
 
-btCable::NodePos* btGetActiveNodesPos(btCable* obj)
+void* btGetCableNodesPos(btCable* obj)
 {
-	return obj->getActiveNodesPos();
+	return obj->getCableNodesPos();
 }
 
-int btGetActiveNodesNumber(btCable* obj)
+int btGetNodesNumber(btCable* obj)
 {
-	return obj->getActiveNodesNumber();
+	return obj->getNodesNumber();
 }

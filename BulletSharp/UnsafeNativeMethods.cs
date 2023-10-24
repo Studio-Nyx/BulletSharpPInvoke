@@ -7688,13 +7688,23 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSetHorizonDrop(IntPtr obj, float value);
 
+		// Total nodes number with hydro and aero
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern int btGetHydroNodesNumber(IntPtr obj);
 
+		// Total activated nodes number
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btGetActiveNodesPos(IntPtr obj);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern int btGetActiveNodesNumber(IntPtr obj);
+
+		// Single cable node number
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern int btGetNodesNumber(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern IntPtr btGetCableNodesPos(IntPtr obj);
+
 	}
 }
