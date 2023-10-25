@@ -74,8 +74,6 @@ extern "C" {
 
 	EXPORT void* btGetCableNodesPos(btCable* obj);
 
-	EXPORT int btGetNodesNumber(btCable* obj);
-
 #ifdef __cplusplus
 }
 #endif

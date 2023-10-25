@@ -7699,10 +7699,6 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern int btGetActiveNodesNumber(IntPtr obj);
 
-		// Single cable node number
-		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern int btGetNodesNumber(IntPtr obj);
-
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btGetCableNodesPos(IntPtr obj);
 

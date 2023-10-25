@@ -276,11 +276,6 @@ namespace BulletSharp.SoftBody
 			btSetHorizonDrop(Native, value);
 		}
 
-		public int GetNodesNumber()
-        {
-			return btGetNodesNumber(Native);
-        }
-
 		public IntPtr GetCableNodesPos()
         {
 			return btGetCableNodesPos(Native);
