@@ -5,11 +5,18 @@
 
 #include "btSoftRigidDynamicsWorld_wrap.h"
 
-btSoftRigidDynamicsWorld* btSoftRigidDynamicsWorld_new(btDispatcher* dispatcher,
-	btBroadphaseInterface* pairCache, btConstraintSolver* constraintSolver, btCollisionConfiguration* collisionConfiguration,
+//btSoftRigidDynamicsWorld* btSoftRigidDynamicsWorld_new(btDispatcher* dispatcher,
+//	btBroadphaseInterface* pairCache, btConstraintSolver* constraintSolver, btCollisionConfiguration* collisionConfiguration,
+//	btSoftBodySolver* softBodySolver)
+//{
+//	return new btSoftRigidDynamicsWorld(dispatcher, pairCache, constraintSolver,
+//		collisionConfiguration, softBodySolver);
+//}
+
+btSoftRigidDynamicsWorld* btSoftRigidDynamicsWorld_new(btSoftBodyWorldInfo* worldInfo, btConstraintSolver* constraintSolver, btCollisionConfiguration* collisionConfiguration,
 	btSoftBodySolver* softBodySolver)
 {
-	return new btSoftRigidDynamicsWorld(dispatcher, pairCache, constraintSolver,
+	return new btSoftRigidDynamicsWorld(worldInfo, constraintSolver,
 		collisionConfiguration, softBodySolver);
 }
 

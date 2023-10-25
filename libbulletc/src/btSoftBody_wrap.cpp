@@ -98,9 +98,29 @@ btScalar btSoftBodyWorldInfo_getWater_offset(btSoftBodyWorldInfo* obj)
 	return obj->water_offset;
 }
 
+int btSoftBodyWorldInfo_getMaxCableNumber(btSoftBodyWorldInfo* obj)
+{
+	return obj->maxCableNumber;
+}
+
+int btSoftBodyWorldInfo_getMaxNodeNumber(btSoftBodyWorldInfo* obj)
+{
+	return obj->maxNodeNumber;
+}
+
 void btSoftBodyWorldInfo_setAir_density(btSoftBodyWorldInfo* obj, btScalar value)
 {
 	obj->air_density = value;
+}
+
+void btSoftBodyWorldInfo_setMaxCableNumber(btSoftBodyWorldInfo* obj, int value)
+{
+	obj->maxCableNumber = value;
+}
+
+void btSoftBodyWorldInfo_setMaxNodeNumber(btSoftBodyWorldInfo* obj, int value)
+{
+	obj->maxNodeNumber = value;
 }
 
 void btSoftBodyWorldInfo_setBroadphase(btSoftBodyWorldInfo* obj, btBroadphaseInterface* value)

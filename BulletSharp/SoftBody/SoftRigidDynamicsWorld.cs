@@ -9,29 +9,53 @@ namespace BulletSharp.SoftBody
 		private SoftBodySolver _softBodySolver; // private ref passed to bodies during AddSoftBody
 		private bool _ownsSolver;
 
-		public SoftRigidDynamicsWorld(Dispatcher dispatcher, BroadphaseInterface pairCache,
+		//public SoftRigidDynamicsWorld(Dispatcher dispatcher, BroadphaseInterface pairCache,
+		//	ConstraintSolver constraintSolver, CollisionConfiguration collisionConfiguration,
+		//	SoftBodySolver softBodySolver = null)
+		//{
+		//	if (softBodySolver != null) {
+		//		_softBodySolver = softBodySolver;
+		//		_ownsSolver = false;
+		//	} else {
+		//		_softBodySolver = new DefaultSoftBodySolver();
+		//		_ownsSolver = true;
+		//	}
+
+		//	IntPtr native = btSoftRigidDynamicsWorld_new(dispatcher.Native, pairCache.Native,
+		//		(constraintSolver != null) ? constraintSolver.Native : IntPtr.Zero,
+		//		collisionConfiguration.Native, _softBodySolver.Native);
+		//	InitializeUserOwned(native);
+		//	InitializeMembers(dispatcher, pairCache, constraintSolver);
+
+		//	WorldInfo = new SoftBodyWorldInfo(btSoftRigidDynamicsWorld_getWorldInfo(Native), this)
+		//	{
+		//		Dispatcher = dispatcher,
+		//		Broadphase = pairCache
+		//	};
+		//}
+
+		public SoftRigidDynamicsWorld(SoftBodyWorldInfo worldInfo,
 			ConstraintSolver constraintSolver, CollisionConfiguration collisionConfiguration,
 			SoftBodySolver softBodySolver = null)
 		{
-			if (softBodySolver != null) {
+			if (softBodySolver != null)
+			{
 				_softBodySolver = softBodySolver;
 				_ownsSolver = false;
-			} else {
+			}
+			else
+			{
 				_softBodySolver = new DefaultSoftBodySolver();
 				_ownsSolver = true;
 			}
 
-			IntPtr native = btSoftRigidDynamicsWorld_new(dispatcher.Native, pairCache.Native,
+			IntPtr native = btSoftRigidDynamicsWorld_new(worldInfo.Native,
 				(constraintSolver != null) ? constraintSolver.Native : IntPtr.Zero,
 				collisionConfiguration.Native, _softBodySolver.Native);
 			InitializeUserOwned(native);
-			InitializeMembers(dispatcher, pairCache, constraintSolver);
+			InitializeMembers(worldInfo.Dispatcher, worldInfo.Broadphase, constraintSolver);
 
-			WorldInfo = new SoftBodyWorldInfo(btSoftRigidDynamicsWorld_getWorldInfo(Native), this)
-			{
-				Dispatcher = dispatcher,
-				Broadphase = pairCache
-			};
+			WorldInfo = worldInfo;
 		}
 
 		public void AddSoftBody(SoftBody body)

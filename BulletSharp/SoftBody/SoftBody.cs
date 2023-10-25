@@ -94,6 +94,8 @@ namespace BulletSharp.SoftBody
 		private BroadphaseInterface _broadphase;
 		private Dispatcher _dispatcher;
 		private SparseSdf _sparseSdf;
+		private int _maxCableNumber;
+		private int _maxNodeNumber;
 
 		internal SoftBodyWorldInfo(IntPtr native, BulletObject owner)
 		{
@@ -182,6 +184,28 @@ namespace BulletSharp.SoftBody
 		{
 			get => btSoftBodyWorldInfo_getWater_offset(Native);
 			set => btSoftBodyWorldInfo_setWater_offset(Native, value);
+		}
+
+		public int MaxCableNumber
+		{
+			get => btSoftBodyWorldInfo_getMaxCableNumber(Native);
+			set
+			{ 
+				btSoftBodyWorldInfo_setMaxCableNumber(Native, value);
+				_maxCableNumber = value;
+			}
+
+		}
+
+
+		public int MaxNodeNumber
+		{
+			get => btSoftBodyWorldInfo_getMaxNodeNumber(Native);
+			set
+			{
+				btSoftBodyWorldInfo_setMaxNodeNumber(Native, value);
+				_maxNodeNumber = value;
+			}
 		}
 
 		protected override void Dispose(bool disposing)

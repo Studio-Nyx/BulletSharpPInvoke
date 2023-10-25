@@ -55,6 +55,8 @@ extern "C" {
 	EXPORT btScalar btSoftBodyWorldInfo_getWater_density(btSoftBodyWorldInfo* obj);
 	EXPORT void btSoftBodyWorldInfo_getWater_normal(btSoftBodyWorldInfo* obj, btVector3* value);
 	EXPORT btScalar btSoftBodyWorldInfo_getWater_offset(btSoftBodyWorldInfo* obj);
+	EXPORT int btSoftBodyWorldInfo_getMaxCableNumber(btSoftBodyWorldInfo* obj);
+	EXPORT int btSoftBodyWorldInfo_getMaxNodeNumber(btSoftBodyWorldInfo* obj);
 	EXPORT void btSoftBodyWorldInfo_setAir_density(btSoftBodyWorldInfo* obj, btScalar value);
 	EXPORT void btSoftBodyWorldInfo_setBroadphase(btSoftBodyWorldInfo* obj, btBroadphaseInterface* value);
 	EXPORT void btSoftBodyWorldInfo_setDispatcher(btSoftBodyWorldInfo* obj, btDispatcher* value);
@@ -63,6 +65,8 @@ extern "C" {
 	EXPORT void btSoftBodyWorldInfo_setWater_density(btSoftBodyWorldInfo* obj, btScalar value);
 	EXPORT void btSoftBodyWorldInfo_setWater_normal(btSoftBodyWorldInfo* obj, const btVector3* value);
 	EXPORT void btSoftBodyWorldInfo_setWater_offset(btSoftBodyWorldInfo* obj, btScalar value);
+	EXPORT void btSoftBodyWorldInfo_setMaxCableNumber(btSoftBodyWorldInfo* obj, int value);
+	EXPORT void btSoftBodyWorldInfo_setMaxNodeNumber(btSoftBodyWorldInfo* obj, int value);
 	EXPORT void btSoftBodyWorldInfo_delete(btSoftBodyWorldInfo* obj);
 
 	EXPORT btSoftBody_AJoint_IControlWrapper* btSoftBody_AJoint_IControlWrapper_new(

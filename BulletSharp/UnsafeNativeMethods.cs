@@ -6410,6 +6410,10 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern double btSoftBodyWorldInfo_getWater_offset(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern int btSoftBodyWorldInfo_getMaxCableNumber(IntPtr obj);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern int btSoftBodyWorldInfo_getMaxNodeNumber(IntPtr obj);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBodyWorldInfo_setAir_density(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBodyWorldInfo_setBroadphase(IntPtr obj, IntPtr value);
@@ -6426,6 +6430,10 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBodyWorldInfo_setWater_offset(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btSoftBodyWorldInfo_setMaxCableNumber(IntPtr obj, double value);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btSoftBodyWorldInfo_setMaxNodeNumber(IntPtr obj, double value);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBodyWorldInfo_delete(IntPtr obj);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
@@ -6434,8 +6442,10 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btSoftRigidCollisionAlgorithm_new(IntPtr mf, IntPtr ci, IntPtr col0, IntPtr col1Wrap, bool isSwapped);
 
+		//[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		//public static extern IntPtr btSoftRigidDynamicsWorld_new(IntPtr dispatcher, IntPtr pairCache, IntPtr constraintSolver, IntPtr collisionConfiguration, IntPtr softBodySolver);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern IntPtr btSoftRigidDynamicsWorld_new(IntPtr dispatcher, IntPtr pairCache, IntPtr constraintSolver, IntPtr collisionConfiguration, IntPtr softBodySolver);
+		public static extern IntPtr btSoftRigidDynamicsWorld_new(IntPtr worldInfo, IntPtr constraintSolver, IntPtr collisionConfiguration, IntPtr softBodySolver);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftRigidDynamicsWorld_addSoftBody(IntPtr obj, IntPtr body);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
