@@ -6430,9 +6430,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBodyWorldInfo_setWater_offset(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btSoftBodyWorldInfo_setMaxCableNumber(IntPtr obj, double value);
+		public static extern void btSoftBodyWorldInfo_setMaxCableNumber(IntPtr obj, int value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btSoftBodyWorldInfo_setMaxNodeNumber(IntPtr obj, double value);
+		public static extern void btSoftBodyWorldInfo_setMaxNodeNumber(IntPtr obj, int value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBodyWorldInfo_delete(IntPtr obj);
 

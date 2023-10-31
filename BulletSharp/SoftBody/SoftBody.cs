@@ -94,8 +94,6 @@ namespace BulletSharp.SoftBody
 		private BroadphaseInterface _broadphase;
 		private Dispatcher _dispatcher;
 		private SparseSdf _sparseSdf;
-		private int _maxCableNumber;
-		private int _maxNodeNumber;
 
 		internal SoftBodyWorldInfo(IntPtr native, BulletObject owner)
 		{
@@ -192,7 +190,6 @@ namespace BulletSharp.SoftBody
 			set
 			{ 
 				btSoftBodyWorldInfo_setMaxCableNumber(Native, value);
-				_maxCableNumber = value;
 			}
 
 		}
@@ -204,7 +201,6 @@ namespace BulletSharp.SoftBody
 			set
 			{
 				btSoftBodyWorldInfo_setMaxNodeNumber(Native, value);
-				_maxNodeNumber = value;
 			}
 		}
 
