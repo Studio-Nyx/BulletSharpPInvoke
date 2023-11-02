@@ -269,3 +269,8 @@ void* btGetCableNodesPos(btCable* obj)
 {
 	return obj->getCableNodesPos();
 }
+
+int btGetCableState(btCable* obj)
+{
+	return obj->getCableState();
+}

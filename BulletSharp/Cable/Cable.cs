@@ -9,6 +9,8 @@ namespace BulletSharp.SoftBody
 {
     public class Cable : SoftBody
 	{
+		private CableState _cableState = CableState.Valid;
+
 		public Cable(SoftBodyWorldInfo worldInfo, CollisionWorld world, int nodeCount, Vector3[] positions, double[] masses) :
 			 base(CreateCable(worldInfo, world, nodeCount, positions, masses))
 		{
@@ -281,6 +283,12 @@ namespace BulletSharp.SoftBody
 			return btGetCableNodesPos(Native);
         }
 
+		public CableState GetCableState()
+		{
+			_cableState = (CableState)btGetCableState(Native);
+			return _cableState;
+		}
+
 		[StructLayout(LayoutKind.Sequential)]
 		public struct CableData
 		{
@@ -292,5 +300,13 @@ namespace BulletSharp.SoftBody
 			public int startIndex;
 			public int endIndex;
 		};
+
+		public enum CableState
+		{
+			Valid = 0,
+			InternalForcesError = 1,
+			ExternalForcesError = 2
+		};
+
 	}
 }
