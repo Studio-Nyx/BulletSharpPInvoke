@@ -32,9 +32,9 @@ void btCable_removeAnchorAt(btCable* obj, int index)
 	obj->m_anchors.removeAtIndex(index);
 }
 
-void btCable_getImpulseAt(btCable* obj, int index, btVector3* impulse)
+void btCable_getTensionAt(btCable* obj, int index, btVector3* impulse)
 {
-	BTVECTOR3_SET(impulse, obj->getImpulse(index));
+	BTVECTOR3_SET(impulse, obj->getTensionAt(index));
 }
 
 int btCable_getNumberOfNode(btCable* obj)

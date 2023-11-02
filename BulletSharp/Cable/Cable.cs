@@ -37,9 +37,9 @@ namespace BulletSharp.SoftBody
 			btCable_removeAnchorAt(Native, index);
 		}
 
-		public void GetImpulseAt(int index, out Vector3 impulse)
+		public void GetTensionAt(int index, out Vector3 impulse)
         {
-            btCable_getImpulseAt(Native, index, out impulse);
+	        btCable_getTensionAt(Native, index, out impulse);
 		}
         
 	    public int GetNumberOfNode()
