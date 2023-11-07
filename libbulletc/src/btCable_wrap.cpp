@@ -274,3 +274,9 @@ int btGetCableState(btCable* obj)
 {
 	return obj->getCableState();
 }
+
+void btCable_appendNode(btSoftBody* obj, const btVector3* x, btScalar m)
+{
+	BTVECTOR3_IN(x);
+	obj->appendNode(BTVECTOR3_USE(x), m);
+}

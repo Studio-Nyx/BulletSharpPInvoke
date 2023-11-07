@@ -7715,5 +7715,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern int btGetCableState(IntPtr obj);
 
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_appendNode(IntPtr obj, [In] ref Vector3 x, double m);
+
 	}
 }

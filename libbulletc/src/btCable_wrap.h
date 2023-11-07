@@ -76,6 +76,8 @@ extern "C" {
 
 	EXPORT int btGetCableState(btCable* obj);
 
+	EXPORT void btCable_appendNode(btSoftBody* obj, const btVector3* x, btScalar m);
+
 #ifdef __cplusplus
 }
 #endif

@@ -307,6 +307,10 @@ namespace BulletSharp.SoftBody
 			InternalForcesError = 1,
 			ExternalForcesError = 2
 		};
+		public void AppendNode(Vector3 x, double m)
+		{
+			btCable_appendNode(Native, ref x, m);
+		}
 
 	}
 }
