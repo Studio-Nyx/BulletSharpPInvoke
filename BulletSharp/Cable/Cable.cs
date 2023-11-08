@@ -312,5 +312,18 @@ namespace BulletSharp.SoftBody
 			btCable_appendNode(Native, ref x, m);
 		}
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="substepDelayCollision"> Number of step before each iteration of the collision solver </param>
+        /// <param name="subIterationCollision"> Number of iteration of each multicontact node in the collision solver</param>
+        /// <param name="correctionNormal"> Additional distance add on the normal on node colllision resolution </param>
+        /// <param name="safeDirectionThreshold"> Safe distance add to dectect collision</param>
+        /// <param name="sleepingThreshold"> Sleeping threshold </param>
+		public void SetCollisionParameters(int substepDelayCollision = 3, int subIterationCollision= 3, double correctionNormal=0.005, double safeDirectionThreshold=0.01, double sleepingThreshold=0.0001)
+        {
+			btCable_setCollisionParameters(Native, substepDelayCollision, subIterationCollision, correctionNormal, safeDirectionThreshold, sleepingThreshold);
+		}
+
 	}
 }

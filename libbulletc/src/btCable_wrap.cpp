@@ -280,3 +280,7 @@ void btCable_appendNode(btSoftBody* obj, const btVector3* x, btScalar m)
 	BTVECTOR3_IN(x);
 	obj->appendNode(BTVECTOR3_USE(x), m);
 }
+
+void btCable_setCollisionParameters(btCable* obj, int substepDelayCollision, int subIterationCollision, btScalar correctionNormal, btScalar safeDirectionThreshold, btScalar sleepingThreshold) {
+	obj->setCollisionParameters(substepDelayCollision, subIterationCollision, correctionNormal, safeDirectionThreshold, sleepingThreshold);
+}
