@@ -67,6 +67,10 @@ extern "C" {
 	EXPORT void btSoftBodyWorldInfo_setWater_offset(btSoftBodyWorldInfo* obj, btScalar value);
 	EXPORT void btSoftBodyWorldInfo_setMaxCableNumber(btSoftBodyWorldInfo* obj, int value);
 	EXPORT void btSoftBodyWorldInfo_setMaxNodeNumber(btSoftBodyWorldInfo* obj, int value);
+
+	EXPORT int btSoftBodyWorldInfo_getNumIteration(btSoftBodyWorldInfo* obj);
+	EXPORT void btSoftBodyWorldInfo_setNumIteration(btSoftBodyWorldInfo* obj, int value);
+
 	EXPORT void btSoftBodyWorldInfo_delete(btSoftBodyWorldInfo* obj);
 
 	EXPORT btSoftBody_AJoint_IControlWrapper* btSoftBody_AJoint_IControlWrapper_new(

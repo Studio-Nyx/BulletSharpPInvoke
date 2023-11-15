@@ -158,6 +158,18 @@ void btSoftBodyWorldInfo_setWater_offset(btSoftBodyWorldInfo* obj, btScalar valu
 	obj->water_offset = value;
 }
 
+int btSoftBodyWorldInfo_getNumIteration(btSoftBodyWorldInfo* obj)
+{
+	return obj->numIteration;
+}
+
+void btSoftBodyWorldInfo_setNumIteration(btSoftBodyWorldInfo* obj,int value)
+{
+	obj->numIteration = value;
+	return;
+}
+
+
 void btSoftBodyWorldInfo_delete(btSoftBodyWorldInfo* obj)
 {
 	delete obj;
