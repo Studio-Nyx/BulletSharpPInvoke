@@ -293,7 +293,6 @@ namespace BulletSharp.SoftBody
 		public struct CableData
 		{
 			public float radius;
-			public float nodeMass;
 			public float tangentDragCoefficient;
 			public float normalDragCoefficient;
 			public float horizonDrop;
