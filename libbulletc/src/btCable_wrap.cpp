@@ -28,8 +28,18 @@ void btCable_removeNodeAt(btCable* obj, int index)
 
 void btCable_removeAnchorAt(btCable* obj, int index)
 {
-	obj->m_anchors[index].m_node->m_battach = 0;
+	int idxNode = obj->m_anchors[index].m_node->index;
 	obj->m_anchors.removeAtIndex(index);
+
+	for (int i = 0; i < obj->m_anchors.size(); i++)
+	{
+		if (idxNode == obj->m_anchors[i].m_node->index) 
+		{
+			return;
+		}
+	}
+		
+	obj->m_anchors[index].m_node->m_battach = 0;
 }
 
 void btCable_getTensionAt(btCable* obj, int index, btVector3* impulse)
