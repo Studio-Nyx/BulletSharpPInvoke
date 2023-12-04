@@ -33,13 +33,17 @@ void btCable_removeAnchorAt(btCable* obj, int index)
 
 	for (int i = 0; i < obj->m_anchors.size(); i++)
 	{
-		if (idxNode == obj->m_anchors[i].m_node->index) 
+		if (idxNode == obj->m_anchors[i].m_node->index)
 		{
 			return;
 		}
 	}
-		
+
 	obj->m_anchors[index].m_node->m_battach = 0;
+
+
+	// Update rigidbody count and clamp count to avoid divergence
+	obj->m_anchors[index].m_body->m_anchorsCount = max(0, obj->m_anchors[index].m_body->m_anchorsCount - 1);
 }
 
 void btCable_getTensionAt(btCable* obj, int index, btVector3* impulse)
@@ -148,7 +152,7 @@ bool btCable_Anchor_HasNode(btCable* obj, int index)
 	{
 		return obj->m_anchors[index].m_node != nullptr;
 	}
-	catch(exception e)
+	catch (exception e)
 	{
 		return false;
 	}
@@ -195,7 +199,7 @@ void btCable_Link_SetRestLength(btCable* obj, int index, btScalar rl)
 	obj->m_links[index].m_c1 = obj->m_links[index].m_rl * obj->m_links[index].m_rl;
 }
 
-bool btCable_LRA_GetActive(btCable* obj) 
+bool btCable_LRA_GetActive(btCable* obj)
 {
 	return obj->getUseLRA();
 }
@@ -255,7 +259,7 @@ void btCable_Collision_SetActive(btCable* obj, bool active)
 	obj->setUseCollision(active);
 }
 
-bool btUpdateCableData(btCable* obj, btCable::CableData &cableData)
+bool btUpdateCableData(btCable* obj, btCable::CableData& cableData)
 {
 	return obj->updateCableData(cableData);
 }
