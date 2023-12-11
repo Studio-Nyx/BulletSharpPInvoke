@@ -29,8 +29,13 @@ void btCable_removeNodeAt(btCable* obj, int index)
 void btCable_removeAnchorAt(btCable* obj, int index)
 {
 	int idxNode = obj->m_anchors[index].m_node->index;
+
+	// Update rigidbody count and clamp count to avoid divergence
+	obj->m_anchors[index].m_body->m_anchorsCount = max(0, obj->m_anchors[index].m_body->m_anchorsCount - 1);
+
 	obj->m_anchors.removeAtIndex(index);
 
+	// Search if another anchor is attached to the node used by the removed one
 	for (int i = 0; i < obj->m_anchors.size(); i++)
 	{
 		if (idxNode == obj->m_anchors[i].m_node->index)
@@ -39,11 +44,7 @@ void btCable_removeAnchorAt(btCable* obj, int index)
 		}
 	}
 
-	obj->m_anchors[index].m_node->m_battach = 0;
-
-
-	// Update rigidbody count and clamp count to avoid divergence
-	obj->m_anchors[index].m_body->m_anchorsCount = max(0, obj->m_anchors[index].m_body->m_anchorsCount - 1);
+	obj->m_nodes[idxNode].m_battach = 0;
 }
 
 void btCable_getTensionAt(btCable* obj, int index, btVector3* impulse)
