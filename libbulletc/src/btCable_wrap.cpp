@@ -299,3 +299,12 @@ void btCable_appendNode(btSoftBody* obj, const btVector3* x, btScalar m)
 void btCable_setCollisionParameters(btCable* obj, int substepDelayCollision, int subIterationCollision, btScalar sleepingThreshold) {
 	obj->setCollisionParameters(substepDelayCollision, subIterationCollision, sleepingThreshold);
 }
+
+
+float btCable_getCollisionMargin(btCable* obj) {
+	return obj->getCollisionMargin();
+}
+
+void btCable_setCollisionMargin(btCable* obj, float collisionMargin) {
+	obj->setCollisionMargin(collisionMargin);
+}

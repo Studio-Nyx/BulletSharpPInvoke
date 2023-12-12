@@ -324,5 +324,15 @@ namespace BulletSharp.SoftBody
 			btCable_setCollisionParameters(Native, substepDelayCollision, subIterationCollision, sleepingThreshold);
 		}
 
+
+		public void SetCollisionMargin(float collisionMargin)
+		{
+			btCable_setCollisionMargin(Native, collisionMargin);
+		}
+		public float GetCollisionMargin()
+		{
+			return btCable_getCollisionMargin(Native);
+		}
+
 	}
 }

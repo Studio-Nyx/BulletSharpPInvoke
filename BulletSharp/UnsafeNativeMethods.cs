@@ -7731,5 +7731,15 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btCable_setCollisionParameters(IntPtr obj, int substepDelayCollision, int subIterationCollision, double sleepingThreshold);
 
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_setCollisionMargin(IntPtr obj, float collisionMargin);
+		
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+
+		public static extern float btCable_getCollisionMargin(IntPtr obj);
+
+
 	}
 }

@@ -80,6 +80,12 @@ extern "C" {
 
 	EXPORT void btCable_setCollisionParameters(btCable* obj, int substepDelayCollision, int subIterationCollision,btScalar sleepingThreshold);
 
+	EXPORT float btCable_getCollisionMargin(btCable* obj);
+
+	EXPORT void btCable_setCollisionMargin(btCable* obj, float collisionMargin);
+
+
+
 #ifdef __cplusplus
 }
 #endif
