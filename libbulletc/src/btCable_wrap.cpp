@@ -32,7 +32,7 @@ void btCable_removeAnchorAt(btCable* obj, int index)
 
 	// Update rigidbody count and clamp count to avoid divergence
 	obj->m_anchors[index].m_body->m_anchorsCount = max(0, obj->m_anchors[index].m_body->m_anchorsCount - 1);
-
+	obj->m_collisionDisabledObjects.remove(obj->m_anchors[index].m_body);
 	obj->m_anchors.removeAtIndex(index);
 
 	// Search if another anchor is attached to the node used by the removed one
