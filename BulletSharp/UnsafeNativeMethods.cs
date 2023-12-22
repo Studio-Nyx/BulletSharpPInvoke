@@ -4789,7 +4789,16 @@ namespace BulletSharp
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btRigidBody_setMaxAngularVelocity(IntPtr obj, double maxA);
-
+		
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btRigidBody_addKinematic(IntPtr obj, IntPtr toAdd);
+        		
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btRigidBody_removeKinematic(IntPtr obj, IntPtr toRemove);
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]		
+        public static extern void btRigidBody_setLocalTransform(IntPtr obj, [In] ref Matrix xform);		
+		
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btRotationalLimitMotor_new();
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
@@ -7737,9 +7746,7 @@ namespace BulletSharp
 		
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-
 		public static extern float btCable_getCollisionMargin(IntPtr obj);
-
 
 	}
 }

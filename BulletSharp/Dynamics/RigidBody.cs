@@ -278,6 +278,21 @@ namespace BulletSharp
 			return btRigidBody_wantsSleeping(Native);
 		}
 
+        public void AddKinematic(RigidBody toAdd)
+        {
+            btRigidBody_addKinematic(Native, toAdd.Native);
+        }
+        
+        public void RemoveKinematic(RigidBody toRemove)
+        {
+            btRigidBody_removeKinematic(Native, toRemove.Native);
+        }
+
+        public void SetLocalTransform(Matrix localTransform)
+        {
+            btRigidBody_setLocalTransform(Native, ref localTransform);
+        }
+        
 		public double AngularDamping => btRigidBody_getAngularDamping(Native);
 
 		public Vector3 AngularFactor

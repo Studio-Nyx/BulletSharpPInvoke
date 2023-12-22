@@ -115,6 +115,10 @@ extern "C" {
 	EXPORT bool btRigidBody_wantsSleeping(btRigidBody* obj);
 	EXPORT void btRigidBody_setMaxLinearVelocity(btRigidBody* obj, btScalar maxL);
 	EXPORT void btRigidBody_setMaxAngularVelocity(btRigidBody* obj, btScalar maxA);
+
+	EXPORT void btRigidBody_addKinematic(btRigidBody* obj, btRigidBody* toAdd);
+	EXPORT void btRigidBody_removeKinematic(btRigidBody* obj, btRigidBody* toRemove);
+	EXPORT void btRigidBody_setLocalTransform(btRigidBody* obj, const btTransform* transform);
 #ifdef __cplusplus
 }
 #endif

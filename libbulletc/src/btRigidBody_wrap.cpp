@@ -625,3 +625,26 @@ void btRigidBody_setMaxAngularVelocity(btRigidBody* obj, btScalar maxA)
 {
 	obj->setMaxAngularVelocity(maxA);
 }
+
+void btRigidBody_addKinematic(btRigidBody* obj, btRigidBody* toAdd)
+{
+	obj->m_kinematicChildren.push_back(toAdd);
+}
+
+void btRigidBody_removeKinematic(btRigidBody* obj, btRigidBody* toRemove)
+{
+	for (int index = 0; index < obj->m_kinematicChildren.size(); index++)
+	{
+		if (obj->m_kinematicChildren[index] == toRemove) 
+		{
+			obj->m_kinematicChildren.erase(obj->m_kinematicChildren.begin() + index);
+			return;
+		}
+	}
+}
+
+void btRigidBody_setLocalTransform(btRigidBody* obj, const btTransform* transform)
+{
+	BTTRANSFORM_IN(transform);
+	obj->m_localTransform = BTTRANSFORM_USE(transform);
+}
