@@ -6,7 +6,7 @@ using namespace std;
 extern "C" {
 #endif
 	// Constructor
-	EXPORT btCable* btCable_new(btSoftBodyWorldInfo* worldInfo,btCollisionWorld* world, int node_count, const btScalar* x, const btScalar* m);
+	EXPORT btCable* btCable_new(btSoftBodyWorldInfo* worldInfo,btCollisionWorld* world, int node_count,int section_count, const btScalar* x, const btScalar* m);
 
 	EXPORT void btCable_removeLinkAt(btCable* obj, int index);
 	EXPORT void btCable_removeNodeAt(btCable* obj, int index);
@@ -84,7 +84,17 @@ extern "C" {
 
 	EXPORT void btCable_setCollisionMargin(btCable* obj, float collisionMargin);
 
+	EXPORT void btCable_addSection(btCable* obj, btScalar rl, int start, int end, int nbNodes);
 
+	EXPORT void btCable_setDefaultRestLength(btCable* obj, btScalar rl);
+
+	EXPORT void btCable_setMinLength(btCable* obj, btScalar value);
+
+	EXPORT void  btCable_setWantedGrowSpeedAndDistance(btCable* obj, btScalar speed, btScalar distance);
+
+	EXPORT int btCable_getGrowingState(btCable* obj);
+
+	EXPORT void btCable_setLinearMass(btCable* obj, btScalar mass);
 
 #ifdef __cplusplus
 }

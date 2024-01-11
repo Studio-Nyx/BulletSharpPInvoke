@@ -7555,7 +7555,7 @@ namespace BulletSharp
 
 		// Cable methods
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern IntPtr btCable_new(IntPtr worldInfo, IntPtr world, int node_count, [In] Vector3[] x, [In] double[] m);		
+		public static extern IntPtr btCable_new(IntPtr worldInfo, IntPtr world, int node_count,int sectionCount, [In] Vector3[] x, [In] double[] m);		
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btCable_removeLinkAt(IntPtr cable, int index);
@@ -7747,6 +7747,25 @@ namespace BulletSharp
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern float btCable_getCollisionMargin(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_addSection(IntPtr obj, double restLenght, int startIndex, int endIndex, int nbNodes);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_setDefaultRestLength(IntPtr obj, double restLenght);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_setMinLength(IntPtr obj, double length);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_setWantedGrowSpeedAndDistance(IntPtr obj, double speed, double distance);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern int btCable_getGrowingState(IntPtr obj);
+
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_setLinearMass(IntPtr obj, double mass);
 
 	}
 }

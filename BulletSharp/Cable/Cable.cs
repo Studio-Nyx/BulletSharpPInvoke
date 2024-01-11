@@ -11,15 +11,15 @@ namespace BulletSharp.SoftBody
 	{
 		private CableState _cableState = CableState.Valid;
 
-		public Cable(SoftBodyWorldInfo worldInfo, CollisionWorld world, int nodeCount, Vector3[] positions, double[] masses) :
-			 base(CreateCable(worldInfo, world, nodeCount, positions, masses))
+		public Cable(SoftBodyWorldInfo worldInfo, CollisionWorld world, int nodeCount,int sectionCount, Vector3[] positions, double[] masses) :
+			 base(CreateCable(worldInfo, world, nodeCount, sectionCount, positions, masses))
 		{
 			WorldInfo = worldInfo;
 		}
 
-		private static IntPtr CreateCable(SoftBodyWorldInfo worldInfo, CollisionWorld world, int nodeCount, Vector3[] positions, double[] masses)
+		private static IntPtr CreateCable(SoftBodyWorldInfo worldInfo, CollisionWorld world, int nodeCount, int sectionCount, Vector3[] positions, double[] masses)
 		{
-			return btCable_new(worldInfo.Native, world.Native, nodeCount, positions, masses);
+			return btCable_new(worldInfo.Native, world.Native, nodeCount,sectionCount, positions, masses);
 		}
 
 		public void RemoveLinkAt(int index)
@@ -332,6 +332,36 @@ namespace BulletSharp.SoftBody
 		public float GetCollisionMargin()
 		{
 			return btCable_getCollisionMargin(Native);
+		}
+
+		public void addSection(double restLenght,int startIndex, int endIndex,int nbNodes)
+        {
+			btCable_addSection(Native, restLenght, startIndex, endIndex, nbNodes);
+        }
+
+        public void SetDefaultRestLength(double restLenght)
+        {
+            btCable_setDefaultRestLength(Native, restLenght);
+        }
+
+		public void SetMinLength(double length)
+		{
+			btCable_setMinLength(Native, length);
+		}
+
+		public void SetWantedGrowSpeedAndDistance(double speed, double distance)
+        {
+			btCable_setWantedGrowSpeedAndDistance(Native, speed, distance);
+		}
+
+		public int GetGrowingState()
+        {
+			return btCable_getGrowingState(Native);
+		}
+
+		public void SetLinearMass(double mass)
+        {
+			btCable_setLinearMass(Native, mass);
 		}
 
 	}

@@ -8,10 +8,10 @@
 #include "btSoftBody_wrap.h"
 #include "btCable_wrap.h"
 
-btCable* btCable_new(btSoftBodyWorldInfo* worldInfo, btCollisionWorld* world, int node_count, const btScalar* x, const btScalar* m)
+btCable* btCable_new(btSoftBodyWorldInfo* worldInfo, btCollisionWorld* world, int node_count,  int section_count ,const btScalar* x, const btScalar* m)
 {
 	btVector3* xTemp = Vector3ArrayIn(x, node_count);
-	btCable* ret = new btCable(worldInfo, world, node_count, xTemp, m);
+	btCable* ret = new btCable(worldInfo, world, node_count,section_count, xTemp, m);
 	delete[] xTemp;
 	return ret;
 }
@@ -307,4 +307,29 @@ float btCable_getCollisionMargin(btCable* obj) {
 
 void btCable_setCollisionMargin(btCable* obj, float collisionMargin) {
 	obj->setCollisionMargin(collisionMargin);
+}
+
+void btCable_addSection(btCable* obj, btScalar rl, int start, int end, int nbNodes) {
+	return obj->addSection( rl,  start,  end,  nbNodes);
+}
+
+void btCable_setDefaultRestLength(btCable* obj, btScalar rl) {
+	obj->setDefaultRestLength(rl);
+}
+
+void btCable_setMinLength(btCable* obj, btScalar value) {
+	obj->setMinLength(value);
+}
+
+void  btCable_setWantedGrowSpeedAndDistance(btCable* obj, btScalar speed, btScalar distance) {
+	obj->setWantedGrowSpeedAndDistance(speed,distance);
+}
+
+int btCable_getGrowingState(btCable* obj) {
+	return obj->getGrowingState();
+}
+
+void btCable_setLinearMass(btCable* obj, btScalar mass)
+{
+	obj->setLinearMass(mass);
 }
