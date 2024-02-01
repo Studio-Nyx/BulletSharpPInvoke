@@ -70,8 +70,6 @@ extern "C" {
 
 	EXPORT void btSetUseHydroAero(btCable* obj, bool active);
 
-	EXPORT void btSetHorizonDrop(btCable* obj, float value);
-
 	EXPORT void* btGetCableNodesPos(btCable* obj);
 
 	EXPORT int btGetCableState(btCable* obj);

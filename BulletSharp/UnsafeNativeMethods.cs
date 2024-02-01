@@ -7713,9 +7713,6 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSetUseHydroAero(IntPtr obj, bool value);
 
-		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btSetHorizonDrop(IntPtr obj, float value);
-
 		// Total nodes number with hydro and aero
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern int btGetHydroNodesNumber(IntPtr obj);

@@ -273,11 +273,6 @@ namespace BulletSharp.SoftBody
 			btSetUseHydroAero(Native, value);
 		}
 
-		public void SetHorizonDrop(float value)
-		{
-			btSetHorizonDrop(Native, value);
-		}
-
 		public IntPtr GetCableNodesPos()
         {
 			return btGetCableNodesPos(Native);
@@ -295,7 +290,6 @@ namespace BulletSharp.SoftBody
 			public float radius;
 			public float tangentDragCoefficient;
 			public float normalDragCoefficient;
-			public float horizonDrop;
 			public int startIndex;
 			public int endIndex;
 		};
