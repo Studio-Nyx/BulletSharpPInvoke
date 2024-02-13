@@ -94,6 +94,10 @@ extern "C" {
 
 	EXPORT void btCable_setLinearMass(btCable* obj, btScalar mass);
 
+	EXPORT void btCable_setGravity(btCable* obj, const btVector3* gravity);
+
+	EXPORT void btCable_getGravity(btCable* obj, btVector3* gravity);
+
 #ifdef __cplusplus
 }
 #endif

@@ -328,3 +328,13 @@ void btCable_setLinearMass(btCable* obj, btScalar mass)
 {
 	obj->setLinearMass(mass);
 }
+
+void btCable_setGravity(btCable* obj, const btVector3* gravity)
+{
+	BTVECTOR3_COPY(&obj->m_gravity, gravity);
+}
+
+void btCable_getGravity(btCable* obj, btVector3* gravity)
+{
+	BTVECTOR3_SET(gravity, obj->m_gravity);
+}

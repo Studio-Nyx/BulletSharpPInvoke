@@ -358,5 +358,15 @@ namespace BulletSharp.SoftBody
 			btCable_setLinearMass(Native, mass);
 		}
 
-	}
+        public Vector3 Gravity
+        {
+            get
+            {
+                Vector3 value;
+                btCable_getGravity(Native, out value);
+                return value;
+            }
+            set => btCable_setGravity(Native, ref value);
+        }
+    }
 }
