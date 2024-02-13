@@ -353,3 +353,13 @@ void btCable_updateCurveResponse(btCable* obj, btScalar* dataX, btScalar* dataY,
 {
 	obj->updateCurveResponse(dataX, dataY, size);
 }
+
+void btCable_setGravity(btCable* obj, const btVector3* gravity)
+{
+	BTVECTOR3_COPY(&obj->m_gravity, gravity);
+}
+
+void btCable_getGravity(btCable* obj, btVector3* gravity)
+{
+	BTVECTOR3_SET(gravity, obj->m_gravity);
+}

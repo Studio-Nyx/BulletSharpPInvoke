@@ -7765,7 +7765,6 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern int btCable_getGrowingState(IntPtr obj);
 
-
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btCable_setLinearMass(IntPtr obj, double mass);
 
@@ -7789,5 +7788,12 @@ namespace BulletSharp
         
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern void btCable_updateCurveResponse(IntPtr obj, double[] dataX, double[] dataY, int size);  
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btCable_setGravity(IntPtr obj, [In] ref Vector3 value);
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btCable_getGravity(IntPtr obj, out Vector3 value);
+
 	}
 }

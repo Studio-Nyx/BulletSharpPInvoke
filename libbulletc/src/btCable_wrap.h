@@ -103,6 +103,10 @@ extern "C" {
 	EXPORT void btCable_setCollisionMode(btCable* obj, int mode);
 
 	EXPORT void btCable_updateCurveResponse(btCable* obj, btScalar* dataX, btScalar* dataY, int size);
+	
+	EXPORT void btCable_setGravity(btCable* obj, const btVector3* gravity);
+
+	EXPORT void btCable_getGravity(btCable* obj, btVector3* gravity);
 
 #ifdef __cplusplus
 }

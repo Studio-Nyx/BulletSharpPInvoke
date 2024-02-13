@@ -382,5 +382,16 @@ namespace BulletSharp.SoftBody
         {
             btCable_updateCurveResponse(Native, dataX, dataY, dataX.Length);
         }
+
+        public Vector3 Gravity
+        {
+            get
+            {
+                Vector3 value;
+                btCable_getGravity(Native, out value);
+                return value;
+            }
+            set => btCable_setGravity(Native, ref value);
+        }
 	}
 }
