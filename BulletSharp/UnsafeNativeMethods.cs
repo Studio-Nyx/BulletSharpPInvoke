@@ -3107,6 +3107,17 @@ namespace BulletSharp
 		public static extern void btHingeConstraint_setAngularOnly(IntPtr obj, bool angularOnly);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btHingeConstraint_setAxis(IntPtr obj, [In] ref Vector3 axisInA);
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btHingeConstraint_setAxis2(IntPtr obj, [In] ref Vector3 axisToRotate, [In] ref Vector3 axisToLook);
+        
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btHingeConstraint_setAxisInA(IntPtr obj, [In] ref Vector3 axisToRotate, [In] ref Vector3 axisToLook);
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btHingeConstraint_setAxisInB(IntPtr obj, [In] ref Vector3 axisToRotate, [In] ref Vector3 axisToLook);
+          
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btHingeConstraint_setFrames(IntPtr obj, [In] ref Matrix frameA, [In] ref Matrix frameB);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]

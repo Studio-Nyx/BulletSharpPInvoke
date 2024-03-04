@@ -107,7 +107,22 @@ namespace BulletSharp
 		{
 			btHingeConstraint_setAxis(Native, ref axisInA);
 		}
+        
+        public void SetAxis(Vector3 axisToRotate, Vector3 axisToLook)
+        {
+            btHingeConstraint_setAxis2(Native, ref axisToRotate, ref axisToLook);
+        }
 
+        public void SetAxisInA(Vector3 axisToRotate, Vector3 axisToLook)
+        {
+            btHingeConstraint_setAxisInA(Native, ref axisToRotate, ref axisToLook);
+        }
+        
+        public void SetAxisInB(Vector3 axisToRotate, Vector3 axisToLook)
+        {
+            btHingeConstraint_setAxisInB(Native, ref axisToRotate, ref axisToLook);
+        }
+        
 		public void SetFramesRef(ref Matrix frameA, ref Matrix frameB)
 		{
 			btHingeConstraint_setFrames(Native, ref frameA, ref frameB);

@@ -211,6 +211,27 @@ void btHingeConstraint_setAxis(btHingeConstraint* obj, btVector3* axisInA)
 	obj->setAxis(BTVECTOR3_USE(axisInA));
 }
 
+void btHingeConstraint_setAxis2(btHingeConstraint* obj, btVector3* axisToRotate, btVector3* axisToLook)
+{
+	BTVECTOR3_IN(axisToRotate);
+	BTVECTOR3_IN(axisToLook);
+	obj->setAxis(BTVECTOR3_USE(axisToRotate),BTVECTOR3_USE(axisToLook));
+}
+
+void btHingeConstraint_setAxisInA(btHingeConstraint* obj, btVector3* axisToRotate, btVector3* axisToLook)
+{
+	BTVECTOR3_IN(axisToRotate);
+	BTVECTOR3_IN(axisToLook);
+	obj->setAxisInA(BTVECTOR3_USE(axisToRotate), BTVECTOR3_USE(axisToLook));
+}
+
+void btHingeConstraint_setAxisInB(btHingeConstraint* obj, btVector3* axisToRotate, btVector3* axisToLook)
+{
+	BTVECTOR3_IN(axisToRotate);
+	BTVECTOR3_IN(axisToLook);
+	obj->setAxisInB(BTVECTOR3_USE(axisToRotate), BTVECTOR3_USE(axisToLook));
+}
+
 void btHingeConstraint_setFrames(btHingeConstraint* obj, const btTransform* frameA,
 	const btTransform* frameB)
 {
