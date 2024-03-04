@@ -36,6 +36,9 @@ extern "C" {
 	EXPORT bool btHingeConstraint_hasLimit(btHingeConstraint* obj);
 	EXPORT void btHingeConstraint_setAngularOnly(btHingeConstraint* obj, bool angularOnly);
 	EXPORT void btHingeConstraint_setAxis(btHingeConstraint* obj, btVector3* axisInA);
+	EXPORT void btHingeConstraint_setAxisInA(btHingeConstraint* obj, btVector3* axisToRotate, btVector3* axisToLook);
+	EXPORT void btHingeConstraint_setAxisInB(btHingeConstraint* obj, btVector3* axisToRotate, btVector3* axisToLook);
+	EXPORT void btHingeConstraint_setAxis2(btHingeConstraint* obj, btVector3* axisToRotate, btVector3* axisToLook);
 	EXPORT void btHingeConstraint_setFrames(btHingeConstraint* obj, const btTransform* frameA, const btTransform* frameB);
 	EXPORT void btHingeConstraint_setLimit(btHingeConstraint* obj, btScalar low, btScalar high);
 	EXPORT void btHingeConstraint_setLimit2(btHingeConstraint* obj, btScalar low, btScalar high, btScalar _softness);
