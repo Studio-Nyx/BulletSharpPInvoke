@@ -423,3 +423,17 @@ void btSliderConstraint_testLinLimits(btSliderConstraint* obj)
 {
 	obj->testLinLimits();
 }
+
+void btSliderConstraint_setAxisInA(btSliderConstraint* obj, btVector3* axisToRotate, btVector3* axisToLook)
+{
+	BTVECTOR3_IN(axisToRotate);
+	BTVECTOR3_IN(axisToLook);
+	obj->setAxisInA(BTVECTOR3_USE(axisToRotate), BTVECTOR3_USE(axisToLook));
+}
+
+void btSliderConstraint_setAxisInB(btSliderConstraint* obj, btVector3* axisToRotate, btVector3* axisToLook)
+{
+	BTVECTOR3_IN(axisToRotate);
+	BTVECTOR3_IN(axisToLook);
+	obj->setAxisInB(BTVECTOR3_USE(axisToRotate), BTVECTOR3_USE(axisToLook));
+}

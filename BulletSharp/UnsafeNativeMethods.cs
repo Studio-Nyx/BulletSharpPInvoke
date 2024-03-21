@@ -5238,6 +5238,13 @@ namespace BulletSharp
 		public static extern void btSliderConstraint_testAngLimits(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSliderConstraint_testLinLimits(IntPtr obj);
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btSliderConstraint_setAxisInA(IntPtr obj, [In] ref Vector3 axisToRotate, [In] ref Vector3 axisToLook);
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btSliderConstraint_setAxisInB(IntPtr obj, [In] ref Vector3 axisToRotate, [In] ref Vector3 axisToLook);
+        
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btSoftBody_new(IntPtr worldInfo, int node_count, [In] Vector3[] x, [In] double[] m);
