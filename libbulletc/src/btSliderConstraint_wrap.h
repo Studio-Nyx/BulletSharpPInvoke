@@ -83,6 +83,9 @@ extern "C" {
 	EXPORT void btSliderConstraint_setUseFrameOffset(btSliderConstraint* obj, bool frameOffsetOnOff);
 	EXPORT void btSliderConstraint_testAngLimits(btSliderConstraint* obj);
 	EXPORT void btSliderConstraint_testLinLimits(btSliderConstraint* obj);
+
+	EXPORT void btSliderConstraint_setAxisInA(btSliderConstraint* obj, btVector3* axisToRotate, btVector3* axisToLook);
+	EXPORT void btSliderConstraint_setAxisInB(btSliderConstraint* obj, btVector3* axisToRotate, btVector3* axisToLook);
 #ifdef __cplusplus
 }
 #endif

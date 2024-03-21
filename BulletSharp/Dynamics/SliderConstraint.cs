@@ -331,6 +331,17 @@ namespace BulletSharp
 		}
 
 		public bool UseLinearReferenceFrameA => btSliderConstraint_getUseLinearReferenceFrameA(Native);
+
+        public void SetAxisInA(Vector3 axisToRotate, Vector3 axisToLook)
+        {
+            btSliderConstraint_setAxisInA(Native, ref axisToRotate, ref axisToLook);
+        }
+        
+        public void SetAxisInB(Vector3 axisToRotate, Vector3 axisToLook)
+        {
+            btSliderConstraint_setAxisInB(Native, ref axisToRotate, ref axisToLook);
+        }
+        
 	}
 
     [StructLayout(LayoutKind.Sequential)]
