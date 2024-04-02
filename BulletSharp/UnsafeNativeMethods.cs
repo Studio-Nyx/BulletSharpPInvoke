@@ -4801,6 +4801,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btRigidBody_setMaxAngularVelocity(IntPtr obj, double maxA);
 		
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btRigidBody_resetInterpolationWorldTransform(IntPtr obj);
+        
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern void btRigidBody_addKinematic(IntPtr obj, IntPtr toAdd);
         		

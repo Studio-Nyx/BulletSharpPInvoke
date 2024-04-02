@@ -483,6 +483,11 @@ namespace BulletSharp
         {
             btRigidBody_setMaxAngularVelocity(Native, maxL);
         }
+
+        public void ResetInterpolationWorldTransform()
+        {
+            btRigidBody_resetInterpolationWorldTransform(Native);
+        }
     }
 
 	[StructLayout(LayoutKind.Sequential)]
