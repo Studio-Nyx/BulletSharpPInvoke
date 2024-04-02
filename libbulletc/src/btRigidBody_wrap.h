@@ -122,6 +122,7 @@ extern "C" {
 	EXPORT void btRigidBody_setRedirectionTarget(btRigidBody* obj, btRigidBody* target);
 	EXPORT void btRigidBody_updateMassAyImpact(btRigidBody* obj, bool canChangedMassAtImpact, btScalar upperMass, btScalar lowerLimit, btScalar upperLimit);
 
+	EXPORT void btRigidBody_resetInterpolationWorldTransform(btRigidBody* obj);
 #ifdef __cplusplus
 }
 #endif

@@ -658,3 +658,8 @@ void btRigidBody_updateMassAyImpact(btRigidBody* obj, bool canChangedMassAtImpac
 {
 	obj->updateMassAtImpact(canChangedMassAtImpact, upperMass, lowerLimit, upperLimit);
 }
+
+void btRigidBody_resetInterpolationWorldTransform(btRigidBody* obj)
+{
+	obj->resetInterpolationWorldTransform();
+}

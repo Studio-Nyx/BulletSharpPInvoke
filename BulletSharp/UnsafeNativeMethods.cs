@@ -4803,6 +4803,9 @@ namespace BulletSharp
         
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern void btRigidBody_updateMassAyImpact(IntPtr Native, bool canChangeMassAtImpacted, double upperMass, double lowerLimit, double upperLimit);
+		
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btRigidBody_resetInterpolationWorldTransform(IntPtr obj);
         
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern void btRigidBody_addKinematic(IntPtr obj, IntPtr toAdd);

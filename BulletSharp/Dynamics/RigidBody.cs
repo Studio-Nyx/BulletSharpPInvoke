@@ -495,6 +495,11 @@ namespace BulletSharp
         {
             btRigidBody_updateMassAyImpact(Native, canChangeMassAtImpacted, upperMass, lowerLimit, upperLimit);
         }
+
+        public void ResetInterpolationWorldTransform()
+        {
+            btRigidBody_resetInterpolationWorldTransform(Native);
+        }
     }
 
 	[StructLayout(LayoutKind.Sequential)]
