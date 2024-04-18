@@ -94,6 +94,12 @@ extern "C" {
 
 	EXPORT void btCable_setLinearMass(btCable* obj, btScalar mass);
 
+	EXPORT void btCable_setCollisionStiffness(btCable* obj, btScalar stiffnessMin, btScalar stiffnessMax, btScalar distMin, btScalar distMax);
+
+	EXPORT void btCable_setCollisionViscosity(btCable* obj, btScalar coef);
+
+	EXPORT void btCable_setCollisionResponseActive(btCable* obj, bool active);
+
 #ifdef __cplusplus
 }
 #endif

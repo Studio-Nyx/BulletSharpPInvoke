@@ -358,5 +358,21 @@ namespace BulletSharp.SoftBody
 			btCable_setLinearMass(Native, mass);
 		}
 
+		public void SetCollisionViscosity(double coef)
+		{
+			btCable_setCollisionViscosity(Native, coef);
+		}
+
+		public void SetCollisionStiffness(double stiffnessMin, double stiffnessMax, double distMin, double distMax)
+		{
+			btCable_setCollisionStiffness(Native, stiffnessMin, stiffnessMax, distMin, distMax);
+		}
+
+		public void SetCollisionResponseActive(bool active)
+        {
+			btCable_setCollisionResponseActive(Native, active);
+		}
+
+
 	}
 }
