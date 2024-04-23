@@ -5243,6 +5243,8 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBody_appendAnchor2(IntPtr obj, int node, IntPtr body, bool disableCollisionBetweenLinkedBodies, double influence);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btSoftBody_setBodyMassRatio(IntPtr obj, int node, double ratio);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBody_appendAngularJoint(IntPtr obj, IntPtr specs);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBody_appendAngularJoint2(IntPtr obj, IntPtr specs, IntPtr body);
@@ -7207,6 +7209,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btUniversalConstraint_getAnchor2(IntPtr obj, out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+
 		public static extern double btUniversalConstraint_getAngle1(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern double btUniversalConstraint_getAngle2(IntPtr obj);

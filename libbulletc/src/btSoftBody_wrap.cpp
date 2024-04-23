@@ -2246,6 +2246,11 @@ void btSoftBody_appendAnchor2(btSoftBody* obj, int node, btRigidBody* body, bool
 	obj->appendAnchor(node, body, disableCollisionBetweenLinkedBodies, influence);
 }
 
+void btSoftBody_setBodyMassRatio(btSoftBody* obj, int indexAnchor, btScalar ratio)
+{
+	obj->m_anchors[indexAnchor].BodyMassRatio = ratio;
+}
+
 void btSoftBody_appendAngularJoint(btSoftBody* obj, const btSoftBody_AJoint_Specs* specs)
 {
 	obj->appendAngularJoint(*specs);

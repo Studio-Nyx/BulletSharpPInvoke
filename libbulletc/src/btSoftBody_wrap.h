@@ -501,6 +501,7 @@ extern "C" {
 	EXPORT void btSoftBody_addVelocity2(btSoftBody* obj, const btVector3* velocity, int node);
 	EXPORT void btSoftBody_appendAnchor(btSoftBody* obj, int node, btRigidBody* body, const btVector3* localPivot, bool disableCollisionBetweenLinkedBodies, btScalar influence);
 	EXPORT void btSoftBody_appendAnchor2(btSoftBody* obj, int node, btRigidBody* body, bool disableCollisionBetweenLinkedBodies, btScalar influence);
+	EXPORT void btSoftBody_setBodyMassRatio(btSoftBody* obj, int indexAnchor, btScalar ratio);
 	EXPORT void btSoftBody_appendAngularJoint(btSoftBody* obj, const btSoftBody_AJoint_Specs* specs);
 	EXPORT void btSoftBody_appendAngularJoint2(btSoftBody* obj, const btSoftBody_AJoint_Specs* specs, btSoftBody_Body* body);
 	EXPORT void btSoftBody_appendAngularJoint3(btSoftBody* obj, const btSoftBody_AJoint_Specs* specs, btSoftBody* body);

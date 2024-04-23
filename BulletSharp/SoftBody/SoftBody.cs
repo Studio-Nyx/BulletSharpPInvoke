@@ -2534,6 +2534,11 @@ namespace BulletSharp.SoftBody
 			btSoftBody_appendAnchor2(Native, node, body.Native, disableCollisionBetweenLinkedBodies,
 				influence);
 		}
+		
+		public void SetBodyMassRatio(int indexAnchor, double massRatio)
+		{
+			btSoftBody_setBodyMassRatio(Native, indexAnchor, massRatio);
+		}
 
 		private void StoreAngularJointControlRef(AngularJoint.Specs specs)
 		{
