@@ -7776,5 +7776,10 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btCable_setCollisionResponseActive(IntPtr obj, bool active);
 
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern int btCollisionDispatcherMt_getNumManifoldsCache(IntPtr obj);
+
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern IntPtr btCollisionDispatcherMt_getManifoldsCacheByIndexInternal(IntPtr obj, int index);
 	}
 }
