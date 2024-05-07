@@ -288,6 +288,12 @@ namespace BulletSharp
             btRigidBody_removeKinematic(Native, toRemove.Native);
         }
 
+        
+        public void SetRedirectionImpulse(RigidBody receiver)
+        {
+            btRigidBody_setRedirectionTarget(Native, receiver.Native);
+        }
+        
         public void SetLocalTransform(Matrix localTransform)
         {
             btRigidBody_setLocalTransform(Native, ref localTransform);

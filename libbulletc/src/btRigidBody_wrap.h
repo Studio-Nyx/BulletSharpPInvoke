@@ -119,6 +119,8 @@ extern "C" {
 	EXPORT void btRigidBody_addKinematic(btRigidBody* obj, btRigidBody* toAdd);
 	EXPORT void btRigidBody_removeKinematic(btRigidBody* obj, btRigidBody* toRemove);
 	EXPORT void btRigidBody_setLocalTransform(btRigidBody* obj, const btTransform* transform);
+	EXPORT void btRigidBody_setRedirectionTarget(btRigidBody* obj, btRigidBody* target);
+
 #ifdef __cplusplus
 }
 #endif

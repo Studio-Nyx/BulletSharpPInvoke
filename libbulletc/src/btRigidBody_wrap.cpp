@@ -631,6 +631,11 @@ void btRigidBody_addKinematic(btRigidBody* obj, btRigidBody* toAdd)
 	obj->m_kinematicChildren.push_back(toAdd);
 }
 
+void btRigidBody_setRedirectionTarget(btRigidBody* obj, btRigidBody* target)
+{
+	obj->m_redirectionTarget = target;
+}
+
 void btRigidBody_removeKinematic(btRigidBody* obj, btRigidBody* toRemove)
 {
 	for (int index = 0; index < obj->m_kinematicChildren.size(); index++)

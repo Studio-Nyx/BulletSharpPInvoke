@@ -4798,7 +4798,10 @@ namespace BulletSharp
         
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]		
         public static extern void btRigidBody_setLocalTransform(IntPtr obj, [In] ref Matrix xform);		
-		
+
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btRigidBody_setRedirectionTarget(IntPtr obj, IntPtr target);
+        
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btRotationalLimitMotor_new();
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
