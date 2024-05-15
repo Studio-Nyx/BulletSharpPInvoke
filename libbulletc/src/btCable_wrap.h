@@ -100,6 +100,8 @@ extern "C" {
 
 	EXPORT void btCable_setCollisionResponseActive(btCable* obj, bool active);
 
+	EXPORT void btCable_setCollisionMode(btCable* obj, int mode);
+
 #ifdef __cplusplus
 }
 #endif

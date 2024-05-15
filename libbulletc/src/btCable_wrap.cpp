@@ -344,3 +344,8 @@ void btCable_setCollisionResponseActive(btCable* obj, bool active)
 	obj->setCollisionResponseActive(active);
 }
 
+void btCable_setCollisionMode(btCable* obj, int mode) 
+{
+	obj->setCollisionMode(mode);
+}
+

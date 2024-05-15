@@ -373,6 +373,9 @@ namespace BulletSharp.SoftBody
 			btCable_setCollisionResponseActive(Native, active);
 		}
 
-
+        public void SetCollisionMode(int mode)
+        {
+            btCable_setCollisionMode(Native, mode);
+        }
 	}
 }
