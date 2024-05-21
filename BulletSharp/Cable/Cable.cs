@@ -377,5 +377,10 @@ namespace BulletSharp.SoftBody
         {
             btCable_setCollisionMode(Native, mode);
         }
+
+        public void UpdateCurveResponse(double[] dataX, double[] dataY)
+        {
+            btCable_updateCurveResponse(Native, dataX, dataY, dataX.Length);
+        }
 	}
 }

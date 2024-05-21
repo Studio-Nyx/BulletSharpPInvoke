@@ -349,3 +349,7 @@ void btCable_setCollisionMode(btCable* obj, int mode)
 	obj->setCollisionMode(mode);
 }
 
+void btCable_updateCurveResponse(btCable* obj, btScalar* dataX, btScalar* dataY, int size)
+{
+	obj->updateCurveResponse(dataX, dataY, size);
+}

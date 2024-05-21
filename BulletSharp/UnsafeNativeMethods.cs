@@ -7787,5 +7787,8 @@ namespace BulletSharp
         
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern IntPtr btCable_setCollisionMode(IntPtr obj, int mode);  
+        
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btCable_updateCurveResponse(IntPtr obj, double[] dataX, double[] dataY, int size);  
 	}
 }

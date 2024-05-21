@@ -88,7 +88,7 @@ extern "C" {
 
 	EXPORT void btCable_setMinLength(btCable* obj, btScalar value);
 
-	EXPORT void  btCable_setWantedGrowSpeedAndDistance(btCable* obj, btScalar speed, btScalar distance);
+	EXPORT void btCable_setWantedGrowSpeedAndDistance(btCable* obj, btScalar speed, btScalar distance);
 
 	EXPORT int btCable_getGrowingState(btCable* obj);
 
@@ -101,6 +101,8 @@ extern "C" {
 	EXPORT void btCable_setCollisionResponseActive(btCable* obj, bool active);
 
 	EXPORT void btCable_setCollisionMode(btCable* obj, int mode);
+
+	EXPORT void btCable_updateCurveResponse(btCable* obj, btScalar* dataX, btScalar* dataY, int size);
 
 #ifdef __cplusplus
 }
