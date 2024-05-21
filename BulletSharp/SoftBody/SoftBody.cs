@@ -184,6 +184,12 @@ namespace BulletSharp.SoftBody
 			set => btSoftBodyWorldInfo_setWater_offset(Native, value);
 		}
 
+		public int NumThread
+		{
+			get => btSoftBodyWorldInfo_getNumThread(Native);
+			set => btSoftBodyWorldInfo_setNumThread(Native, value);
+		}
+
 		public int MaxCableNumber
 		{
 			get => btSoftBodyWorldInfo_getMaxCableNumber(Native);

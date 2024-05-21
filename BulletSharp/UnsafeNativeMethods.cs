@@ -6406,7 +6406,6 @@ namespace BulletSharp
 		public static extern void btSoftBodySolver_updateSoftBodies(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBodySolver_delete(IntPtr obj);
-
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btSoftBodyWorldInfo_new();
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
@@ -6424,18 +6423,17 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern double btSoftBodyWorldInfo_getWater_offset(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern int btSoftBodyWorldInfo_getNumThread(IntPtr obj);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btSoftBodyWorldInfo_setNumThread(IntPtr obj, int value);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern int btSoftBodyWorldInfo_getMaxCableNumber(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern int btSoftBodyWorldInfo_getMaxNodeNumber(IntPtr obj);
-
-
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern int btSoftBodyWorldInfo_getNumIteration(IntPtr obj);
-
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBodyWorldInfo_setNumIteration(IntPtr obj,int value);
-
-
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBodyWorldInfo_setAir_density(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
@@ -6458,10 +6456,8 @@ namespace BulletSharp
 		public static extern void btSoftBodyWorldInfo_setMaxNodeNumber(IntPtr obj, int value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btSoftBodyWorldInfo_delete(IntPtr obj);
-
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btSoftRigidCollisionAlgorithm_CreateFunc_new();
-
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btSoftRigidCollisionAlgorithm_new(IntPtr mf, IntPtr ci, IntPtr col0, IntPtr col1Wrap, bool isSwapped);
 
