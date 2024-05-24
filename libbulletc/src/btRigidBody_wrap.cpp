@@ -653,3 +653,8 @@ void btRigidBody_setLocalTransform(btRigidBody* obj, const btTransform* transfor
 	BTTRANSFORM_IN(transform);
 	obj->m_localTransform = BTTRANSFORM_USE(transform);
 }
+
+void btRigidBody_updateMassAyImpact(btRigidBody* obj, bool canChangedMassAtImpact, btScalar upperMass, btScalar lowerLimit, btScalar upperLimit)
+{
+	obj->updateMassAtImpact(canChangedMassAtImpact, upperMass, lowerLimit, upperLimit);
+}

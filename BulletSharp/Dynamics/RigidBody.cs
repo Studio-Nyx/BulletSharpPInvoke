@@ -489,6 +489,12 @@ namespace BulletSharp
         {
             btRigidBody_setMaxAngularVelocity(Native, maxL);
         }
+
+        public void UpdateMassAtImpact(bool canChangeMassAtImpacted, double upperMass, double lowerLimit,
+            double upperLimit)
+        {
+            btRigidBody_updateMassAyImpact(Native, canChangeMassAtImpacted, upperMass, lowerLimit, upperLimit);
+        }
     }
 
 	[StructLayout(LayoutKind.Sequential)]
