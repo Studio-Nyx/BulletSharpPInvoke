@@ -120,7 +120,7 @@ extern "C" {
 	EXPORT void btRigidBody_removeKinematic(btRigidBody* obj, btRigidBody* toRemove);
 	EXPORT void btRigidBody_setLocalTransform(btRigidBody* obj, const btTransform* transform);
 	EXPORT void btRigidBody_setRedirectionTarget(btRigidBody* obj, btRigidBody* target);
-	EXPORT void btRigidBody_updateMassAyImpact(btRigidBody* obj, bool canChangedMassAtImpact, btScalar upperMass, btScalar lowerLimit, btScalar upperLimit);
+	EXPORT void btRigidBody_updateMassAyImpact(btRigidBody* obj, bool canChangedMassAtImpact, btScalar lowerMass, btScalar upperMass, btScalar lowerLimit, btScalar upperLimit);
 
 #ifdef __cplusplus
 }
