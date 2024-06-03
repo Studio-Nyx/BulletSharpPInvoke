@@ -44,6 +44,8 @@ void btCable_removeAnchorAt(btCable* obj, int index)
 		}
 	}
 
+	if (idxNode >= obj->m_nodes.size()) return;
+
 	obj->m_nodes[idxNode].m_battach = 0;
 }
 
