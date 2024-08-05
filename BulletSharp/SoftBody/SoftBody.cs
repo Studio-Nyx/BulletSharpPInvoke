@@ -214,6 +214,12 @@ namespace BulletSharp.SoftBody
 			set => btSoftBodyWorldInfo_setNumIteration(Native, value);
 		}
 
+		public int MaxNodeNumberPerCable
+		{
+			get => btSoftBodyWorldInfo_getMaxNodeNumberPerCable(Native);
+			set => btSoftBodyWorldInfo_setMaxNodeNumberPerCable(Native, value);
+		}
+
 		protected override void Dispose(bool disposing)
 		{
 			if (IsUserOwned)

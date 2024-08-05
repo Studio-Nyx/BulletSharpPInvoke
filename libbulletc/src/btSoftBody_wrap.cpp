@@ -128,6 +128,7 @@ void btSoftBodyWorldInfo_setMaxCableNumber(btSoftBodyWorldInfo* obj, int value)
 	obj->maxCableNumber = value;
 }
 
+
 void btSoftBodyWorldInfo_setMaxNodeNumber(btSoftBodyWorldInfo* obj, int value)
 {
 	obj->maxNodeNumber = value;
@@ -177,6 +178,15 @@ void btSoftBodyWorldInfo_setNumIteration(btSoftBodyWorldInfo* obj,int value)
 {
 	obj->numIteration = value;
 	return;
+}
+
+void btSoftBodyWorldInfo_setMaxNodeNumberPerCable(btSoftBodyWorldInfo* obj, int value)
+{
+	obj->maxNodeNumberPerCable = value;
+}
+int btSoftBodyWorldInfo_getMaxNodeNumberPerCable(btSoftBodyWorldInfo* obj)
+{
+	return obj->maxNodeNumberPerCable;
 }
 
 

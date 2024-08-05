@@ -69,6 +69,8 @@ extern "C" {
 	EXPORT void btSoftBodyWorldInfo_setNumThread(btSoftBodyWorldInfo* obj, int value);
 	EXPORT void btSoftBodyWorldInfo_setMaxCableNumber(btSoftBodyWorldInfo* obj, int value);
 	EXPORT void btSoftBodyWorldInfo_setMaxNodeNumber(btSoftBodyWorldInfo* obj, int value);
+	EXPORT void btSoftBodyWorldInfo_setMaxNodeNumberPerCable(btSoftBodyWorldInfo* obj, int value);
+	EXPORT int btSoftBodyWorldInfo_getMaxNodeNumberPerCable(btSoftBodyWorldInfo* obj);
 
 	EXPORT int btSoftBodyWorldInfo_getNumIteration(btSoftBodyWorldInfo* obj);
 	EXPORT void btSoftBodyWorldInfo_setNumIteration(btSoftBodyWorldInfo* obj, int value);
