@@ -19,3 +19,14 @@ btPersistentManifold* btCollisionDispatcherMt_getManifoldsCacheByIndexInternal(b
 	return obj->getManifoldsCacheByIndexInternal(index);
 }
 
+int btCollisionDispatcherMt_getNumParticlesManifolds(btCollisionDispatcherMt* obj)
+{
+	return obj->getNumParticlesManifolds();
+}
+
+btPersistentManifold* btCollisionDispatcherMt_getParticlesManifoldsByIndexInternal(btCollisionDispatcherMt* obj,
+	int index)
+{
+	return obj->getParticlesManifoldsByIndexInternal(index);
+}
+
