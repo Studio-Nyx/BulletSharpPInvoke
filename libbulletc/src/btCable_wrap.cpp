@@ -111,7 +111,10 @@ void btCable_Node_SetForce(btCable* obj, int index, btVector3 force)
 
 btScalar btCable_Node_GetInverseMass(btCable* obj, int index)
 {
-	return obj->m_nodes[index].m_im;
+	if (index >= 0 && index < obj->m_nodes.size()) {
+		return obj->m_nodes[index].m_im;
+	}
+	return 0.0;
 }
 
 void btCable_Node_SetInverseMass(btCable* obj, int index, btScalar inverseMass)
