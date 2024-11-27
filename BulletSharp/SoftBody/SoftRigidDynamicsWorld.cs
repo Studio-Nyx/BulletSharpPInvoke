@@ -103,7 +103,12 @@ namespace BulletSharp.SoftBody
 			return btUpdateCableForces(Native, strc, size);
 		}
 
-		public IntPtr GetCablesData()
+        public void PrepareSingleStepSimulation()
+        {
+            btPrepareSingleStepSimulation(Native);
+        }
+
+        public IntPtr GetCablesData()
 		{
 			return btGetCablesData(Native);
 		}

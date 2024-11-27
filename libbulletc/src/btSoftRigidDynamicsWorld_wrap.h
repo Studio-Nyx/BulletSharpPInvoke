@@ -15,6 +15,7 @@ extern "C" {
 	EXPORT void btSoftRigidDynamicsWorld_setDrawFlags(btSoftRigidDynamicsWorld* obj, int f);
 	EXPORT void btUpdateCableForces(btSoftRigidDynamicsWorld* obj, btSoftBody_NodeForces* co, int size);
 	EXPORT void* btGetCablesData(btSoftRigidDynamicsWorld* obj);
+	EXPORT void btPrepareSingleStepSimulation(btSoftRigidDynamicsWorld* obj);
 	EXPORT void* btGetNodesPos(btSoftRigidDynamicsWorld* obj);
 	EXPORT void* btGetNodesData(btSoftRigidDynamicsWorld* obj);
 	EXPORT int* btGetCableIndexesArray(btSoftRigidDynamicsWorld* obj);

@@ -7728,7 +7728,10 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern bool btUpdateCableData(IntPtr obj, ref Cable.CableData strc);
 
-		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btPrepareSingleStepSimulation(IntPtr obj);
+
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btGetCablesData(IntPtr obj);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
