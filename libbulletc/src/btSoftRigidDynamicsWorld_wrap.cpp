@@ -72,6 +72,11 @@ void* btGetCablesData(btSoftRigidDynamicsWorld* obj)
 	return obj->getCablesData();
 }
 
+void btPrepareSingleStepSimulation(btSoftRigidDynamicsWorld* obj)
+{
+	obj->prepareSingleStepSimulation();
+}
+
 void* btGetNodesPos(btSoftRigidDynamicsWorld* obj)
 {
 	return obj->getNodesPos();
