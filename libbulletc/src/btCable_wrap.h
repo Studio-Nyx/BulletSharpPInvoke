@@ -18,6 +18,8 @@ extern "C" {
 	EXPORT int btCable_getNumberOfAnchor(btCable* obj);
 	EXPORT int btCable_getNumberOfLink(btCable* obj);
 
+	EXPORT btCable::CableData btCable_getCableData(btCable* obj);
+
 	EXPORT btScalar btCable_getLength(btCable* obj);
 	EXPORT btScalar btCable_getRestLength(btCable* obj);
 
@@ -64,7 +66,9 @@ extern "C" {
 	EXPORT bool btCable_Collision_GetActive(btCable* obj);
 	EXPORT void btCable_Collision_SetActive(btCable* obj, bool active);
 
-	EXPORT bool btUpdateCableData(btCable* obj, btCable::CableData &cableData);
+	EXPORT void btCable_setCableRadius(btCable* obj, float radius);
+	EXPORT void btCable_setCableNormalDragCoefficient(btCable* obj, float normalDragCoefficient);
+	EXPORT void btCable_setCableTangentDragCoefficient(btCable* obj, float tangentDragCoefficient);
 
 	EXPORT bool btGetUseHydroAero(btCable* obj);
 

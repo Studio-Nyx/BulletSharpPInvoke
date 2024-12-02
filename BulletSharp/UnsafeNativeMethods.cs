@@ -7614,7 +7614,19 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern double btCable_getLength(IntPtr cable);
 
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern Cable.CableData btCable_getCableData(IntPtr cable);
+
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btCable_setCableRadius(IntPtr cable, float radius);
+
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btCable_setCableNormalDragCoefficient(IntPtr cable, float normalDragCoefficient);
+
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btCable_setCableTangentDragCoefficient(IntPtr cable, float tangentDragCoefficient);
+
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern double btCable_getRestLength(IntPtr cable);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
@@ -7724,9 +7736,6 @@ namespace BulletSharp
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern bool btUpdateCableForces(IntPtr obj, IntPtr strc, int size);
-
-		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern bool btUpdateCableData(IntPtr obj, ref Cable.CableData strc);
 
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern void btPrepareSingleStepSimulation(IntPtr obj);

@@ -69,6 +69,11 @@ int btCable_getNumberOfLink(btCable* obj)
 	return obj->m_links.size();
 }
 
+btCable::CableData btCable_getCableData(btCable* obj)
+{
+	return obj->getCableData();
+}
+
 btScalar btCable_getLength(btCable* obj)
 {
 	return obj->getLength();
@@ -265,9 +270,19 @@ void btCable_Collision_SetActive(btCable* obj, bool active)
 	obj->setUseCollision(active);
 }
 
-bool btUpdateCableData(btCable* obj, btCable::CableData& cableData)
+void btCable_setCableRadius(btCable* obj, float radius)
 {
-	return obj->updateCableData(cableData);
+	obj->setCableRadius(radius);
+}
+
+void btCable_setCableNormalDragCoefficient(btCable* obj, float normalDragCoefficient)
+{
+	obj->setCableNormalDragCoefficient(normalDragCoefficient);
+}
+
+void btCable_setCableTangentDragCoefficient(btCable* obj, float tangentDragCoefficient)
+{
+	obj->setCableTangentDragCoefficient(tangentDragCoefficient);
 }
 
 bool btGetUseHydroAero(btCable* obj)

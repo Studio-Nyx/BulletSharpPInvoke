@@ -72,7 +72,27 @@ namespace BulletSharp.SoftBody
 			return btCable_getLength(Native);
 		}
 
-		public double GetRestLength()
+        public CableData GetCableData()
+        {
+            return btCable_getCableData(Native);
+        }
+
+        public void SetCableRadius(float radius)
+        {
+            btCable_setCableRadius(Native, radius);
+        }
+
+        public void SetCableNormalDragCoefficient(float normalDragCoefficient)
+        {
+            btCable_setCableNormalDragCoefficient(Native, normalDragCoefficient);
+        }
+
+        public void SetCableTangentDragCoefficient(float tangentDragCoefficient)
+        {
+            btCable_setCableTangentDragCoefficient(Native, tangentDragCoefficient);
+        }
+
+        public double GetRestLength()
 		{
 			return btCable_getRestLength(Native);
 		}
@@ -256,11 +276,6 @@ namespace BulletSharp.SoftBody
 		public void Collision_SetActive(bool active)
 		{
 			btCable_Collision_SetActive(Native, active);
-		}
-
-		public bool UpdateCableData(ref CableData cableData)
-        {
-			return btUpdateCableData(Native, ref cableData);
 		}
 
 		public bool GetUseHydroAeroForces()
