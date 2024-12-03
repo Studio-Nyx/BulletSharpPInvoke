@@ -408,5 +408,20 @@ namespace BulletSharp.SoftBody
             }
             set => btCable_setGravity(Native, ref value);
         }
-	}
+
+		public void ResetForceAndVelocity()
+		{
+			btCable_resetForceAndVelocity(Native);
+		}
+
+        public void ResetNodePositions(int index, Vector3 position)
+        {
+            btCable_resetNodePositions(Native, index, position);
+        }
+
+        public void SynchNodesInfos()
+        {
+            btCable_synchNodesInfos(Native);
+        }
+    }
 }

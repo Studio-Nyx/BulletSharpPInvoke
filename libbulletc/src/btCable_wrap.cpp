@@ -23,7 +23,7 @@ void btCable_removeLinkAt(btCable* obj, int index)
 
 void btCable_removeNodeAt(btCable* obj, int index)
 {
-	obj->m_nodes.removeAtIndex(index);
+	obj->removeNodeAt(index);
 }
 
 void btCable_removeAnchorAt(btCable* obj, int index)
@@ -383,3 +383,20 @@ void btCable_getGravity(btCable* obj, btVector3* gravity)
 {
 	BTVECTOR3_SET(gravity, obj->m_gravity);
 }
+
+void btCable_resetForceAndVelocity(btCable* obj)
+{
+	obj->ResetForceAndVelocity();
+}
+
+void btCable_resetNodePositions(btCable* obj, const int nodeIndex, const btVector3 position)
+{
+	obj->ResetNodePosition(nodeIndex,position);
+}
+
+void btCable_synchNodesInfos(btCable* obj)
+{
+	obj->synchNodesInfos();
+}
+
+

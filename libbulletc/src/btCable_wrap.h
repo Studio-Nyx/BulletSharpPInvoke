@@ -112,6 +112,12 @@ extern "C" {
 
 	EXPORT void btCable_getGravity(btCable* obj, btVector3* gravity);
 
+	EXPORT void btCable_resetForceAndVelocity(btCable* obj);
+
+	EXPORT void btCable_resetNodePositions(btCable* obj, const int nodeIndex, const btVector3 position);
+
+	EXPORT void btCable_synchNodesInfos(btCable* obj);
+
 #ifdef __cplusplus
 }
 #endif
