@@ -227,6 +227,11 @@ namespace BulletSharp.SoftBody
 		{
 			btCable_LRA_SetActive(Native, active);
 		}
+		
+		public void LRA_SetInvert(bool invert)
+		{
+			btCable_LRA_SetInvert(Native, invert);
+		}
         
 		public bool Bending_GetActive()
         {

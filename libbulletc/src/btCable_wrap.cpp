@@ -220,6 +220,11 @@ void btCable_LRA_SetActive(btCable* obj, bool active)
 	obj->setUseLRA(active);
 }
 
+void btCable_LRA_SetInvert(btCable* obj, bool invert)
+{
+	obj->setInvertLRA(invert);
+}
+
 bool btCable_Bending_GetActive(btCable* obj)
 {
 	return  obj->getUseBending();
