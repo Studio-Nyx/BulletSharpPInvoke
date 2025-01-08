@@ -240,6 +240,11 @@ namespace BulletSharp
 			return btDynamicsWorld_stepSimulation(Native, timeStep, maxSubSteps,
 				fixedTimeStep);
 		}
+		
+		public void CollisionWorldStep()
+		{
+			btDynamicsWorld_collisionWorldStep(Native);
+		}
 
 		public void SynchronizeMotionStates()
 		{

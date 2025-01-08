@@ -23,6 +23,7 @@ extern "C" {
 	EXPORT void btDynamicsWorld_setInternalTickCallback(btDynamicsWorld* obj, btInternalTickCallback cb, void* worldUserInfo, bool isPreTick);
 	EXPORT void btDynamicsWorld_setWorldUserInfo(btDynamicsWorld* obj, void* worldUserInfo);
 	EXPORT int btDynamicsWorld_stepSimulation(btDynamicsWorld* obj, btScalar timeStep, int maxSubSteps, btScalar fixedTimeStep);
+	EXPORT void btDynamicsWorld_collisionWorldStep(btDynamicsWorld* obj);
 	EXPORT void btDynamicsWorld_synchronizeMotionStates(btDynamicsWorld* obj);
 #ifdef __cplusplus
 }

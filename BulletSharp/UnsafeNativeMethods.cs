@@ -2348,6 +2348,8 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern int btDynamicsWorld_stepSimulation(IntPtr obj, double timeStep, int maxSubSteps, double fixedTimeStep);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
+		public static extern void btDynamicsWorld_collisionWorldStep(IntPtr obj);
+		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btDynamicsWorld_synchronizeMotionStates(IntPtr obj);
 
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]

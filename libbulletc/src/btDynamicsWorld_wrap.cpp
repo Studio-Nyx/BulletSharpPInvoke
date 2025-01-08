@@ -113,6 +113,11 @@ int btDynamicsWorld_stepSimulation(btDynamicsWorld* obj, btScalar timeStep, int 
 	return obj->stepSimulation(timeStep, maxSubSteps, fixedTimeStep);
 }
 
+void btDynamicsWorld_collisionWorldStep(btDynamicsWorld* obj)
+{
+	return obj->collisionWorldStep();
+}
+
 void btDynamicsWorld_synchronizeMotionStates(btDynamicsWorld* obj)
 {
 	obj->synchronizeMotionStates();
