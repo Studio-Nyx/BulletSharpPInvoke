@@ -428,7 +428,17 @@ namespace BulletSharp
 			set => btRigidBody_setLinearVelocity(Native, ref value);
 		}
 
-		public Vector3 LocalInertia
+        public Vector3 Acceleration
+        {
+            get
+            {
+                Vector3 value;
+                btRigidBody_getAcceleration(Native, out value);
+                return value;
+            }
+        }
+
+        public Vector3 LocalInertia
 		{
 			get
 			{
@@ -470,7 +480,17 @@ namespace BulletSharp
 			}
 		}
 
-		public Vector3 TotalTorque
+        public Vector3 LastTotalForce
+        {
+            get
+            {
+                Vector3 value;
+                btRigidBody_getLastTotalForce(Native, out value);
+                return value;
+            }
+        }
+
+        public Vector3 TotalTorque
 		{
 			get
 			{

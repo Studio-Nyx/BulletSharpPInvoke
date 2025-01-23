@@ -4729,7 +4729,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btRigidBody_getLinearVelocity(IntPtr obj, out Vector3 lin_vel);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btRigidBody_getLocalInertia(IntPtr obj, out Vector3 value);
+        public static extern void btRigidBody_getAcceleration(IntPtr obj, out Vector3 value);
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btRigidBody_getLocalInertia(IntPtr obj, out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern IntPtr btRigidBody_getMotionState(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
@@ -4737,7 +4739,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btRigidBody_getTotalForce(IntPtr obj, out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btRigidBody_getTotalTorque(IntPtr obj, out Vector3 value);
+        public static extern void btRigidBody_getLastTotalForce(IntPtr obj, out Vector3 value);
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btRigidBody_getTotalTorque(IntPtr obj, out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btRigidBody_getVelocityInLocalPoint(IntPtr obj, [In] ref Vector3 rel_pos, out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]

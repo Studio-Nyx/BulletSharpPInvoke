@@ -424,6 +424,11 @@ void btRigidBody_getLinearVelocity(btRigidBody* obj, btVector3* value)
 	BTVECTOR3_COPY(value, &obj->getLinearVelocity());
 }
 
+void btRigidBody_getAcceleration(btRigidBody* obj, btVector3* value)
+{
+	BTVECTOR3_COPY(value, &obj->getAcceleration());
+}
+
 void btRigidBody_getLocalInertia(btRigidBody* obj, btVector3* value)
 {
 	ATTRIBUTE_ALIGNED16(btVector3) temp = obj->getLocalInertia();
@@ -454,6 +459,11 @@ void btRigidBody_getOrientation(btRigidBody* obj, btQuaternion* value)
 void btRigidBody_getTotalForce(btRigidBody* obj, btVector3* value)
 {
 	BTVECTOR3_COPY(value, &obj->getTotalForce());
+}
+
+void btRigidBody_getLastTotalForce(btRigidBody* obj, btVector3* value)
+{
+	BTVECTOR3_COPY(value, &obj->getLastTotalForce());
 }
 
 void btRigidBody_getTotalTorque(btRigidBody* obj, btVector3* value)
