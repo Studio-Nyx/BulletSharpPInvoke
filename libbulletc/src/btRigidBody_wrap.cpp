@@ -350,6 +350,11 @@ void btRigidBody_getAngularVelocity(btRigidBody* obj, btVector3* value)
 	BTVECTOR3_COPY(value, &obj->getAngularVelocity());
 }
 
+void btRigidBody_getAngularAcceleration(btRigidBody* obj, btVector3* value)
+{
+	BTVECTOR3_COPY(value, &obj->getAngularAcceleration());
+}
+
 btBroadphaseProxy* btRigidBody_getBroadphaseProxy(btRigidBody* obj)
 {
 	return obj->getBroadphaseProxy();
@@ -470,6 +475,11 @@ void btRigidBody_getLastTotalForce(btRigidBody* obj, btVector3* value)
 void btRigidBody_getTotalTorque(btRigidBody* obj, btVector3* value)
 {
 	BTVECTOR3_COPY(value, &obj->getTotalTorque());
+}
+
+void btRigidBody_getLastTotalTorque(btRigidBody* obj, btVector3* value)
+{
+	BTVECTOR3_COPY(value, &obj->getLastTotalTorque());
 }
 
 void btRigidBody_getVelocityInLocalPoint(btRigidBody* obj, const btVector3* rel_pos,

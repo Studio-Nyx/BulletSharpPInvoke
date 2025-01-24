@@ -333,6 +333,16 @@ namespace BulletSharp
 			set => btRigidBody_setAngularVelocity(Native, ref value);
 		}
 
+        public Vector3 AngularAcceleration
+		{
+            get
+            {
+                Vector3 value;
+                btRigidBody_getAngularAcceleration(Native, out value);
+                return value;
+            }
+        }
+
 		public BroadphaseProxy BroadphaseProxy => BroadphaseProxy.GetManaged(btRigidBody_getBroadphaseProxy(Native));
 
 		public Vector3 CenterOfMassPosition
@@ -508,7 +518,17 @@ namespace BulletSharp
 			}
 		}
 
-		public void SetMaxLinearVelocity(double maxL)
+        public Vector3 LastTotalTorque
+        {
+            get
+            {
+                Vector3 value;
+                btRigidBody_getLastTotalTorque(Native, out value);
+                return value;
+            }
+        }
+
+        public void SetMaxLinearVelocity(double maxL)
 		{
 			btRigidBody_setMaxLinearVelocity(Native, maxL);
         }

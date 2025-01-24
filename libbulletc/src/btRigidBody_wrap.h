@@ -63,6 +63,7 @@ extern "C" {
 	EXPORT void btRigidBody_getAngularFactor(btRigidBody* obj, btVector3* value);
 	EXPORT btScalar btRigidBody_getAngularSleepingThreshold(btRigidBody* obj);
 	EXPORT void btRigidBody_getAngularVelocity(btRigidBody* obj, btVector3* value);
+	EXPORT void btRigidBody_getAngularAcceleration(btRigidBody* obj, btVector3* value);
 	EXPORT btBroadphaseProxy* btRigidBody_getBroadphaseProxy(btRigidBody* obj);
 	EXPORT void btRigidBody_getCenterOfMassPosition(btRigidBody* obj, btVector3* value);
 	EXPORT void btRigidBody_getCenterOfMassTransform(btRigidBody* obj, btTransform* value);
@@ -87,6 +88,7 @@ extern "C" {
 	EXPORT void btRigidBody_getTotalForce(btRigidBody* obj, btVector3* value);
 	EXPORT void btRigidBody_getLastTotalForce(btRigidBody* obj, btVector3* value);
 	EXPORT void btRigidBody_getTotalTorque(btRigidBody* obj, btVector3* value);
+	EXPORT void btRigidBody_getLastTotalTorque(btRigidBody* obj, btVector3* value);
 	EXPORT void btRigidBody_getVelocityInLocalPoint(btRigidBody* obj, const btVector3* rel_pos, btVector3* value);
 	EXPORT void btRigidBody_integrateVelocities(btRigidBody* obj, btScalar step);
 	EXPORT bool btRigidBody_isInWorld(btRigidBody* obj);

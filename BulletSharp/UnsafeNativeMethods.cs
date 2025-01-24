@@ -4701,7 +4701,9 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btRigidBody_getAngularVelocity(IntPtr obj, out Vector3 ang_vel);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern IntPtr btRigidBody_getBroadphaseProxy(IntPtr obj);
+        public static extern void btRigidBody_getAngularAcceleration(IntPtr obj, out Vector3 value);
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern IntPtr btRigidBody_getBroadphaseProxy(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btRigidBody_getCenterOfMassPosition(IntPtr obj, out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
@@ -4743,7 +4745,9 @@ namespace BulletSharp
         [DllImport(Native.Dll, CallingConvention = Native.Conv)]
         public static extern void btRigidBody_getTotalTorque(IntPtr obj, out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btRigidBody_getVelocityInLocalPoint(IntPtr obj, [In] ref Vector3 rel_pos, out Vector3 value);
+        public static extern void btRigidBody_getLastTotalTorque(IntPtr obj, out Vector3 value);
+        [DllImport(Native.Dll, CallingConvention = Native.Conv)]
+        public static extern void btRigidBody_getVelocityInLocalPoint(IntPtr obj, [In] ref Vector3 rel_pos, out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btRigidBody_integrateVelocities(IntPtr obj, double step);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
