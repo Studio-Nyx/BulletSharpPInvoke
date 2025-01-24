@@ -61,9 +61,14 @@ namespace BulletSharp
 			set => btRigidBody_btRigidBodyConstructionInfo_setAdditionalLinearDampingThresholdSqr(Native, value);
 		}
 
-		public double AngularDamping
+		public Vector3 AngularDamping
 		{
-			get => btRigidBody_btRigidBodyConstructionInfo_getAngularDamping(Native);
+            get
+            {
+                Vector3 value;
+                btRigidBody_btRigidBodyConstructionInfo_getAngularDamping(Native, out value);
+                return value;
+            }
 			set => btRigidBody_btRigidBodyConstructionInfo_setAngularDamping(Native, value);
 		}
 

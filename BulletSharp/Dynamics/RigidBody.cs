@@ -223,7 +223,7 @@ namespace BulletSharp
 			btRigidBody_saveKinematicState(Native, step);
 		}
 
-		public void SetDamping(double linDamping, double angDamping)
+		public void SetDamping(double linDamping, Vector3 angDamping)
 		{
 			btRigidBody_setDamping(Native, linDamping, angDamping);
 		}
@@ -278,28 +278,36 @@ namespace BulletSharp
 			return btRigidBody_wantsSleeping(Native);
 		}
 
-        public void AddKinematic(RigidBody toAdd)
-        {
-            btRigidBody_addKinematic(Native, toAdd.Native);
-        }
-        
-        public void RemoveKinematic(RigidBody toRemove)
-        {
-            btRigidBody_removeKinematic(Native, toRemove.Native);
-        }
+		public void AddKinematic(RigidBody toAdd)
+		{
+			btRigidBody_addKinematic(Native, toAdd.Native);
+		}
 
-        
-        public void SetRedirectionImpulse(RigidBody receiver)
-        {
-            btRigidBody_setRedirectionTarget(Native, receiver.Native);
-        }
-        
-        public void SetLocalTransform(Matrix localTransform)
-        {
-            btRigidBody_setLocalTransform(Native, ref localTransform);
-        }
-        
-		public double AngularDamping => btRigidBody_getAngularDamping(Native);
+		public void RemoveKinematic(RigidBody toRemove)
+		{
+			btRigidBody_removeKinematic(Native, toRemove.Native);
+		}
+
+
+		public void SetRedirectionImpulse(RigidBody receiver)
+		{
+			btRigidBody_setRedirectionTarget(Native, receiver.Native);
+		}
+
+		public void SetLocalTransform(Matrix localTransform)
+		{
+			btRigidBody_setLocalTransform(Native, ref localTransform);
+		}
+
+		public Vector3 AngularDamping
+		{
+			get
+			{
+				Vector3 value;
+				btRigidBody_getAngularDamping(Native, out value);
+				return value;
+			}
+		}
 
 		public Vector3 AngularFactor
 		{
@@ -541,7 +549,7 @@ namespace BulletSharp
 		public Vector3FloatData TotalTorque;
 		public float InverseMass;
 		public float LinearDamping;
-		public float AngularDamping;
+		public Vector3FloatData AngularDamping;
 		public float AdditionalDampingFactor;
 		public float AdditionalLinearDampingThresholdSqr;
 		public float AdditionalAngularDampingThresholdSqr;
@@ -570,7 +578,7 @@ namespace BulletSharp
 		public Vector3DoubleData TotalTorque;
 		public double InverseMass;
 		public double LinearDamping;
-		public double AngularDamping;
+		public Vector3DoubleData AngularDamping;
 		public double AdditionalDampingFactor;
 		public double AdditionalLinearDampingThresholdSqr;
 		public double AdditionalAngularDampingThresholdSqr;

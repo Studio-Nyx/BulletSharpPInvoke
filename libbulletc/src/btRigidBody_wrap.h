@@ -10,7 +10,7 @@ extern "C" {
 	EXPORT bool btRigidBody_btRigidBodyConstructionInfo_getAdditionalDamping(btRigidBody_btRigidBodyConstructionInfo* obj);
 	EXPORT btScalar btRigidBody_btRigidBodyConstructionInfo_getAdditionalDampingFactor(btRigidBody_btRigidBodyConstructionInfo* obj);
 	EXPORT btScalar btRigidBody_btRigidBodyConstructionInfo_getAdditionalLinearDampingThresholdSqr(btRigidBody_btRigidBodyConstructionInfo* obj);
-	EXPORT btScalar btRigidBody_btRigidBodyConstructionInfo_getAngularDamping(btRigidBody_btRigidBodyConstructionInfo* obj);
+	EXPORT void btRigidBody_btRigidBodyConstructionInfo_getAngularDamping(btRigidBody_btRigidBodyConstructionInfo* obj, btVector3* value);
 	EXPORT btScalar btRigidBody_btRigidBodyConstructionInfo_getAngularSleepingThreshold(btRigidBody_btRigidBodyConstructionInfo* obj);
 	EXPORT btCollisionShape* btRigidBody_btRigidBodyConstructionInfo_getCollisionShape(btRigidBody_btRigidBodyConstructionInfo* obj);
 	EXPORT btScalar btRigidBody_btRigidBodyConstructionInfo_getFriction(btRigidBody_btRigidBodyConstructionInfo* obj);
@@ -27,7 +27,7 @@ extern "C" {
 	EXPORT void btRigidBody_btRigidBodyConstructionInfo_setAdditionalDamping(btRigidBody_btRigidBodyConstructionInfo* obj, bool value);
 	EXPORT void btRigidBody_btRigidBodyConstructionInfo_setAdditionalDampingFactor(btRigidBody_btRigidBodyConstructionInfo* obj, btScalar value);
 	EXPORT void btRigidBody_btRigidBodyConstructionInfo_setAdditionalLinearDampingThresholdSqr(btRigidBody_btRigidBodyConstructionInfo* obj, btScalar value);
-	EXPORT void btRigidBody_btRigidBodyConstructionInfo_setAngularDamping(btRigidBody_btRigidBodyConstructionInfo* obj, btScalar value);
+	EXPORT void btRigidBody_btRigidBodyConstructionInfo_setAngularDamping(btRigidBody_btRigidBodyConstructionInfo* obj, const btVector3* value);
 	EXPORT void btRigidBody_btRigidBodyConstructionInfo_setAngularSleepingThreshold(btRigidBody_btRigidBodyConstructionInfo* obj, btScalar value);
 	EXPORT void btRigidBody_btRigidBodyConstructionInfo_setCollisionShape(btRigidBody_btRigidBodyConstructionInfo* obj, btCollisionShape* value);
 	EXPORT void btRigidBody_btRigidBodyConstructionInfo_setFriction(btRigidBody_btRigidBodyConstructionInfo* obj, btScalar value);
@@ -59,7 +59,7 @@ extern "C" {
 	EXPORT void btRigidBody_computeGyroscopicImpulseImplicit_World(btRigidBody* obj, btScalar dt, btVector3* value);
 	EXPORT btScalar btRigidBody_computeImpulseDenominator(btRigidBody* obj, const btVector3* pos, const btVector3* normal);
 	EXPORT void btRigidBody_getAabb(btRigidBody* obj, btVector3* aabbMin, btVector3* aabbMax);
-	EXPORT btScalar btRigidBody_getAngularDamping(btRigidBody* obj);
+	EXPORT void btRigidBody_getAngularDamping(btRigidBody* obj, btVector3* value);
 	EXPORT void btRigidBody_getAngularFactor(btRigidBody* obj, btVector3* value);
 	EXPORT btScalar btRigidBody_getAngularSleepingThreshold(btRigidBody* obj);
 	EXPORT void btRigidBody_getAngularVelocity(btRigidBody* obj, btVector3* value);
@@ -99,7 +99,7 @@ extern "C" {
 	EXPORT void btRigidBody_setAngularVelocity(btRigidBody* obj, const btVector3* ang_vel);
 	EXPORT void btRigidBody_setCenterOfMassTransform(btRigidBody* obj, const btTransform* xform);
 	EXPORT void btRigidBody_setContactSolverType(btRigidBody* obj, int value);
-	EXPORT void btRigidBody_setDamping(btRigidBody* obj, btScalar lin_damping, btScalar ang_damping);
+	EXPORT void btRigidBody_setDamping(btRigidBody* obj, btScalar lin_damping, const btVector3* ang_damping);
 	EXPORT void btRigidBody_setFlags(btRigidBody* obj, int flags);
 	EXPORT void btRigidBody_setFrictionSolverType(btRigidBody* obj, int value);
 	EXPORT void btRigidBody_setGravity(btRigidBody* obj, const btVector3* acceleration);

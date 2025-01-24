@@ -4600,7 +4600,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern double btRigidBody_btRigidBodyConstructionInfo_getAdditionalLinearDampingThresholdSqr(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern double btRigidBody_btRigidBodyConstructionInfo_getAngularDamping(IntPtr obj);
+		public static extern void btRigidBody_btRigidBodyConstructionInfo_getAngularDamping(IntPtr obj, out Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern double btRigidBody_btRigidBodyConstructionInfo_getAngularSleepingThreshold(IntPtr obj);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
@@ -4630,7 +4630,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btRigidBody_btRigidBodyConstructionInfo_setAdditionalLinearDampingThresholdSqr(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btRigidBody_btRigidBodyConstructionInfo_setAngularDamping(IntPtr obj, double value);
+		public static extern void btRigidBody_btRigidBodyConstructionInfo_setAngularDamping(IntPtr obj, [In] Vector3 value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btRigidBody_btRigidBodyConstructionInfo_setAngularSleepingThreshold(IntPtr obj, double value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
@@ -4693,7 +4693,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btRigidBody_getAabb(IntPtr obj, out Vector3 aabbMin, out Vector3 aabbMax);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern double btRigidBody_getAngularDamping(IntPtr obj);
+		public static extern void btRigidBody_getAngularDamping(IntPtr obj, out Vector3 angularDamping);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btRigidBody_getAngularFactor(IntPtr obj, out Vector3 angFac);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
@@ -4768,7 +4768,7 @@ namespace BulletSharp
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btRigidBody_setContactSolverType(IntPtr obj, int value);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
-		public static extern void btRigidBody_setDamping(IntPtr obj, double lin_damping, double ang_damping);
+		public static extern void btRigidBody_setDamping(IntPtr obj, double lin_damping, [In] Vector3 ang_damping);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]
 		public static extern void btRigidBody_setFlags(IntPtr obj, RigidBodyFlags flags);
 		[DllImport(Native.Dll, CallingConvention = Native.Conv)]

@@ -47,9 +47,10 @@ btScalar btRigidBody_btRigidBodyConstructionInfo_getAdditionalLinearDampingThres
 	return obj->m_additionalLinearDampingThresholdSqr;
 }
 
-btScalar btRigidBody_btRigidBodyConstructionInfo_getAngularDamping(btRigidBody_btRigidBodyConstructionInfo* obj)
+void btRigidBody_btRigidBodyConstructionInfo_getAngularDamping(btRigidBody_btRigidBodyConstructionInfo* obj,
+	btVector3* value)
 {
-	return obj->m_angularDamping;
+	BTVECTOR3_COPY(value, &obj->m_angularDamping);
 }
 
 btScalar btRigidBody_btRigidBodyConstructionInfo_getAngularSleepingThreshold(btRigidBody_btRigidBodyConstructionInfo* obj)
@@ -140,9 +141,9 @@ void btRigidBody_btRigidBodyConstructionInfo_setAdditionalLinearDampingThreshold
 }
 
 void btRigidBody_btRigidBodyConstructionInfo_setAngularDamping(btRigidBody_btRigidBodyConstructionInfo* obj,
-	btScalar value)
+	const btVector3* value)
 {
-	obj->m_angularDamping = value;
+	BTVECTOR3_COPY(&obj->m_angularDamping, value);
 }
 
 void btRigidBody_btRigidBodyConstructionInfo_setAngularSleepingThreshold(btRigidBody_btRigidBodyConstructionInfo* obj,
@@ -329,9 +330,9 @@ void btRigidBody_getAabb(btRigidBody* obj, btVector3* aabbMin, btVector3* aabbMa
 	BTVECTOR3_DEF_OUT(aabbMax);
 }
 
-btScalar btRigidBody_getAngularDamping(btRigidBody* obj)
+void btRigidBody_getAngularDamping(btRigidBody* obj, btVector3* value)
 {
-	return obj->getAngularDamping();
+	BTVECTOR3_COPY(value, &obj->getAngularDamping3());
 }
 
 void btRigidBody_getAngularFactor(btRigidBody* obj, btVector3* value)
@@ -540,9 +541,10 @@ void btRigidBody_setContactSolverType(btRigidBody* obj, int value)
 	obj->m_contactSolverType = value;
 }
 
-void btRigidBody_setDamping(btRigidBody* obj, btScalar lin_damping, btScalar ang_damping)
+void btRigidBody_setDamping(btRigidBody* obj, btScalar lin_damping, const btVector3* ang_damping)
 {
-	obj->setDamping(lin_damping, ang_damping);
+	BTVECTOR3_IN(ang_damping);
+	obj->setDamping(lin_damping, BTVECTOR3_USE(ang_damping));
 }
 
 void btRigidBody_setFlags(btRigidBody* obj, int flags)
